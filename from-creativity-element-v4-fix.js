@@ -238,6 +238,39 @@ section{position:relative;padding:140px 48px}
 .section-h{font-family:var(--serif-jp);font-size:clamp(36px,5vw,60px);line-height:1.3;font-weight:400;letter-spacing:0.05em;margin-bottom:48px;color:var(--paper)}
 .section-h em{font-family:var(--serif-en);font-style:italic;color:var(--gold);font-weight:300}
 
+/* NEWS ／ 新着情報 */
+.news{
+  background:linear-gradient(180deg,#0D0B09,#0A0907);
+  border-bottom:1px solid var(--gold-soft);
+  padding:56px 48px;
+}
+.news-inner{max-width:1100px;margin:0 auto}
+.news-label{
+  font-family:var(--display);font-size:11px;letter-spacing:0.5em;color:var(--gold);
+  margin-bottom:24px;display:flex;align-items:center;gap:14px;
+}
+.news-label::before{content:'';width:40px;height:1px;background:var(--gold)}
+.news-list{list-style:none;display:flex;flex-direction:column}
+.news-list li{border-bottom:1px solid rgba(194,160,109,0.16)}
+.news-list li:first-child{border-top:1px solid rgba(194,160,109,0.16)}
+.news-list a{
+  display:grid;grid-template-columns:100px 1fr auto;gap:24px;align-items:center;
+  padding:18px 6px;transition:background .4s,padding-left .4s;
+}
+.news-list a:hover{background:rgba(194,160,109,0.06);padding-left:14px}
+.news-date{font-family:var(--display);font-size:11px;letter-spacing:0.3em;color:var(--gold)}
+.news-title{
+  font-family:var(--serif-jp);font-size:15px;font-weight:400;color:var(--paper);
+  letter-spacing:0.04em;line-height:1.6;
+}
+.news-tag{
+  display:inline-block;margin-right:12px;padding:3px 9px;
+  font-family:var(--display);font-size:9px;letter-spacing:0.25em;
+  border:1px solid var(--gold-soft);color:var(--gold);vertical-align:2px;
+}
+.news-arrow{font-size:16px;color:var(--gold);transition:transform .4s;display:inline-block}
+.news-list a:hover .news-arrow{transform:translateX(6px)}
+
 /* SERVICES */
 .services-intro{max-width:780px;font-family:var(--serif-jp);font-size:17px;line-height:2.1;color:var(--paper);margin-bottom:40px;letter-spacing:0.05em}
 
@@ -270,24 +303,40 @@ section{position:relative;padding:140px 48px}
 .case h3{font-family:var(--serif-jp);font-size:26px;line-height:1.6;font-weight:500;letter-spacing:0.04em;margin-bottom:24px}
 .case p{font-family:var(--serif-jp);font-size:15px;line-height:2.1;color:rgba(245,241,232,0.75);margin-bottom:36px;letter-spacing:0.04em}
 .case .stamp{position:absolute;top:30px;right:30px;font-family:var(--display);font-size:10px;letter-spacing:0.4em;color:var(--gold);border:1px solid var(--gold);padding:6px 12px;border-radius:30px;opacity:0.7}
-.price-block{margin:32px 0 18px;padding:24px 0;border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft);display:flex;flex-direction:column;gap:14px}
-.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
-.price-label{font-family:var(--display);font-size:11px;letter-spacing:0.4em;color:var(--gold)}
-.price-value{
-  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
-  font-size:34px;font-weight:700;color:var(--paper);
-  letter-spacing:0.01em;line-height:1;font-feature-settings:"tnum";
+/* プラン一覧（ライト／ベーシック／スタンダード／プレミアム） */
+.plan-list{border-top:1px solid var(--gold-soft);margin:28px 0 16px}
+.plan-row{
+  padding:18px 0;border-bottom:1px solid rgba(194,160,109,0.18);
+  transition:background .4s,padding-left .4s;
 }
-.price-value small{
+.plan-row:hover{background:rgba(194,160,109,0.05);padding-left:8px}
+.plan-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.plan-name{
   font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
-  font-size:26px;font-weight:700;color:var(--gold);
-  margin-left:6px;letter-spacing:0;line-height:1;
-  display:inline-block;transform:translateY(-2px);
+  font-size:14px;font-weight:500;color:var(--paper);letter-spacing:0.16em;
 }
-.price-value-sm{font-family:var(--serif-jp);font-size:14px;color:var(--paper);letter-spacing:0.05em;font-weight:500}
+.plan-price{
+  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
+  font-weight:400;font-style:normal;font-size:27px;color:var(--gold);
+  line-height:1;letter-spacing:0.01em;white-space:nowrap;
+  font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1;
+}
+.plan-price small{font-size:0.6em;margin-left:3px;font-weight:300;letter-spacing:0}
+.plan-spec{
+  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
+  font-size:11.5px;color:rgba(245,241,232,0.55);
+  margin-top:7px;letter-spacing:0.03em;font-weight:300;
+}
 .price-note{
-  font-family:var(--serif-jp);font-size:12px;line-height:1.7;
-  color:rgba(245,241,232,0.6);margin:0 0 28px;letter-spacing:0.04em;font-weight:300;
+  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
+  font-size:11.5px;line-height:1.9;
+  color:rgba(245,241,232,0.5);margin:0;letter-spacing:0.03em;font-weight:300;
+}
+.price-foot{
+  max-width:1280px;margin:20px auto 0;
+  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
+  font-size:11.5px;font-weight:300;line-height:1.9;
+  color:rgba(245,241,232,0.5);letter-spacing:0.04em;text-align:right;
 }
 .case .cta{display:inline-flex;align-items:center;gap:14px;font-family:var(--display);letter-spacing:0.3em;font-size:13px;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:6px;transition:gap .4s, letter-spacing .4s}
 .case .cta:hover{gap:24px;letter-spacing:0.4em}
@@ -320,8 +369,8 @@ section{position:relative;padding:140px 48px}
 .yt-card:hover .yt-thumb::after{opacity:1}
 /* YouTubeチャンネル紹介の4窓＝優先順1〜4の作品サムネイル */
 .yt-thumb-1{background-image:url("https://img.youtube.com/vi/FbfWuQoAqoY/maxresdefault.jpg")}
-.yt-thumb-2{background-image:url("https://img.youtube.com/vi/dmPuzcZ4p2g/maxresdefault.jpg")}
-.yt-thumb-3{background-image:url("https://img.youtube.com/vi/lAKV68K_rvk/maxresdefault.jpg")}
+.yt-thumb-2{background-image:url("https://img.youtube.com/vi/zwogoIGO5Vc/maxresdefault.jpg")}
+.yt-thumb-3{background-image:url("https://img.youtube.com/vi/LWeY9iSR6qU/maxresdefault.jpg")}
 .yt-thumb-4{background-image:url("https://img.youtube.com/vi/p87q4C8VGEs/maxresdefault.jpg")}
 .yt-thumb{background-color:#0A0907}
 
@@ -329,50 +378,50 @@ section{position:relative;padding:140px 48px}
 .portfolio{padding:80px 48px 140px;background:var(--ink)}
 .portfolio-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:40px;margin-bottom:80px}
 .portfolio-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
-.work{position:relative;overflow:hidden;background:#1a1410;aspect-ratio:4/5;display:block;text-decoration:none;color:inherit;transition:transform .8s cubic-bezier(.5,0,.1,1)}
-.work.span-3{grid-column:span 3;aspect-ratio:16/9}
-.work.span-4{grid-column:span 4;aspect-ratio:16/9}
-.work.span-2{grid-column:span 2;aspect-ratio:16/9}
+.work{
+  position:relative;overflow:hidden;background:#0A0907;display:block;
+  text-decoration:none;color:inherit;
+  border:1px solid rgba(194,160,109,0.18);
+  transition:transform .8s cubic-bezier(.5,0,.1,1),box-shadow .8s;
+}
+/* ポスター＝A判比率／動画サムネ＝16:9。画像を切らずに全面表示する */
+.work--poster{aspect-ratio:1/1.414}
+.work--video{aspect-ratio:16/9}
+.work.span-2{grid-column:span 2}
+.work.span-3{grid-column:span 3}
+.work.span-4{grid-column:span 4}
+.work:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,0.55)}
 .work .work-cover{
-  position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:flex-start;
-  padding:16px 20px;
-  font-family:var(--serif-en);font-style:italic;font-size:32px;color:var(--paper);
-  background-size:cover;background-position:center;background-color:#0A0907;
-  filter:contrast(1.02) brightness(0.92);
-  transition:transform 1.2s cubic-bezier(.5,0,.1,1), filter .8s;
-  text-shadow:0 4px 24px rgba(0,0,0,0.7);
-  letter-spacing:0.02em;
+  position:absolute;inset:0;z-index:1;
+  font-size:0;color:transparent;
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+  background-color:#0A0907;
+  filter:contrast(1.02) brightness(0.9);
+  transition:filter 1s;
 }
-.work:hover .work-cover{transform:scale(1.06);filter:contrast(1.1) brightness(1)}
-.work .work-cover::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(10,9,7,0.35) 0%,rgba(10,9,7,0.1) 30%,rgba(10,9,7,0.65) 100%);
-  pointer-events:none;
-}
-.work .work-info{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;transform:translateY(20px);opacity:0;transition:transform .6s, opacity .6s}
+.work:hover .work-cover{filter:contrast(1.06) brightness(1.04)}
+.work .work-info{position:absolute;left:24px;right:24px;bottom:22px;z-index:3;transform:translateY(20px);opacity:0;transition:transform .6s, opacity .6s}
 .work:hover .work-info{transform:translateY(0);opacity:1}
 .work .work-cat{font-family:var(--display);font-size:10px;letter-spacing:0.4em;color:var(--gold);margin-bottom:6px}
-.work .work-title{font-family:var(--serif-jp);font-size:18px;color:var(--paper);font-weight:500;line-height:1.4}
-.work .work-year{font-family:var(--display);font-size:10px;letter-spacing:0.3em;color:var(--gold);margin-top:6px;opacity:0.7}
-.work::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,9,7,0.85) 100%);z-index:1;opacity:0;transition:opacity .6s}
+.work .work-title{font-family:var(--serif-jp);font-size:18px;color:var(--paper);font-weight:500;line-height:1.4;text-shadow:0 2px 12px rgba(0,0,0,0.8)}
+.work .work-year{font-family:var(--display);font-size:10px;letter-spacing:0.3em;color:var(--gold);margin-top:6px;opacity:0.75}
+.work::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,9,7,0.9) 100%);z-index:2;opacity:0;transition:opacity .6s;pointer-events:none}
 .work:hover::after{opacity:1}
-/* 各作品カードのカバー画像＝YouTubeサムネイル */
-/* 作品01 - FbfWuQoAqoY */
-.yt-cover-01{background-image:url("https://img.youtube.com/vi/FbfWuQoAqoY/maxresdefault.jpg")}
-/* 作品02 - dmPuzcZ4p2g */
-.yt-cover-02{background-image:url("https://img.youtube.com/vi/dmPuzcZ4p2g/maxresdefault.jpg")}
+/* 各作品カードのカバー画像 */
+/* 作品01 - A Man, A Hobby, A Whole Life（ポスター） */
+.yt-cover-01{background-image:url("https://static.wixstatic.com/media/0a9631_b9c3392712844544910439be2961308a~mv2.png")}
+/* 作品02 - 澄江の空 Smie's Sky（ポスター） */
+.yt-cover-02{background-image:url("https://static.wixstatic.com/media/0a9631_1711ee5112424b3cab270a64ea363703~mv2.jpg")}
 /* 作品03 - lAKV68K_rvk */
 .yt-cover-03{background-image:url("https://img.youtube.com/vi/lAKV68K_rvk/maxresdefault.jpg")}
 /* 作品04 - p87q4C8VGEs */
 .yt-cover-04{background-image:url("https://img.youtube.com/vi/p87q4C8VGEs/maxresdefault.jpg")}
 /* 作品05 - XEN8DWARd9Y */
 .yt-cover-05{background-image:url("https://img.youtube.com/vi/XEN8DWARd9Y/maxresdefault.jpg")}
-/* 作品06 - eiKxVXBZG8A */
-.yt-cover-06{background-image:url("https://img.youtube.com/vi/eiKxVXBZG8A/maxresdefault.jpg")}
-/* 作品07 - 00Utfx5o_Pg */
-.yt-cover-07{background-image:url("https://img.youtube.com/vi/00Utfx5o_Pg/maxresdefault.jpg")}
-/* 作品の番号テキストを最前面に */
-.work .work-cover > *{position:relative;z-index:2}
+/* 作品06 - 増えちゃった zwogoIGO5Vc */
+.yt-cover-06{background-image:url("https://img.youtube.com/vi/zwogoIGO5Vc/maxresdefault.jpg")}
+/* 作品07 - 居酒屋・もがみ LWeY9iSR6qU */
+.yt-cover-07{background-image:url("https://img.youtube.com/vi/LWeY9iSR6qU/maxresdefault.jpg")}
 
 /* YouTubeリンク表示バッジ（編集箇所を明示） */
 .work-yt-badge{
@@ -632,12 +681,18 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .case h3{font-size:19px;line-height:1.65}
   .case p{font-size:13px;line-height:1.95;margin-bottom:24px}
   .case .stamp{top:20px;right:20px;font-size:9px;padding:5px 10px}
-  .price-block{margin:24px 0 14px;padding:20px 0}
-  .price-row{flex-direction:column;align-items:flex-start;gap:6px}
-  .price-value{font-size:30px}
-  .price-value small{font-size:22px;margin-left:5px}
-  .price-value-sm{font-size:13px}
-  .price-note{font-size:11px;margin-bottom:22px;line-height:1.7}
+  .plan-list{margin:22px 0 14px}
+  .plan-row{padding:15px 0}
+  .plan-price{font-size:24px}
+  .plan-name{font-size:13.5px}
+  .plan-spec{font-size:11px;margin-top:6px}
+  .price-note{font-size:11px;line-height:1.85}
+  .price-foot{font-size:11px;text-align:left;margin-top:16px}
+  .news{padding:40px 24px}
+  .news-list a{grid-template-columns:1fr auto;gap:8px 14px;padding:16px 4px}
+  .news-date{grid-column:1/-1;font-size:10px}
+  .news-title{font-size:13.5px}
+  .news-tag{font-size:8px;padding:2px 7px;margin-right:8px}
   /* all-in-one mobile */
   .all-in-one{padding:24px 22px;gap:14px;margin-bottom:50px}
   .all-in-one-flow{font-size:15px;gap:10px;letter-spacing:0.12em}
@@ -653,8 +708,10 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
 
   .portfolio-head{flex-direction:column;align-items:flex-start;gap:20px;margin-bottom:50px}
   .portfolio-grid{grid-template-columns:1fr;gap:14px}
-  .work, .work.span-3, .work.span-4, .work.span-2{grid-column:auto;aspect-ratio:16/9}
-  .work .work-cover{font-size:36px;padding:14px 16px}
+  .work, .work.span-3, .work.span-4, .work.span-2{grid-column:auto}
+  .work--poster{aspect-ratio:1/1.414}
+  .work--video{aspect-ratio:16/9}
+  .work .work-info{left:18px;right:18px;bottom:18px}
   .work .work-info{transform:translateY(0);opacity:1;background:linear-gradient(180deg,transparent,rgba(10,9,7,0.85) 60%);left:0;right:0;bottom:0;padding:20px}
   .work::after{opacity:0.7}
   .work .work-cat{font-size:9px;letter-spacing:0.3em}
@@ -738,12 +795,11 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .case .case-no{font-size:42px}
   .case h3{font-size:17px}
   .case p{font-size:12.5px}
-  .price-value{font-size:26px}
-  .price-value-sm{font-size:12px}
+  .plan-price{font-size:22px}
+  .plan-name{font-size:13px}
   .yt-card{padding:24px 14px;gap:22px}
   .yt-title{font-size:clamp(20px,6.6vw,26px);line-height:1.15}
   .yt-desc{font-size:12.5px}
-  .work .work-cover{font-size:30px;padding:12px 14px}
   .work .work-info{padding:14px}
   .work .work-cat{font-size:8px}
   .work .work-title{font-size:14px}
@@ -892,8 +948,8 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
 }
 
 /* 価格：ホバー時のみシマー */
-.fc-app .price-value{transition:text-shadow .6s}
-.fc-app .case:hover .price-value{text-shadow:0 0 50px rgba(194,160,109,0.35)}
+.fc-app .plan-price{transition:text-shadow .6s}
+.fc-app .plan-row:hover .plan-price{text-shadow:0 0 40px rgba(194,160,109,0.4)}
 
 /* 一貫担当：ホバーで金線が際立つ */
 .fc-app .all-in-one{transition:border-color .6s,background .6s,box-shadow .6s}
@@ -1079,6 +1135,14 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
     </div>
     <div class="award-item">
+      <img class="laurel-img" loading="lazy" decoding="async" alt='Honorable Mention - Post-Cinema Film Festival 2026' src="https://static.wixstatic.com/media/0a9631_80fdba64574b4d08987f1bab8c047b98~mv2.png">
+      <div class="award-text">
+        <span class="award-name">Honorable Mention</span>
+        <span class="award-meta">POST-CINEMA FILM FEST · 2026</span>
+        <span class="award-sub">A Man, A Hobby, A Whole life</span>
+      </div>
+    </div>
+    <div class="award-item">
       <img class="laurel-img" loading="lazy" decoding="async" alt='Finalist - Sweden Film Awards 2026' src="https://static.wixstatic.com/media/0a9631_ae94139adb4c4c4f8124d27071c50080~mv2.png">
       <div class="award-text">
         <span class="award-name">Finalist</span>
@@ -1111,6 +1175,14 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
     </div>
     <div class="award-item" aria-hidden="true">
+      <img class="laurel-img" loading="lazy" decoding="async" alt="" src="https://static.wixstatic.com/media/0a9631_80fdba64574b4d08987f1bab8c047b98~mv2.png">
+      <div class="award-text">
+        <span class="award-name">Honorable Mention</span>
+        <span class="award-meta">POST-CINEMA FILM FEST · 2026</span>
+        <span class="award-sub">A Man, A Hobby, A Whole life</span>
+      </div>
+    </div>
+    <div class="award-item" aria-hidden="true">
       <img class="laurel-img" loading="lazy" decoding="async" alt="" src="https://static.wixstatic.com/media/0a9631_ae94139adb4c4c4f8124d27071c50080~mv2.png">
       <div class="award-text">
         <span class="award-name">Finalist</span>
@@ -1118,6 +1190,29 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
         <span class="award-sub">A Man, A Hobby, A Whole life</span>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- 新着情報 -->
+<div class="news">
+  <div class="news-inner">
+    <div class="news-label">NEWS ／ 新着情報</div>
+    <ul class="news-list">
+      <li>
+        <a href="https://youtu.be/zwogoIGO5Vc" target="_blank" rel="noopener">
+          <span class="news-date">2026.08</span>
+          <span class="news-title"><span class="news-tag">NEW FILM</span>新作ドキュメンタリーを公開しました</span>
+          <span class="news-arrow">→</span>
+        </a>
+      </li>
+      <li>
+        <a href="#awards-list">
+          <span class="news-date">2026.08</span>
+          <span class="news-title"><span class="news-tag">AWARD</span>受賞歴を更新しました</span>
+          <span class="news-arrow">→</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -1155,24 +1250,53 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       <div class="case-no">01.</div>
       <h3>自分の歩みを振り返りたいときや、家族に思いを託したいときに。</h3>
       <p>自分史動画や終活ビデオを、丁寧なインタビューと繊細な映像表現で、記録映画としてお作りします。</p>
-      <div class="price-block">
-        <div class="price-row"><span class="price-label">PRICE</span><span class="price-value">¥149,800<small>〜</small></span></div>
-        <div class="price-row"><span class="price-label">DELIVERY</span><span class="price-value-sm">撮影から1ヶ月以内</span></div>
+      <div class="plan-list">
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">ライト</span><span class="plan-price">¥149,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 3 時間以内 ／ 1 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">ベーシック</span><span class="plan-price">¥259,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 1 日 ／ 5 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">スタンダード</span><span class="plan-price">¥479,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 2 日 ／ 12 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">プレミアム</span><span class="plan-price">¥599,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 3 日以上 ／ 12 分以上の映像作品</div>
+        </div>
       </div>
-      <p class="price-note">※ 内容・撮影日数・編集量に応じてお見積もりします。</p>
+      <p class="price-note">※ 納期は撮影から 1 ヶ月以内。内容・撮影日数・編集量に応じてお見積もりします。</p>
     </article>
     <article class="case reveal">
       <div class="stamp">For Business</div>
       <div class="case-no">02.</div>
       <h3>お店や会社の PR・採用動画を、「人」を中心にしたドキュメンタリーとして残したい方へ。</h3>
       <p>店舗 PR 映像や企業 PR 動画、採用ムービーを、現場の空気感が伝わる映像作品として制作します。</p>
-      <div class="price-block">
-        <div class="price-row"><span class="price-label">PRICE</span><span class="price-value">¥199,800<small>〜</small></span></div>
-        <div class="price-row"><span class="price-label">DELIVERY</span><span class="price-value-sm">撮影から1ヶ月以内</span></div>
+      <div class="plan-list">
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">ライト</span><span class="plan-price">¥199,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 3 時間以内 ／ 1 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">ベーシック</span><span class="plan-price">¥309,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 1 日 ／ 5 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">スタンダード</span><span class="plan-price">¥579,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 2 日 ／ 12 分までの映像作品</div>
+        </div>
+        <div class="plan-row">
+          <div class="plan-head"><span class="plan-name">プレミアム</span><span class="plan-price">¥699,800<small>〜</small></span></div>
+          <div class="plan-spec">撮影 3 日以上 ／ 12 分以上の映像作品</div>
+        </div>
       </div>
-      <p class="price-note">※ 内容・撮影日数・編集量に応じてお見積もりします。</p>
+      <p class="price-note">※ 納期は撮影から 1 ヶ月以内。内容・撮影日数・編集量に応じてお見積もりします。</p>
     </article>
   </div>
+  <div class="price-foot">※ 表示価格はすべて税込みです。オプション（2カメ体制・ナレーション・予告編制作など）は別途お見積もりいたします。</div>
 </section>
 
 <section class="youtube-strip" id="youtube">
@@ -1220,7 +1344,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   <div class="portfolio-grid">
 
     <!-- ▼ 作品01｜受賞作 / A Man, A Hobby, A Whole Life -->
-    <a class="work work-1 span-3 reveal"
+    <a class="work work--poster span-3 reveal"
        href="https://youtu.be/FbfWuQoAqoY"
        target="_blank" rel="noopener"
        aria-label="離婚して車とバイクに9000万 - 趣味に全てを捧げる男の物語（YouTubeで再生）">
@@ -1239,25 +1363,25 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
     </a>
 
-    <!-- ▼ 作品02｜澄江の空・86歳の傘屋（東京・青梅） -->
-    <a class="work work-2 span-3 reveal"
-       href="https://youtu.be/dmPuzcZ4p2g"
+    <!-- ▼ 作品02｜澄江の空 Smie's Sky（東京・青梅） -->
+    <a class="work work--poster span-3 reveal"
+       href="https://youtu.be/xtZviIie2w0"
        target="_blank" rel="noopener"
-       aria-label="澄江の空 - 86歳の傘屋（YouTubeで再生）">
+       aria-label="澄江の空 - 86歳の傘屋、雨が降らない街で（YouTubeで再生）">
       <div class="work-cover yt-cover-02">02</div>
       <div class="work-yt-badge">
         <svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#fff" d="M27.4,3.1c-0.3-1.2-1.3-2.2-2.5-2.5C22.7,0,14,0,14,0S5.3,0,3.1,0.6 C1.9,0.9,0.9,1.9,0.6,3.1C0,5.3,0,10,0,10s0,4.7,0.6,6.9c0.3,1.2,1.3,2.2,2.5,2.5C5.3,20,14,20,14,20s8.7,0,10.9-0.6 c1.2-0.3,2.2-1.3,2.5-2.5C28,14.7,28,10,28,10S28,5.3,27.4,3.1z"/><polygon fill="#FF0000" points="11.2,14.3 18.5,10 11.2,5.7"/></svg>
         WATCH ON YT
       </div>
       <div class="work-info">
-        <div class="work-cat">PERSONAL · 短編ドキュメント 2 min.</div>
+        <div class="work-cat">PERSONAL · 短編ドキュメンタリー</div>
         <div class="work-title">澄江の空｜86 歳の傘屋、<br>雨が降らない街で。</div>
-        <div class="work-year">2026 · 2 MIN｜東京・青梅</div>
+        <div class="work-year">2026 · 11 MIN｜東京・青梅｜Smie's Sky</div>
       </div>
     </a>
 
     <!-- ▼ 作品03｜奥多摩・旧車ミーティング -->
-    <a class="work work-3 span-2 reveal"
+    <a class="work work--video span-2 reveal"
        href="https://youtu.be/lAKV68K_rvk"
        target="_blank" rel="noopener"
        aria-label="奥多摩・旧車ミーティング 密着（YouTubeで再生）">
@@ -1274,7 +1398,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     </a>
 
     <!-- ▼ 作品04｜八王子の駄菓子屋おばちゃん -->
-    <a class="work work-4 span-2 reveal"
+    <a class="work work--video span-2 reveal"
        href="https://youtu.be/p87q4C8VGEs"
        target="_blank" rel="noopener"
        aria-label="八王子の駄菓子屋おばちゃん（YouTubeで再生）">
@@ -1291,7 +1415,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     </a>
 
     <!-- ▼ 作品05｜CAFE TIPO 8（大阪） -->
-    <a class="work work-5 span-2 reveal"
+    <a class="work work--video span-2 reveal"
        href="https://youtu.be/XEN8DWARd9Y"
        target="_blank" rel="noopener"
        aria-label="CAFE TIPO 8 - カフェ経営という、しんどくて楽しい生き方（YouTubeで再生）">
@@ -1307,37 +1431,37 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
     </a>
 
-    <!-- ▼ 作品06｜パリー食堂・100年目のオムライス（埼玉・秩父） -->
-    <a class="work work-6 span-3 reveal"
-       href="https://youtu.be/eiKxVXBZG8A"
+    <!-- ▼ 作品06｜増えちゃった（東京・奥多摩） -->
+    <a class="work work--video span-3 reveal"
+       href="https://youtu.be/zwogoIGO5Vc"
        target="_blank" rel="noopener"
-       aria-label="パリー食堂 祖父から孫へ 100年目のオムライス（YouTubeで再生）">
+       aria-label="増えちゃった - 短編ドキュメンタリー（YouTubeで再生）">
       <div class="work-cover yt-cover-06">06</div>
       <div class="work-yt-badge">
         <svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#fff" d="M27.4,3.1c-0.3-1.2-1.3-2.2-2.5-2.5C22.7,0,14,0,14,0S5.3,0,3.1,0.6 C1.9,0.9,0.9,1.9,0.6,3.1C0,5.3,0,10,0,10s0,4.7,0.6,6.9c0.3,1.2,1.3,2.2,2.5,2.5C5.3,20,14,20,14,20s8.7,0,10.9-0.6 c1.2-0.3,2.2-1.3,2.5-2.5C28,14.7,28,10,28,10S28,5.3,27.4,3.1z"/><polygon fill="#FF0000" points="11.2,14.3 18.5,10 11.2,5.7"/></svg>
         WATCH ON YT
       </div>
       <div class="work-info">
-        <div class="work-cat">BUSINESS · 老舗 / 事業継承</div>
-        <div class="work-title">祖父から孫へ。<br>100 年目のオムライス｜パリー食堂</div>
-        <div class="work-year">2026 · 18 MIN｜埼玉・秩父</div>
+        <div class="work-cat">PERSONAL · 短編ドキュメンタリー</div>
+        <div class="work-title">増えちゃった</div>
+        <div class="work-year">2026 · 5 MIN｜東京・奥多摩</div>
       </div>
     </a>
 
-    <!-- ▼ 作品07｜屋台ラーメン しゅんやっちゃん（東京・高尾） -->
-    <a class="work work-2 span-3 reveal"
-       href="https://youtu.be/00Utfx5o_Pg"
+    <!-- ▼ 作品07｜居酒屋・もがみ（東京・高田馬場） -->
+    <a class="work work--video span-3 reveal"
+       href="https://youtu.be/LWeY9iSR6qU"
        target="_blank" rel="noopener"
-       aria-label="高尾の屋台ラーメン しゅんやっちゃん（YouTubeで再生）">
+       aria-label="居酒屋・もがみ - 1日密着ドキュメンタリー（YouTubeで再生）">
       <div class="work-cover yt-cover-07">07</div>
       <div class="work-yt-badge">
         <svg viewBox="0 0 28 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#fff" d="M27.4,3.1c-0.3-1.2-1.3-2.2-2.5-2.5C22.7,0,14,0,14,0S5.3,0,3.1,0.6 C1.9,0.9,0.9,1.9,0.6,3.1C0,5.3,0,10,0,10s0,4.7,0.6,6.9c0.3,1.2,1.3,2.2,2.5,2.5C5.3,20,14,20,14,20s8.7,0,10.9-0.6 c1.2-0.3,2.2-1.3,2.5-2.5C28,14.7,28,10,28,10S28,5.3,27.4,3.1z"/><polygon fill="#FF0000" points="11.2,14.3 18.5,10 11.2,5.7"/></svg>
         WATCH ON YT
       </div>
       <div class="work-info">
-        <div class="work-cat">BUSINESS · 職人ドキュメンタリー</div>
-        <div class="work-title">「続けるのが、たぶん一番難しい」<br>高尾の屋台ラーメン｜しゅんやっちゃん</div>
-        <div class="work-year">2026 · 15 MIN｜東京・高尾</div>
+        <div class="work-cat">BUSINESS · 1 日密着ドキュメンタリー</div>
+        <div class="work-title">居酒屋・もがみ</div>
+        <div class="work-year">2026 · 9 MIN｜東京・高田馬場</div>
       </div>
     </a>
   </div>
@@ -1375,7 +1499,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
         <p>脚本の執筆、楽曲制作も行なっている。「Departure」など 3 曲が、各種音楽配信サービスで配信中。</p>
       </div>
 
-      <div class="profile-awards">
+      <div class="profile-awards" id="awards-list">
         <div class="profile-awards-h">受賞歴 ／ AWARDS</div>
         <ul>
           <li>第 3 回ヤングリポーターコンペティション　毎日新聞社賞<span>2020</span></li>
@@ -1383,11 +1507,12 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
           <li>7th Kolkata International Micro Film Festival（インド）　最優秀ドキュメンタリー映画賞<span>2026</span></li>
           <li>New York Istanbul Short Film Festival（アメリカ）　最優秀短編ドキュメンタリー映画賞<span>2026</span></li>
           <li>Mannheim Arts &amp; Film Festival（ドイツ）　特別賞（Honorable Mention）<span>2026</span></li>
+          <li>Post-Cinema Film Festival（イタリア）　特別賞（Honorable Mention）<span>2026</span></li>
         </ul>
         <div class="awards-foot">
           ※「ピアノが私にくれたもの」（毎日新聞社賞）<br>
           ※「クマロク！」リポート企画（NHK 九州沖縄ブロック新人選奨）<br>
-          ※短編ドキュメンタリー映画「A Man, A Hobby, A Whole Life」（Kolkata / NY Istanbul / Mannheim）
+          ※短編ドキュメンタリー映画「A Man, A Hobby, A Whole Life」（Kolkata / NY Istanbul / Mannheim / Post-Cinema）
         </div>
       </div>
       <div class="profile-onair">
@@ -1467,7 +1592,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"ProfessionalService","@id":"https://www.from-creativity.com/#org","name":"From Creativity","alternateName":"フロムクリエイティビティ","url":"https://www.from-creativity.com/","description":"元NHKディレクター佐々木駿平が運営する、東京・西多摩（羽村）拠点の映像制作スタジオ。自分史・終活映像から企業PR・採用動画まで、人を中心にしたドキュメンタリー作品を制作。全国対応。","priceRange":"¥149,800〜","address":{"@type":"PostalAddress","addressLocality":"羽村市","addressRegion":"東京都","addressCountry":"JP"},"areaServed":[{"@type":"City","name":"羽村市"},{"@type":"AdministrativeArea","name":"西多摩地域"},{"@type":"City","name":"青梅市"},{"@type":"City","name":"福生市"},{"@type":"City","name":"あきる野市"},{"@type":"City","name":"八王子市"},{"@type":"City","name":"立川市"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"founder":{"@id":"https://www.from-creativity.com/#founder"},"member":[{"@id":"https://www.from-creativity.com/#advisor"}],"makesOffer":[{"@id":"https://www.from-creativity.com/#service-personal"},{"@id":"https://www.from-creativity.com/#service-business"}],"sameAs":["https://www.youtube.com/@FromCreativity-Documentaries"]},
-{"@type":"Person","@id":"https://www.from-creativity.com/#founder","name":"佐々木 駿平","alternateName":"Shumpei Sasaki","birthDate":"1997","jobTitle":"映像作家","alumniOf":{"@type":"CollegeOrUniversity","name":"早稲田大学"},"award":["毎日新聞社賞 (2020)","NHK九州沖縄ブロック新人選奨第1位","Best Documentary Film - Kolkata 2026","Best Documentary Short Film - NY Istanbul 2026","Honorable Mention - Mannheim 2026"],"worksFor":{"@id":"https://www.from-creativity.com/#org"}},
+{"@type":"Person","@id":"https://www.from-creativity.com/#founder","name":"佐々木 駿平","alternateName":"Shumpei Sasaki","birthDate":"1997","jobTitle":"映像作家","alumniOf":{"@type":"CollegeOrUniversity","name":"早稲田大学"},"award":["毎日新聞社賞 (2020)","NHK九州沖縄ブロック新人選奨第1位","Best Documentary Film - Kolkata 2026","Best Documentary Short Film - NY Istanbul 2026","Honorable Mention - Mannheim 2026","Honorable Mention - Post-Cinema Film Festival 2026"],"worksFor":{"@id":"https://www.from-creativity.com/#org"}},
 {"@type":"Person","@id":"https://www.from-creativity.com/#advisor","name":"野中 章弘","alternateName":"Akihiro Nonaka","jobTitle":"エグゼクティブ・アドバイザー","affiliation":[{"@type":"CollegeOrUniversity","name":"早稲田大学"},{"@type":"Organization","name":"アジアプレス・インターナショナル"}],"award":"放送人グランプリ特別賞 (2004)"},
 {"@type":"Service","@id":"https://www.from-creativity.com/#service-personal","name":"自分史・終活ドキュメンタリー映像制作","serviceType":"個人向けドキュメンタリー映像制作","description":"自分史動画や終活ビデオを、丁寧なインタビューと繊細な映像表現で記録映画として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"Offer","price":"149800","priceCurrency":"JPY","priceSpecification":{"@type":"PriceSpecification","price":"149800","priceCurrency":"JPY","valueAddedTaxIncluded":false},"availability":"https://schema.org/InStock"}},
 {"@type":"Service","@id":"https://www.from-creativity.com/#service-business","name":"企業PR・採用ドキュメンタリー映像制作","serviceType":"法人向けドキュメンタリー映像制作","description":"店舗PR映像や企業PR動画、採用ムービーを、現場の空気感が伝わる映像作品として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"Offer","price":"199800","priceCurrency":"JPY","priceSpecification":{"@type":"PriceSpecification","price":"199800","priceCurrency":"JPY","valueAddedTaxIncluded":false},"availability":"https://schema.org/InStock"}},
@@ -1634,7 +1759,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
         });
       }
       // メニューリンクのスムーズスクロール
-      const navLinks = root.querySelectorAll('nav.top ul a');
+      const navLinks = root.querySelectorAll('nav.top ul a, .news-list a[href^="#"]');
       navLinks.forEach(a => {
         a.addEventListener('click', (ev) => {
           const href = a.getAttribute('href') || '';

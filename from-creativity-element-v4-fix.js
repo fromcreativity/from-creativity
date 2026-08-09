@@ -271,6 +271,48 @@ section{position:relative;padding:140px 48px}
 .news-arrow{font-size:16px;color:var(--gold);transition:transform .4s;display:inline-block}
 .news-list a:hover .news-arrow{transform:translateX(6px)}
 
+/* CLIENT WORKS ／ 法人・店舗向け制作実績 */
+.client-works{padding:80px 48px 90px;background:var(--ink)}
+.client-head{max-width:1400px;margin:0 auto 46px}
+.client-head .section-h{margin-bottom:18px}
+.client-lead{
+  font-family:var(--serif-jp);font-size:14.5px;line-height:2.1;
+  color:rgba(245,241,232,0.7);font-weight:300;letter-spacing:0.04em;max-width:720px;
+}
+.client-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1400px;margin:0 auto}
+.client-card{
+  position:relative;padding:36px 30px 34px;
+  border:1px solid var(--gold-soft);background:rgba(194,160,109,0.03);
+  transition:background .6s,border-color .6s,transform .6s,box-shadow .6s;
+}
+.client-card:hover{
+  background:rgba(194,160,109,0.07);border-color:var(--gold);
+  transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.client-no{
+  font-family:var(--serif-en);font-style:italic;font-weight:300;
+  font-size:34px;color:var(--gold);line-height:1;margin-bottom:18px;opacity:0.85;
+}
+.client-client{
+  font-family:var(--serif-jp);font-size:15px;font-weight:500;
+  color:var(--paper);letter-spacing:0.06em;line-height:1.5;margin-bottom:6px;
+}
+.client-type{
+  font-family:var(--display);font-size:10px;letter-spacing:0.34em;color:var(--gold);
+  padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(194,160,109,0.22);
+}
+.client-type .jp{font-family:var(--serif-jp);font-size:11.5px;letter-spacing:0.1em}
+.client-card p{
+  font-family:var(--serif-jp);font-size:13.5px;line-height:2.05;
+  color:rgba(245,241,232,0.75);font-weight:300;letter-spacing:0.03em;
+}
+.client-foot{
+  max-width:1400px;margin:26px auto 0;
+  font-family:'Noto Sans JP',var(--sans-jp),sans-serif;
+  font-size:11.5px;font-weight:300;line-height:1.9;
+  color:rgba(245,241,232,0.5);letter-spacing:0.04em;
+}
+
 /* SERVICES */
 .services-intro{max-width:780px;font-family:var(--serif-jp);font-size:17px;line-height:2.1;color:var(--paper);margin-bottom:40px;letter-spacing:0.05em}
 
@@ -688,6 +730,13 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .plan-spec{font-size:11px;margin-top:6px}
   .price-note{font-size:11px;line-height:1.85}
   .price-foot{font-size:11px;text-align:left;margin-top:16px}
+  .client-works{padding:56px 24px 64px}
+  .client-grid{grid-template-columns:1fr;gap:16px}
+  .client-card{padding:28px 22px}
+  .client-no{font-size:28px;margin-bottom:14px}
+  .client-client{font-size:14px}
+  .client-card p{font-size:12.5px;line-height:1.95}
+  .client-lead{font-size:13px;line-height:2}
   .news{padding:40px 24px}
   .news-list a{grid-template-columns:1fr auto;gap:8px 14px;padding:16px 4px}
   .news-date{grid-column:1/-1;font-size:10px}
@@ -1199,6 +1248,13 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     <div class="news-label">NEWS ／ 新着情報</div>
     <ul class="news-list">
       <li>
+        <a href="#client-works">
+          <span class="news-date">2026.08</span>
+          <span class="news-title"><span class="news-tag">WORKS</span>法人・店舗向けドキュメンタリー制作実績を追加しました</span>
+          <span class="news-arrow">→</span>
+        </a>
+      </li>
+      <li>
         <a href="https://youtu.be/zwogoIGO5Vc" target="_blank" rel="noopener">
           <span class="news-date">2026.08</span>
           <span class="news-title"><span class="news-tag">NEW FILM</span>新作ドキュメンタリーを公開しました</span>
@@ -1328,10 +1384,43 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   </a>
 </section>
 
+<!-- 法人・店舗向けドキュメンタリー制作実績 -->
+<section class="client-works" id="client-works">
+  <div class="client-head reveal">
+    <div class="section-num">02 ／ CLIENT WORKS</div>
+    <h2 class="section-h">法人・店舗向け<em>ドキュメンタリー制作実績</em></h2>
+    <p class="client-lead">
+      企業・店舗・団体さまからご依頼いただいた制作実績の一部です。<br>
+      現場に通い、そこで働く「人」を中心に据えた記録映画としてお作りしています。
+    </p>
+  </div>
+  <div class="client-grid">
+    <article class="client-card reveal">
+      <div class="client-no">01</div>
+      <div class="client-client">社会福祉法人（東京）</div>
+      <div class="client-type">MID-LENGTH DOCUMENTARY<br><span class="jp">中編ドキュメンタリー</span></div>
+      <p>モンテッソーリ教育に取り組む保育園を取材。園児たちの日々の活動を追い、その理念や取り組みを描く中編ドキュメンタリーを制作。</p>
+    </article>
+    <article class="client-card reveal">
+      <div class="client-no">02</div>
+      <div class="client-client">飲食店・カフェ（大阪）</div>
+      <div class="client-type">SHOP DOCUMENTARY<br><span class="jp">店舗ドキュメンタリー</span></div>
+      <p>店舗オーナーへの人物取材を中心に、店が生まれた背景や仕事への思い、店舗の空気感を伝えるドキュメンタリーを制作。</p>
+    </article>
+    <article class="client-card reveal">
+      <div class="client-no">03</div>
+      <div class="client-client">自動車関連企業（東京）</div>
+      <div class="client-type">CRAFTSMANSHIP DOCUMENTARY<br><span class="jp">旧車修復ドキュメンタリー</span></div>
+      <p>旧車の修復工程と、それに携わる職人を追ったドキュメンタリーを制作。職人の技術や仕事への姿勢を、修復の過程とともに記録。</p>
+    </article>
+  </div>
+  <div class="client-foot">※ 公開許諾の関係上、法人名・店舗名は伏せて掲載しております。詳細は個別にお問い合わせください。</div>
+</section>
+
 <section class="portfolio" id="works">
   <div class="portfolio-head reveal">
     <div>
-      <div class="section-num">02 ／ WORKS</div>
+      <div class="section-num">03 ／ WORKS</div>
       <h2 class="section-h">作品&nbsp;<em>Portfolio.</em></h2>
     </div>
   </div>
@@ -1477,7 +1566,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       <div class="portrait-overlay"></div>
     </div>
     <div class="profile-content reveal">
-      <div class="section-num">03 ／ PROFILE</div>
+      <div class="section-num">04 ／ PROFILE</div>
       <h2>ドキュメンタリーは、<br><em>聴くこと</em>から始まる。</h2>
       <div class="profile-name" itemprop="alternateName">Shumpei Sasaki</div>
       <div class="profile-role">映像作家｜FROM CREATIVITY 代表</div>
@@ -1554,7 +1643,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
 
 <section class="message" id="message">
   <div class="content reveal">
-    <div class="label">04 ／ MESSAGE</div>
+    <div class="label">05 ／ MESSAGE</div>
     <h2>〜なぜ人生や仕事を、<em>ドキュメンタリーとして残すのか</em>〜</h2>
     <div class="body">
       <p>私には、信じていることがあります。〝 人は誰もが、語るべき物語を持っている〟ということです。</p>

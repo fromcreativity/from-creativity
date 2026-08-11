@@ -1,5 +1,5 @@
 /*!
- * From Creativity ／ Wix Custom Element  ── 第4稿 総点検版（V4-FIX）
+ * From Creativity ／ Wix Custom Element  ── 第4稿 シネマティックヒーロー版（V4-FIX）
  * 見た目はV4のまま。以下のバグ修正＋SEO強化を反映：
  *
  * 【バグ修正】
@@ -10,15 +10,22 @@
  *   • デッドコード削除（hero-play-badge / .reel系 / scroll-hint::after）
  *   • 未使用 @keyframes（rise / pulse / scrollLine）削除
  *
+ * 【ヒーロー改修】
+ *   • コンセプトムービーをファーストビュー全面で自動再生
+ *   • 自動再生はミュート固定で開始（ブラウザの自動再生制限に対応）
+ *   • 「最初から見る」「音声をオン／オフ」「一時停止／再生」を独自UIで実装
+ *   • 動画の四辺を暗部へフェザー合成し、境界線のないシネマティック表示に変更
+ *   • PC／スマホ双方で全面表示と文字の可読性を両立
+ *
  * 【SEO 強化】
- *   • JSON-LD 構造化データ：4 → 7 エンティティに拡充
+ *   • JSON-LD 構造化データ：6 エンティティ
  *     - Service（個人向け／法人向け）追加 → 価格・通貨を明示
  *     - VideoObject（コンセプトムービー）追加
- *     - FAQ を1問追加・全問を質問形リッチアンサー化
+ *     - FAQPageはWix側との重複を避けるため、このJSには入れない
  *   • Awards重複ローレル4枚に aria-hidden="true"（装飾と明示）
  *   • makesOffer / worksFor の関係を ProfessionalService / Person に追加
  *
- * Tag name: from-creativity-page-v4（V4と同じ。Netlifyのファイルを差し替えるだけ）
+ * Tag name: from-creativity-page-v4（V4と同じ。GitHub上の同名ファイルを差し替え、jsDelivrをパージ）
  * 
  * V3からの変更：
  *   • Ken Burns（無限ループ）削除 → ホバー時のみズーム
@@ -1100,6 +1107,381 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   .fc-app .reveal{animation:none;transition:none;opacity:1;transform:none}
 }
 
+/* ===========================================================
+   CINEMATIC HERO 2026
+   動画をファーストビュー全面に敷き、四辺を暗部へフェードさせる。
+   既存のWix余白対策より後に置き、ヒーローだけを全幅に戻す。
+   =========================================================== */
+.fc-app .hero.hero-cinematic{
+  position:relative !important;
+  isolation:isolate;
+  display:flex;
+  align-items:stretch;
+  width:100% !important;
+  min-height:100svh;
+  padding:0 !important;
+  margin:0 !important;
+  overflow:hidden;
+  background:#050504;
+}
+
+/* 読み込み前はポスターを大きくぼかして表示。黒画面の発生を防ぐ */
+.fc-app .hero-cinematic .hero-video-placeholder{
+  position:absolute;
+  inset:-9%;
+  z-index:0;
+  background:
+    linear-gradient(90deg,rgba(5,5,4,.80),rgba(5,5,4,.12) 60%,rgba(5,5,4,.38)),
+    url('https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg') center/cover no-repeat;
+  filter:blur(34px) saturate(.76) contrast(1.04);
+  transform:scale(1.09);
+  opacity:.78;
+}
+.fc-app .hero-cinematic .hero-media{
+  position:absolute !important;
+  inset:0;
+  z-index:1 !important;
+  overflow:hidden;
+  background:transparent;
+}
+.fc-app .hero-cinematic .hero-video-player{
+  position:absolute;
+  inset:-3%;
+  width:106%;
+  height:106%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center center;
+  background:transparent;
+  opacity:0;
+  transform:scale(1.025);
+  filter:saturate(.82) contrast(1.08) brightness(.88);
+  transition:opacity 1.6s cubic-bezier(.5,0,.1,1),filter 1.2s ease;
+  /* 四辺を段階的に透明化し、動画と背景の境界を消す */
+  -webkit-mask-image:radial-gradient(ellipse 110% 105% at 58% 50%,#000 0%,#000 58%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.55) 86%,transparent 100%);
+  mask-image:radial-gradient(ellipse 110% 105% at 58% 50%,#000 0%,#000 58%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.55) 86%,transparent 100%);
+}
+.fc-app .hero-cinematic .hero-video-player.is-ready{opacity:.96}
+
+/* 左のコピーを読みやすくしながら、中央〜右の映像はしっかり見せる */
+.fc-app .hero.hero-cinematic::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(5,5,4,.95) 0%,rgba(5,5,4,.83) 24%,rgba(5,5,4,.43) 48%,rgba(5,5,4,.08) 70%,rgba(5,5,4,.28) 100%),
+    linear-gradient(180deg,rgba(5,5,4,.78) 0%,rgba(5,5,4,.08) 30%,rgba(5,5,4,.08) 66%,rgba(5,5,4,.92) 100%),
+    radial-gradient(ellipse at 74% 50%,transparent 18%,rgba(5,5,4,.08) 62%,rgba(5,5,4,.55) 100%);
+  box-shadow:inset 0 0 130px 24px rgba(5,5,4,.72);
+}
+.fc-app .hero-cinematic .hero-grid{
+  position:relative !important;
+  z-index:3 !important;
+  display:flex;
+  align-items:center;
+  width:min(100%,1540px);
+  min-height:100svh;
+  margin:0 auto;
+  padding:132px clamp(34px,6vw,96px) 148px;
+}
+.fc-app .hero-cinematic .hero-text{
+  position:relative;
+  isolation:isolate;
+  width:min(820px,70vw);
+  padding:0;
+  text-align:left;
+  text-shadow:0 3px 26px rgba(0,0,0,.78);
+}
+.fc-app .hero-cinematic .hero-text::before{
+  content:'';
+  position:absolute;
+  inset:-54px -86px;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(ellipse at 34% 50%,rgba(5,5,4,.76) 0%,rgba(5,5,4,.55) 42%,transparent 74%);
+  filter:blur(12px);
+}
+.fc-app .hero-cinematic .hero-eyebrow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:26px;
+  color:var(--gold);
+  font-family:var(--display);
+  font-size:11px;
+  letter-spacing:.42em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+.fc-app .hero-cinematic .hero-eyebrow::before{
+  content:'';
+  width:46px;
+  height:1px;
+  flex:0 0 auto;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.fc-app .hero-cinematic h1{
+  max-width:820px;
+  margin-bottom:30px;
+  font-size:clamp(38px,4.35vw,68px);
+  line-height:1.38;
+  letter-spacing:.025em;
+  text-wrap:balance;
+}
+.fc-app .hero-cinematic h1 em{
+  margin-top:22px;
+  overflow:visible;
+  text-overflow:clip;
+  font-size:clamp(13px,1.22vw,18px);
+  letter-spacing:.075em;
+}
+.fc-app .hero-cinematic .lead{
+  max-width:570px;
+  padding-left:18px;
+  border-left:1px solid rgba(194,160,109,.58);
+  font-size:clamp(14px,1.2vw,17px);
+  line-height:2.05;
+  color:rgba(245,241,232,.90);
+}
+
+/* 独自動画コントロール */
+.fc-app .hero-reel-ui{
+  position:absolute !important;
+  right:clamp(28px,5vw,78px);
+  bottom:38px;
+  left:clamp(28px,5vw,78px);
+  z-index:4 !important;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  pointer-events:none;
+}
+.fc-app .hero-reel-id{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  color:rgba(245,241,232,.74);
+  font-family:var(--display);
+  font-size:10px;
+  letter-spacing:.38em;
+  line-height:1.5;
+  text-shadow:0 2px 18px #000;
+}
+.fc-app .hero-reel-id strong{
+  color:var(--paper);
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.44em;
+}
+.fc-app .hero-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:9px;
+  pointer-events:auto;
+}
+.fc-app .hero-control{
+  min-height:46px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:0 17px;
+  border:1px solid rgba(245,241,232,.30);
+  border-radius:999px;
+  background:rgba(8,8,7,.48);
+  color:var(--paper);
+  -webkit-backdrop-filter:blur(14px) saturate(125%);
+  backdrop-filter:blur(14px) saturate(125%);
+  box-shadow:0 10px 34px rgba(0,0,0,.28);
+  font-family:var(--sans-jp);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.12em;
+  line-height:1;
+  transition:background .35s,border-color .35s,color .35s,transform .35s;
+}
+.fc-app .hero-control:hover{
+  transform:translateY(-2px);
+  border-color:rgba(194,160,109,.86);
+  background:rgba(194,160,109,.92);
+  color:var(--ink);
+}
+.fc-app .hero-control:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+}
+.fc-app .hero-control-icon{
+  min-width:16px;
+  font-family:Arial,sans-serif;
+  font-size:17px;
+  line-height:1;
+  text-align:center;
+}
+.fc-app .hero-sound-icon svg{display:block;width:17px;height:17px;overflow:visible}
+.fc-app .hero-sound-icon .sound-wave,
+.fc-app .hero-sound-icon .sound-slash{transition:opacity .25s}
+.fc-app .hero-sound[aria-pressed='false'] .sound-wave{opacity:0}
+.fc-app .hero-sound[aria-pressed='true'] .sound-slash{opacity:0}
+.fc-app .hero-sound[aria-pressed='true']{
+  border-color:rgba(194,160,109,.65);
+  color:#ead2aa;
+}
+.fc-app .hero-status{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+.fc-app .hero-progress{
+  position:absolute !important;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:5 !important;
+  height:2px;
+  background:rgba(245,241,232,.12);
+  pointer-events:none;
+}
+.fc-app .hero-progress span{
+  display:block;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,var(--gold),#ead2aa);
+  transform:scaleX(0);
+  transform-origin:left center;
+  will-change:transform;
+}
+
+/* 右下のWix追従CTAと動画操作ボタンが重ならないよう余白を確保 */
+@media (min-width:769px){
+  .fc-app .hero-reel-ui{right:clamp(235px,19vw,290px)}
+}
+@media (min-width:769px) and (max-width:1024px){
+  .fc-app .hero-reel-id{display:none}
+  .fc-app .hero-reel-ui{right:220px;justify-content:flex-end}
+  .fc-app .hero-pause .hero-control-label{display:none}
+  .fc-app .hero-pause{width:46px;padding:0}
+}
+
+@media (max-width:768px){
+  .fc-app .hero.hero-cinematic{
+    min-height:100svh;
+    padding:0 !important;
+  }
+  .fc-app .hero-cinematic .hero-video-player{
+    inset:-2%;
+    width:104%;
+    height:104%;
+    object-position:52% center;
+    /* スマホでは左右より上下をなだらかに暗部へ接続 */
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.78) 8%,#000 18%,#000 78%,rgba(0,0,0,.78) 91%,transparent 100%);
+    mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.78) 8%,#000 18%,#000 78%,rgba(0,0,0,.78) 91%,transparent 100%);
+    filter:saturate(.78) contrast(1.08) brightness(.74);
+  }
+  .fc-app .hero.hero-cinematic::after{
+    background:
+      linear-gradient(180deg,rgba(5,5,4,.74) 0%,rgba(5,5,4,.18) 25%,rgba(5,5,4,.30) 55%,rgba(5,5,4,.94) 100%),
+      linear-gradient(90deg,rgba(5,5,4,.46),rgba(5,5,4,.10) 52%,rgba(5,5,4,.42));
+    box-shadow:inset 0 0 70px 8px rgba(5,5,4,.52);
+  }
+  .fc-app .hero-cinematic .hero-grid{
+    min-height:100svh;
+    align-items:center;
+    justify-content:center;
+    padding:104px 20px 150px !important;
+  }
+  .fc-app .hero-cinematic .hero-text{
+    width:100%;
+    max-width:390px;
+    padding:0;
+    text-align:center;
+  }
+  .fc-app .hero-cinematic .hero-text::before{
+    inset:-40px -22px;
+    background:radial-gradient(ellipse at center,rgba(5,5,4,.78) 0%,rgba(5,5,4,.56) 52%,transparent 80%);
+    filter:blur(10px);
+  }
+  .fc-app .hero-cinematic .hero-eyebrow{
+    justify-content:center;
+    margin-bottom:22px;
+    font-size:9px;
+    letter-spacing:.30em;
+  }
+  .fc-app .hero-cinematic .hero-eyebrow::before{width:30px}
+  .fc-app .hero-cinematic h1{
+    max-width:none;
+    margin-bottom:22px;
+    font-size:clamp(23px,6.55vw,27px);
+    line-height:1.5;
+    letter-spacing:.005em;
+    text-align:center;
+    white-space:normal;
+  }
+  .fc-app .hero-cinematic h1 em{
+    margin-top:15px;
+    font-size:10.5px;
+    line-height:1.65;
+    letter-spacing:.025em;
+  }
+  .fc-app .hero-cinematic .lead{
+    max-width:350px;
+    margin:0 auto;
+    padding:0;
+    border-left:0;
+    font-size:12.5px;
+    line-height:1.9;
+    text-align:center;
+  }
+  .fc-app .hero-reel-ui{
+    right:16px;
+    /* 画面右下の「無料相談する」追従CTAより上に配置 */
+    bottom:84px;
+    left:16px;
+    display:block;
+  }
+  .fc-app .hero-reel-id{
+    align-items:center;
+    margin-bottom:12px;
+    font-size:8px;
+    letter-spacing:.30em;
+    text-align:center;
+  }
+  .fc-app .hero-reel-id strong{font-size:10px;letter-spacing:.34em}
+  .fc-app .hero-controls{
+    justify-content:center;
+    gap:7px;
+  }
+  .fc-app .hero-control{
+    min-height:42px;
+    padding:0 13px;
+    gap:7px;
+    font-size:10px;
+    letter-spacing:.07em;
+  }
+  .fc-app .hero-control-icon{min-width:13px;font-size:15px}
+  .fc-app .hero-pause .hero-control-label{display:none}
+  .fc-app .hero-pause{width:42px;padding:0}
+}
+
+@media (max-width:380px){
+  .fc-app .hero-cinematic .hero-grid{padding-right:14px !important;padding-left:14px !important}
+  .fc-app .hero-control{padding:0 11px;font-size:9.5px}
+  .fc-app .hero-cinematic h1{font-size:clamp(22px,6.4vw,25px)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fc-app .hero-cinematic .hero-video-player{transition:none}
+}
+
 </style>`;
   const HTML = `
 <main class="fc-app" itemscope itemtype="https://schema.org/WebPage">
@@ -1126,11 +1508,25 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   </ul>
 </nav>
 
-<section class="hero">
+<section class="hero hero-cinematic" id="top" aria-label="From Creativity コンセプトムービー">
   <div class="hero-video-placeholder"></div>
+
+  <div class="hero-media">
+    <!-- ミュート状態で自動再生。音声・再生操作は下部の独自ボタンから行う -->
+    <video class="hero-video-player"
+           autoplay muted loop playsinline webkit-playsinline
+           preload="auto"
+           disablepictureinpicture
+           controlslist="nodownload noremoteplayback"
+           poster="https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg"
+           aria-label="From Creativity コンセプトムービー">
+      <source src="https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <div class="hero-grid">
     <div class="hero-text">
+      <p class="hero-eyebrow">DOCUMENTARY FILM STUDIO · TOKYO</p>
       <h1>
         人は誰もが、<br>語るべき物語を持っている。
         <em>― ひとりの人生の物語を、<br class="sp-only">未来へ残す〝記録映画〟に ―</em>
@@ -1140,20 +1536,36 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
         <span class="accent">世界に一つだけの</span>ドキュメンタリーを、丁寧な取材と言葉を生かす編集で。
       </p>
     </div>
-
-    <div class="hero-video">
-      <!-- 事業紹介 PV／コンセプトムービー -->
-      <video controls preload="metadata" playsinline poster="https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg">
-        <source src="https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-meta">
-        <span>CONCEPT MOVIE</span>
-        <span>FROM CREATIVITY · 2025</span>
-      </div>
-    </div>
   </div>
 
-  <div class="scroll-hint">SCROLL</div>
+  <div class="hero-reel-ui">
+    <div class="hero-reel-id" aria-hidden="true">
+      <strong>CONCEPT MOVIE</strong>
+      <span>FROM CREATIVITY · 2025</span>
+    </div>
+    <div class="hero-controls" aria-label="コンセプトムービーの操作">
+      <button class="hero-control hero-restart" type="button" aria-label="コンセプトムービーを最初から見る">
+        <span class="hero-control-icon" aria-hidden="true">↺</span>
+        <span class="hero-control-label">最初から見る</span>
+      </button>
+      <button class="hero-control hero-sound" type="button" aria-label="音声をオンにする" aria-pressed="false">
+        <span class="hero-control-icon hero-sound-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M3 9v6h4l5 4V5L7 9H3Z" fill="currentColor"></path>
+            <path class="sound-wave" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            <path class="sound-slash" d="M4.5 4.5l15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <span class="hero-control-label hero-sound-label">音声をオン</span>
+      </button>
+      <button class="hero-control hero-pause" type="button" aria-label="動画を一時停止する" aria-pressed="false">
+        <span class="hero-control-icon hero-play-icon" aria-hidden="true">Ⅱ</span>
+        <span class="hero-control-label hero-play-label">一時停止</span>
+      </button>
+      <span class="hero-status" role="status" aria-live="polite"></span>
+    </div>
+  </div>
+  <div class="hero-progress" aria-hidden="true"><span></span></div>
 </section>
 
 <div class="awards">
@@ -1696,6 +2108,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       this.innerHTML = STYLES + HTML;
       this.fixWixWrapper();
       this.splitHeroTitle();
+      this.initHeroVideo();
       this.initInteractions();
       this.ensureFloatCta();
       setTimeout(() => { this.fixWixWrapper(); this.ensureFloatCta(); }, 300);
@@ -1836,6 +2249,139 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       const newNodes = walk(h1);
       h1.innerHTML = '';
       newNodes.forEach(n => h1.appendChild(n));
+    }
+    /*
+       ヒーロー動画：
+       - muted + playsinline で自動再生制限に対応
+       - 音声は必ずオフで開始し、ユーザー操作時だけオンにする
+       - 自動再生できない環境でも「再生／最初から見る」から開始できる
+    */
+    initHeroVideo() {
+      try {
+        const video = this.querySelector('.hero-video-player');
+        if (!video) return;
+
+        const restartButton = this.querySelector('.hero-restart');
+        const soundButton = this.querySelector('.hero-sound');
+        const soundLabel = this.querySelector('.hero-sound-label');
+        const pauseButton = this.querySelector('.hero-pause');
+        const playIcon = this.querySelector('.hero-play-icon');
+        const playLabel = this.querySelector('.hero-play-label');
+        const progress = this.querySelector('.hero-progress span');
+        const status = this.querySelector('.hero-status');
+        let userPaused = false;
+
+        /* HTML属性だけでなくpropertyも先に設定するのがSafari対策 */
+        video.defaultMuted = true;
+        video.muted = true;
+        video.volume = 1;
+        video.autoplay = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+
+        const announce = (message) => {
+          if (status) status.textContent = message;
+        };
+        const updateSound = () => {
+          const soundOn = !video.muted && video.volume > 0;
+          if (soundButton) {
+            soundButton.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+            soundButton.setAttribute('aria-label', soundOn ? '音声をオフにする' : '音声をオンにする');
+          }
+          if (soundLabel) soundLabel.textContent = soundOn ? '音声をオフ' : '音声をオン';
+        };
+        const updatePlay = () => {
+          const isPlaying = !video.paused && !video.ended;
+          if (pauseButton) {
+            pauseButton.setAttribute('aria-pressed', isPlaying ? 'false' : 'true');
+            pauseButton.setAttribute('aria-label', isPlaying ? '動画を一時停止する' : '動画を再生する');
+          }
+          if (playIcon) playIcon.textContent = isPlaying ? 'Ⅱ' : '▶';
+          if (playLabel) playLabel.textContent = isPlaying ? '一時停止' : '再生';
+        };
+        const updateProgress = () => {
+          if (!progress) return;
+          const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
+          const ratio = duration ? Math.min(1, Math.max(0, video.currentTime / duration)) : 0;
+          progress.style.transform = 'scaleX(' + ratio + ')';
+        };
+        const markReady = () => {
+          video.classList.add('is-ready');
+          updatePlay();
+        };
+        const playVideo = (fromUser) => {
+          if (!fromUser && userPaused) return;
+          const result = video.play();
+          if (result && typeof result.then === 'function') {
+            result.then(() => {
+              markReady();
+              updatePlay();
+            }).catch(() => {
+              /* iOS省電力モード等では自動再生を拒否する場合がある。手動ボタンを残す */
+              video.classList.add('is-ready');
+              updatePlay();
+              announce('再生ボタンを押すと動画が始まります');
+            });
+          }
+        };
+
+        if (video.readyState >= 2) markReady();
+        video.addEventListener('loadeddata', markReady, { once: true });
+        video.addEventListener('canplay', markReady, { once: true });
+        video.addEventListener('play', updatePlay);
+        video.addEventListener('pause', updatePlay);
+        video.addEventListener('volumechange', updateSound);
+        video.addEventListener('timeupdate', updateProgress);
+        video.addEventListener('durationchange', updateProgress);
+        video.addEventListener('error', () => {
+          announce('動画を読み込めませんでした。通信環境をご確認ください');
+          updatePlay();
+        });
+
+        if (restartButton) {
+          restartButton.addEventListener('click', () => {
+            userPaused = false;
+            try { video.currentTime = 0; } catch (e) { /* metadata待ち */ }
+            playVideo(true);
+            announce('コンセプトムービーを最初から再生します');
+          });
+        }
+        if (soundButton) {
+          soundButton.addEventListener('click', () => {
+            video.muted = !video.muted;
+            if (!video.muted) video.volume = 1;
+            userPaused = false;
+            if (video.paused) playVideo(true);
+            updateSound();
+            announce(video.muted ? '音声をオフにしました' : '音声をオンにしました');
+          });
+        }
+        if (pauseButton) {
+          pauseButton.addEventListener('click', () => {
+            if (video.paused) {
+              userPaused = false;
+              playVideo(true);
+              announce('動画を再生します');
+            } else {
+              userPaused = true;
+              video.pause();
+              announce('動画を一時停止しました');
+            }
+            updatePlay();
+          });
+        }
+
+        updateSound();
+        updatePlay();
+        updateProgress();
+
+        /* Wix内で接続直後にautoplay属性の評価が遅れる場合にも再試行 */
+        requestAnimationFrame(() => playVideo(false));
+        setTimeout(() => playVideo(false), 650);
+      } catch (e) { /* ポスター表示とHTMLの標準autoplayをフォールバックにする */ }
     }
     initInteractions() {
       const root = this;

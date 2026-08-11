@@ -1,5 +1,5 @@
 /*!
- * From Creativity ／ Wix Custom Element  ── 第4稿 シネマティックヒーロー版（V4-FIX）
+ * From Creativity ／ Wix Custom Element  ── 第4稿 総点検版（V4-FIX）
  * 見た目はV4のまま。以下のバグ修正＋SEO強化を反映：
  *
  * 【バグ修正】
@@ -10,22 +10,15 @@
  *   • デッドコード削除（hero-play-badge / .reel系 / scroll-hint::after）
  *   • 未使用 @keyframes（rise / pulse / scrollLine）削除
  *
- * 【ヒーロー改修】
- *   • コンセプトムービーをファーストビュー全面で自動再生
- *   • 自動再生はミュート固定で開始（ブラウザの自動再生制限に対応）
- *   • 「最初から見る」「音声をオン／オフ」「一時停止／再生」を独自UIで実装
- *   • 動画の四辺を暗部へフェザー合成し、境界線のないシネマティック表示に変更
- *   • PC／スマホ双方で全面表示と文字の可読性を両立
- *
  * 【SEO 強化】
- *   • JSON-LD 構造化データ：6 エンティティ
+ *   • JSON-LD 構造化データ：4 → 7 エンティティに拡充
  *     - Service（個人向け／法人向け）追加 → 価格・通貨を明示
  *     - VideoObject（コンセプトムービー）追加
- *     - FAQPageはWix側との重複を避けるため、このJSには入れない
+ *     - FAQ を1問追加・全問を質問形リッチアンサー化
  *   • Awards重複ローレル4枚に aria-hidden="true"（装飾と明示）
  *   • makesOffer / worksFor の関係を ProfessionalService / Person に追加
  *
- * Tag name: from-creativity-page-v4（V4と同じ。GitHub上の同名ファイルを差し替え、jsDelivrをパージ）
+ * Tag name: from-creativity-page-v4（V4と同じ。Netlifyのファイルを差し替えるだけ）
  * 
  * V3からの変更：
  *   • Ken Burns（無限ループ）削除 → ホバー時のみズーム
@@ -138,68 +131,142 @@ nav.top ul li:last-child a:hover{background:var(--gold);color:var(--ink);border-
 nav.top ul li:last-child a::after{display:none}
 .nav-toggle{display:none}
 
-/* HERO */
+/* HERO ─ シネスコのブランキングと同じ純黒。動画は輪郭なしで浮かび上がる */
 .hero{
   position:relative;
   display:flex;align-items:center;
-  padding:96px 48px 96px;overflow:hidden;background:#0A0907;
+  padding:120px 40px 90px;overflow:hidden;
+  background:#000;
 }
 .hero-grid{
   position:relative;z-index:2;
-  width:100%;
+  width:100%;max-width:1720px;margin:0 auto;
   display:grid;
-  grid-template-columns:0.85fr 1.4fr;
-  gap:50px;
+  grid-template-columns:0.86fr 1.44fr;
+  gap:44px;
   align-items:center;
 }
+.hero-text{position:relative;z-index:3}
+
+/* 動画ブロック：枠線・背景色なし。縁がふわっと闇に溶ける */
 .hero-video{
   position:relative;width:100%;
   aspect-ratio:16/9;
-  background:#000;border:1px solid var(--gold-soft);overflow:hidden;
-  box-shadow:0 30px 80px rgba(194,160,109,0.18), 0 0 0 1px rgba(194,160,109,0.05);
-  opacity:0;transform:translateY(30px);
-  animation:videoIn 1.4s cubic-bezier(.5,0,.1,1) .8s forwards;
+  background:transparent;border:0;overflow:visible;
+  opacity:0;transform:translateY(24px);
+  animation:videoIn 1.6s cubic-bezier(.5,0,.1,1) .6s forwards;
 }
 @keyframes videoIn{
-  0%{opacity:0;transform:translateY(30px)}
+  0%{opacity:0;transform:translateY(24px)}
   100%{opacity:1;transform:translateY(0)}
 }
-.hero-video-meta{
-  opacity:0;animation:fade 1.2s ease 2.0s forwards;
+/* 背後のやわらかい光（動画が闇から浮かび上がる表現） */
+.hero-video::before{
+  content:'';position:absolute;z-index:0;pointer-events:none;
+  inset:-14% -10%;
+  background:
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(194,160,109,0.20) 0%, rgba(194,160,109,0.07) 42%, transparent 72%),
+    radial-gradient(ellipse 42% 40% at 50% 52%, rgba(255,238,205,0.10) 0%, transparent 70%);
+  filter:blur(26px);
 }
 .hero-video video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;
+  position:absolute;inset:0;z-index:1;
+  width:100%;height:100%;
+  object-fit:contain;
+  background:transparent;
+  display:block;
+  /* 四辺をなだらかにフェードさせ、黒背景と同化させる */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-composite:intersect;
 }
+
+/* 動画下のラベル（CONCEPT MOVIE のみ） */
 .hero-video-meta{
-  position:absolute;bottom:-30px;left:0;right:0;
-  display:flex;justify-content:space-between;
-  font-family:var(--display);font-size:10px;letter-spacing:0.4em;color:var(--gold);
+  position:absolute;bottom:-46px;left:0;right:0;z-index:3;
+  display:flex;justify-content:center;
+  font-family:var(--display);font-size:17px;letter-spacing:0.62em;
+  text-indent:0.62em;
+  color:var(--gold);opacity:0;
+  animation:fade 1.2s ease 2.0s forwards;
+  pointer-events:none;
 }
-.hero-video-placeholder{
-  position:absolute;inset:0;z-index:0;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(194,160,109,0.18) 0%, transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(233,75,43,0.08) 0%, transparent 55%),
-    linear-gradient(135deg, #0A0907 0%, #1a1410 40%, #0A0907 100%);
+
+/* ── カスタム動画コントロール ───────────────── */
+.video-ctrl{
+  position:absolute;z-index:4;
+  left:6%;right:6%;bottom:4%;
+  display:flex;align-items:center;gap:12px;
+  padding:9px 14px;border-radius:40px;
+  background:rgba(10,9,7,0.55);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(194,160,109,0.22);
+  opacity:0;transform:translateY(6px);
+  transition:opacity .45s ease, transform .45s ease;
 }
-.hero::after{
-  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(10,9,7,0.50) 0%,rgba(10,9,7,0.35) 35%,rgba(10,9,7,0.65) 70%,rgba(10,9,7,0.95) 100%);
+.hero-video:hover .video-ctrl,
+.hero-video:focus-within .video-ctrl,
+.video-ctrl.is-visible{opacity:1;transform:translateY(0)}
+.vc-btn{
+  flex:0 0 auto;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;
+  background:none;border:0;cursor:pointer;padding:0;
+  color:var(--gold);border-radius:50%;
+  transition:background .3s, color .3s, transform .3s;
 }
+.vc-btn:hover{background:rgba(194,160,109,0.18);color:#F0DEB6;transform:scale(1.08)}
+.vc-btn svg{width:15px;height:15px;display:block;fill:currentColor}
+.vc-btn .ic-alt{display:none}
+.vc-btn.is-alt .ic-main{display:none}
+.vc-btn.is-alt .ic-alt{display:block}
+/* シークバー */
+.vc-seek{flex:1 1 auto;display:flex;align-items:center;min-width:0}
+.vc-range{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:3px;border-radius:2px;
+  background:linear-gradient(to right,var(--gold) 0%,var(--gold) var(--p,0%),rgba(245,241,232,0.22) var(--p,0%),rgba(245,241,232,0.22) 100%);
+  cursor:pointer;outline:none;
+}
+.vc-range::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--gold);border:0;cursor:pointer;
+  box-shadow:0 0 10px rgba(194,160,109,0.7);
+  transition:transform .25s;
+}
+.vc-range:hover::-webkit-slider-thumb{transform:scale(1.25)}
+.vc-range::-moz-range-thumb{
+  width:11px;height:11px;border-radius:50%;
+  background:var(--gold);border:0;cursor:pointer;
+}
+.vc-time{
+  flex:0 0 auto;font-family:var(--display);font-size:10px;
+  letter-spacing:0.14em;color:rgba(245,241,232,0.75);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+
+.hero-video-placeholder{display:none}
+.hero::after{display:none}
 .hero > div, .hero > a{position:relative;z-index:2}
 
-/* H1: Japanese phrase, single block. Animation runs on .char children only. */
+/* H1 ─ ヒーローはここから始まる（上に余計な要素を置かない）
+   「語るべき物語を持っている。」の12文字が1行に収まるサイズに調整 */
 .hero h1{
   font-family:var(--serif-jp);font-weight:500;
-  font-size:clamp(32px,4.6vw,68px);line-height:1.45;
-  letter-spacing:0.04em;color:var(--paper);
-  margin-bottom:36px;
+  font-size:clamp(28px,2.7vw,50px);line-height:1.45;
+  letter-spacing:0.02em;color:var(--paper);
+  margin-bottom:34px;
+  text-shadow:0 4px 40px rgba(0,0,0,0.6);
+  line-break:strict;word-break:normal;overflow-wrap:normal;
 }
-
-/* dash phrase: 一行で表示・改行しない・小さめのletter-spacingに調整 */
 .hero h1 em{
   display:block;font-family:var(--serif-jp);font-style:normal;font-weight:300;
-  font-size:clamp(13px,1.5vw,20px);color:var(--gold);
+  font-size:clamp(13px,1.4vw,20px);color:var(--gold);
   letter-spacing:0.08em;line-height:1.6;margin-top:24px;
   opacity:0;animation:fade 1.5s ease 1.0s forwards;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -207,8 +274,8 @@ nav.top ul li:last-child a::after{display:none}
 @keyframes fade{to{opacity:1}}
 
 .hero .lead{
-  max-width:520px;font-family:var(--serif-jp);font-size:17px;line-height:2.1;
-  color:var(--paper);font-weight:300;letter-spacing:0.05em;
+  max-width:560px;font-family:var(--serif-jp);font-size:clamp(15px,1.25vw,19px);
+  line-height:2.15;color:var(--paper);font-weight:300;letter-spacing:0.05em;
   opacity:0;animation:fade 1.5s ease 1.4s forwards;
 }
 .hero .lead .accent{color:var(--gold);font-style:italic;font-family:var(--serif-en)}
@@ -645,7 +712,8 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
 @media (max-width: 1024px){
   nav.top{padding:20px 32px}
   nav.top ul{gap:24px;font-size:12px}
-  .hero{padding:110px 32px 80px}
+  .hero{padding:110px 28px 80px}
+  .hero-grid{grid-template-columns:0.8fr 1.42fr;gap:36px}
   .hero-grid{gap:40px}
   section, .reel, .youtube-strip, .portfolio, .profile, .contact{padding:120px 32px}
   .case{padding:60px 40px}
@@ -682,18 +750,25 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .nav-toggle.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
   /* スマホ：ヒーローを中央寄せ＋動画をフチ無しで大きく */
-  .hero{padding:84px 0 60px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+  .hero{padding:96px 0 64px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:44px;text-align:center}
   .hero-text{padding:0 20px}
-  .hero h1{font-size:clamp(24px,7.2vw,32px);line-height:1.5;margin-bottom:24px;text-align:center;letter-spacing:0.02em}
+  .hero h1{font-size:clamp(26px,7.6vw,34px);line-height:1.5;margin-bottom:24px;text-align:center;letter-spacing:0.02em}
   .hero h1 em{font-size:11px;letter-spacing:0.04em;line-height:1.6;margin-top:14px;white-space:normal;text-align:center}
-  .hero .lead{font-size:14px;line-height:2;margin-left:auto;margin-right:auto;text-align:center}
-  .hero-video{
-    margin:0;width:100%;
-    border-left:none;border-right:none;border-radius:0;
-    box-shadow:0 20px 60px rgba(194,160,109,0.18);
+  .hero .lead{font-size:14.5px;line-height:2.05;margin-left:auto;margin-right:auto;text-align:center}
+  .hero-video{margin:0;width:100%;border:0;box-shadow:none}
+  .hero-video::before{inset:-10% -6%;filter:blur(20px)}
+  .hero-video-meta{
+    display:flex;bottom:-36px;font-size:14px;letter-spacing:0.5em;text-indent:0.5em;
   }
-  .hero-video-meta{display:none}
+  /* コントロールはタッチ端末では常時表示・少しコンパクトに */
+  .video-ctrl{
+    left:12px;right:12px;bottom:10px;gap:8px;padding:7px 10px;
+    opacity:1;transform:none;
+  }
+  .vc-btn{width:28px;height:28px}
+  .vc-btn svg{width:14px;height:14px}
+  .vc-time{font-size:9px;letter-spacing:0.08em}
   .scroll-hint{display:none}
 
   .awards{padding:30px 0}
@@ -840,11 +915,16 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
 /* XS（小型スマホ ≤480px）*/
 @media (max-width: 480px){
   .fc-app{font-size:13.5px}
-  .hero{padding:80px 0 48px}
+  .hero{padding:88px 0 52px}
   .hero-text{padding:0 18px}
-  .hero h1{font-size:clamp(22px,7vw,28px);line-height:1.5;letter-spacing:0.01em}
+  .hero h1{font-size:clamp(24px,7.4vw,30px);line-height:1.5;letter-spacing:0.01em}
   .hero h1 em{font-size:10.5px;letter-spacing:0.02em;line-height:1.55}
-  .hero .lead{font-size:13px;line-height:1.95}
+  .hero .lead{font-size:13.5px;line-height:2}
+  .video-ctrl{left:8px;right:8px;bottom:8px;gap:6px;padding:6px 8px}
+  .vc-btn{width:26px;height:26px}
+  .vc-btn svg{width:13px;height:13px}
+  .vc-time{display:none}
+  .hero-video-meta{bottom:-32px;font-size:12px;letter-spacing:0.44em;text-indent:0.44em}
   .section-h{font-size:24px;line-height:1.35;margin-bottom:28px}
   .services-intro{font-size:13px;margin-bottom:40px}
   .case{padding:40px 20px}
@@ -900,6 +980,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .hero h1{opacity:1;transform:none;animation:none}
   .hero h1 em,.hero .lead,.scroll-hint,.hero-video-meta{opacity:1;animation:none}
   .hero-video{opacity:1;transform:none;filter:none;animation:none}
+  .hero-video-meta{opacity:1;animation:none}
   .scroll-hint::after{animation:none}
 }
 @supports (padding: max(0px)){
@@ -929,10 +1010,8 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ヒーロー動画ボックス：金色シャドウ（静止） */
-.fc-app .hero-video{
-  box-shadow:0 30px 80px rgba(194,160,109,0.20),0 0 0 1px rgba(194,160,109,0.08);
-}
+/* ヒーロー動画：枠線・シャドウなし（背景と同化させる） */
+.fc-app .hero-video{border:0 !important;box-shadow:none !important;background:transparent !important}
 
 /* タグライン："creativity" 静的な金色グラデーション（揺れなし） */
 .fc-app .tagline h2 .accent{
@@ -1056,7 +1135,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   max-width:100% !important;
   box-sizing:border-box !important;
 }
-.fc-app .hero{padding-left:48px !important;padding-right:48px !important;padding-top:96px !important;padding-bottom:96px !important}
+.fc-app .hero{padding-left:40px !important;padding-right:40px !important;padding-top:120px !important;padding-bottom:90px !important;background:#000 !important}
 .fc-app #service{padding-top:160px !important;padding-bottom:140px !important}
 .fc-app .portfolio{padding-top:80px !important;padding-bottom:140px !important}
 .fc-app .message{padding-top:100px !important;padding-bottom:140px !important}
@@ -1085,6 +1164,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     padding-left:24px !important;
     padding-right:24px !important;
   }
+  .fc-app .hero{padding-left:0 !important;padding-right:0 !important}
   .fc-app #service{padding-top:120px !important;padding-bottom:80px !important}
   .fc-app .portfolio{padding-top:60px !important;padding-bottom:80px !important}
   .fc-app .tagline{padding-top:80px !important;padding-bottom:30px !important}
@@ -1093,393 +1173,18 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   .fc-app section,
   .fc-app .awards,
   .fc-app .youtube-strip,
-  .fc-app .hero,
   .fc-app .portfolio,
   .fc-app .tagline{
     padding-left:18px !important;
     padding-right:18px !important;
   }
+  .fc-app .hero{padding-left:0 !important;padding-right:0 !important}
 }
 
 @media (prefers-reduced-motion: reduce){
   .fc-app .hero h1 .char,
   .fc-app .hero-video,
   .fc-app .reveal{animation:none;transition:none;opacity:1;transform:none}
-}
-
-/* ===========================================================
-   CINEMATIC HERO 2026
-   動画をファーストビュー全面に敷き、四辺を暗部へフェードさせる。
-   既存のWix余白対策より後に置き、ヒーローだけを全幅に戻す。
-   =========================================================== */
-.fc-app .hero.hero-cinematic{
-  position:relative !important;
-  isolation:isolate;
-  display:flex;
-  align-items:stretch;
-  width:100% !important;
-  min-height:100svh;
-  padding:0 !important;
-  margin:0 !important;
-  overflow:hidden;
-  background:#050504;
-}
-
-/* 読み込み前はポスターを大きくぼかして表示。黒画面の発生を防ぐ */
-.fc-app .hero-cinematic .hero-video-placeholder{
-  position:absolute;
-  inset:-9%;
-  z-index:0;
-  background:
-    linear-gradient(90deg,rgba(5,5,4,.80),rgba(5,5,4,.12) 60%,rgba(5,5,4,.38)),
-    url('https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg') center/cover no-repeat;
-  filter:blur(34px) saturate(.76) contrast(1.04);
-  transform:scale(1.09);
-  opacity:.78;
-}
-.fc-app .hero-cinematic .hero-media{
-  position:absolute !important;
-  inset:0;
-  z-index:1 !important;
-  overflow:hidden;
-  background:transparent;
-}
-.fc-app .hero-cinematic .hero-video-player{
-  position:absolute;
-  inset:-3%;
-  width:106%;
-  height:106%;
-  max-width:none;
-  object-fit:cover;
-  object-position:center center;
-  background:transparent;
-  opacity:0;
-  transform:scale(1.025);
-  filter:saturate(.82) contrast(1.08) brightness(.88);
-  transition:opacity 1.6s cubic-bezier(.5,0,.1,1),filter 1.2s ease;
-  /* 四辺を段階的に透明化し、動画と背景の境界を消す */
-  -webkit-mask-image:radial-gradient(ellipse 110% 105% at 58% 50%,#000 0%,#000 58%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.55) 86%,transparent 100%);
-  mask-image:radial-gradient(ellipse 110% 105% at 58% 50%,#000 0%,#000 58%,rgba(0,0,0,.96) 70%,rgba(0,0,0,.55) 86%,transparent 100%);
-}
-.fc-app .hero-cinematic .hero-video-player.is-ready{opacity:.96}
-
-/* 左のコピーを読みやすくしながら、中央〜右の映像はしっかり見せる */
-.fc-app .hero.hero-cinematic::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  z-index:2;
-  pointer-events:none;
-  background:
-    linear-gradient(90deg,rgba(5,5,4,.95) 0%,rgba(5,5,4,.83) 24%,rgba(5,5,4,.43) 48%,rgba(5,5,4,.08) 70%,rgba(5,5,4,.28) 100%),
-    linear-gradient(180deg,rgba(5,5,4,.78) 0%,rgba(5,5,4,.08) 30%,rgba(5,5,4,.08) 66%,rgba(5,5,4,.92) 100%),
-    radial-gradient(ellipse at 74% 50%,transparent 18%,rgba(5,5,4,.08) 62%,rgba(5,5,4,.55) 100%);
-  box-shadow:inset 0 0 130px 24px rgba(5,5,4,.72);
-}
-.fc-app .hero-cinematic .hero-grid{
-  position:relative !important;
-  z-index:3 !important;
-  display:flex;
-  align-items:center;
-  width:min(100%,1540px);
-  min-height:100svh;
-  margin:0 auto;
-  padding:132px clamp(34px,6vw,96px) 148px;
-}
-.fc-app .hero-cinematic .hero-text{
-  position:relative;
-  isolation:isolate;
-  width:min(820px,70vw);
-  padding:0;
-  text-align:left;
-  text-shadow:0 3px 26px rgba(0,0,0,.78);
-}
-.fc-app .hero-cinematic .hero-text::before{
-  content:'';
-  position:absolute;
-  inset:-54px -86px;
-  z-index:-1;
-  pointer-events:none;
-  background:radial-gradient(ellipse at 34% 50%,rgba(5,5,4,.76) 0%,rgba(5,5,4,.55) 42%,transparent 74%);
-  filter:blur(12px);
-}
-.fc-app .hero-cinematic .hero-eyebrow{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:26px;
-  color:var(--gold);
-  font-family:var(--display);
-  font-size:11px;
-  letter-spacing:.42em;
-  line-height:1.4;
-  text-transform:uppercase;
-}
-.fc-app .hero-cinematic .hero-eyebrow::before{
-  content:'';
-  width:46px;
-  height:1px;
-  flex:0 0 auto;
-  background:linear-gradient(90deg,var(--gold),transparent);
-}
-.fc-app .hero-cinematic h1{
-  max-width:820px;
-  margin-bottom:30px;
-  font-size:clamp(38px,4.35vw,68px);
-  line-height:1.38;
-  letter-spacing:.025em;
-  text-wrap:balance;
-}
-.fc-app .hero-cinematic h1 em{
-  margin-top:22px;
-  overflow:visible;
-  text-overflow:clip;
-  font-size:clamp(13px,1.22vw,18px);
-  letter-spacing:.075em;
-}
-.fc-app .hero-cinematic .lead{
-  max-width:570px;
-  padding-left:18px;
-  border-left:1px solid rgba(194,160,109,.58);
-  font-size:clamp(14px,1.2vw,17px);
-  line-height:2.05;
-  color:rgba(245,241,232,.90);
-}
-
-/* 独自動画コントロール */
-.fc-app .hero-reel-ui{
-  position:absolute !important;
-  right:clamp(28px,5vw,78px);
-  bottom:38px;
-  left:clamp(28px,5vw,78px);
-  z-index:4 !important;
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:24px;
-  pointer-events:none;
-}
-.fc-app .hero-reel-id{
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  color:rgba(245,241,232,.74);
-  font-family:var(--display);
-  font-size:10px;
-  letter-spacing:.38em;
-  line-height:1.5;
-  text-shadow:0 2px 18px #000;
-}
-.fc-app .hero-reel-id strong{
-  color:var(--paper);
-  font-size:13px;
-  font-weight:400;
-  letter-spacing:.44em;
-}
-.fc-app .hero-controls{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:9px;
-  pointer-events:auto;
-}
-.fc-app .hero-control{
-  min-height:46px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:0 17px;
-  border:1px solid rgba(245,241,232,.30);
-  border-radius:999px;
-  background:rgba(8,8,7,.48);
-  color:var(--paper);
-  -webkit-backdrop-filter:blur(14px) saturate(125%);
-  backdrop-filter:blur(14px) saturate(125%);
-  box-shadow:0 10px 34px rgba(0,0,0,.28);
-  font-family:var(--sans-jp);
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:.12em;
-  line-height:1;
-  transition:background .35s,border-color .35s,color .35s,transform .35s;
-}
-.fc-app .hero-control:hover{
-  transform:translateY(-2px);
-  border-color:rgba(194,160,109,.86);
-  background:rgba(194,160,109,.92);
-  color:var(--ink);
-}
-.fc-app .hero-control:focus-visible{
-  outline:2px solid var(--gold);
-  outline-offset:3px;
-}
-.fc-app .hero-control-icon{
-  min-width:16px;
-  font-family:Arial,sans-serif;
-  font-size:17px;
-  line-height:1;
-  text-align:center;
-}
-.fc-app .hero-sound-icon svg{display:block;width:17px;height:17px;overflow:visible}
-.fc-app .hero-sound-icon .sound-wave,
-.fc-app .hero-sound-icon .sound-slash{transition:opacity .25s}
-.fc-app .hero-sound[aria-pressed='false'] .sound-wave{opacity:0}
-.fc-app .hero-sound[aria-pressed='true'] .sound-slash{opacity:0}
-.fc-app .hero-sound[aria-pressed='true']{
-  border-color:rgba(194,160,109,.65);
-  color:#ead2aa;
-}
-.fc-app .hero-status{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
-.fc-app .hero-progress{
-  position:absolute !important;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:5 !important;
-  height:2px;
-  background:rgba(245,241,232,.12);
-  pointer-events:none;
-}
-.fc-app .hero-progress span{
-  display:block;
-  width:100%;
-  height:100%;
-  background:linear-gradient(90deg,var(--gold),#ead2aa);
-  transform:scaleX(0);
-  transform-origin:left center;
-  will-change:transform;
-}
-
-/* 右下のWix追従CTAと動画操作ボタンが重ならないよう余白を確保 */
-@media (min-width:769px){
-  .fc-app .hero-reel-ui{right:clamp(235px,19vw,290px)}
-}
-@media (min-width:769px) and (max-width:1024px){
-  .fc-app .hero-reel-id{display:none}
-  .fc-app .hero-reel-ui{right:220px;justify-content:flex-end}
-  .fc-app .hero-pause .hero-control-label{display:none}
-  .fc-app .hero-pause{width:46px;padding:0}
-}
-
-@media (max-width:768px){
-  .fc-app .hero.hero-cinematic{
-    min-height:100svh;
-    padding:0 !important;
-  }
-  .fc-app .hero-cinematic .hero-video-player{
-    inset:-2%;
-    width:104%;
-    height:104%;
-    object-position:52% center;
-    /* スマホでは左右より上下をなだらかに暗部へ接続 */
-    -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.78) 8%,#000 18%,#000 78%,rgba(0,0,0,.78) 91%,transparent 100%);
-    mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.78) 8%,#000 18%,#000 78%,rgba(0,0,0,.78) 91%,transparent 100%);
-    filter:saturate(.78) contrast(1.08) brightness(.74);
-  }
-  .fc-app .hero.hero-cinematic::after{
-    background:
-      linear-gradient(180deg,rgba(5,5,4,.74) 0%,rgba(5,5,4,.18) 25%,rgba(5,5,4,.30) 55%,rgba(5,5,4,.94) 100%),
-      linear-gradient(90deg,rgba(5,5,4,.46),rgba(5,5,4,.10) 52%,rgba(5,5,4,.42));
-    box-shadow:inset 0 0 70px 8px rgba(5,5,4,.52);
-  }
-  .fc-app .hero-cinematic .hero-grid{
-    min-height:100svh;
-    align-items:center;
-    justify-content:center;
-    padding:104px 20px 150px !important;
-  }
-  .fc-app .hero-cinematic .hero-text{
-    width:100%;
-    max-width:390px;
-    padding:0;
-    text-align:center;
-  }
-  .fc-app .hero-cinematic .hero-text::before{
-    inset:-40px -22px;
-    background:radial-gradient(ellipse at center,rgba(5,5,4,.78) 0%,rgba(5,5,4,.56) 52%,transparent 80%);
-    filter:blur(10px);
-  }
-  .fc-app .hero-cinematic .hero-eyebrow{
-    justify-content:center;
-    margin-bottom:22px;
-    font-size:9px;
-    letter-spacing:.30em;
-  }
-  .fc-app .hero-cinematic .hero-eyebrow::before{width:30px}
-  .fc-app .hero-cinematic h1{
-    max-width:none;
-    margin-bottom:22px;
-    font-size:clamp(23px,6.55vw,27px);
-    line-height:1.5;
-    letter-spacing:.005em;
-    text-align:center;
-    white-space:normal;
-  }
-  .fc-app .hero-cinematic h1 em{
-    margin-top:15px;
-    font-size:10.5px;
-    line-height:1.65;
-    letter-spacing:.025em;
-  }
-  .fc-app .hero-cinematic .lead{
-    max-width:350px;
-    margin:0 auto;
-    padding:0;
-    border-left:0;
-    font-size:12.5px;
-    line-height:1.9;
-    text-align:center;
-  }
-  .fc-app .hero-reel-ui{
-    right:16px;
-    /* 画面右下の「無料相談する」追従CTAより上に配置 */
-    bottom:84px;
-    left:16px;
-    display:block;
-  }
-  .fc-app .hero-reel-id{
-    align-items:center;
-    margin-bottom:12px;
-    font-size:8px;
-    letter-spacing:.30em;
-    text-align:center;
-  }
-  .fc-app .hero-reel-id strong{font-size:10px;letter-spacing:.34em}
-  .fc-app .hero-controls{
-    justify-content:center;
-    gap:7px;
-  }
-  .fc-app .hero-control{
-    min-height:42px;
-    padding:0 13px;
-    gap:7px;
-    font-size:10px;
-    letter-spacing:.07em;
-  }
-  .fc-app .hero-control-icon{min-width:13px;font-size:15px}
-  .fc-app .hero-pause .hero-control-label{display:none}
-  .fc-app .hero-pause{width:42px;padding:0}
-}
-
-@media (max-width:380px){
-  .fc-app .hero-cinematic .hero-grid{padding-right:14px !important;padding-left:14px !important}
-  .fc-app .hero-control{padding:0 11px;font-size:9.5px}
-  .fc-app .hero-cinematic h1{font-size:clamp(22px,6.4vw,25px)}
-}
-
-@media (prefers-reduced-motion:reduce){
-  .fc-app .hero-cinematic .hero-video-player{transition:none}
 }
 
 </style>`;
@@ -1508,64 +1213,57 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   </ul>
 </nav>
 
-<section class="hero hero-cinematic" id="top" aria-label="From Creativity コンセプトムービー">
+<section class="hero">
   <div class="hero-video-placeholder"></div>
-
-  <div class="hero-media">
-    <!-- ミュート状態で自動再生。音声・再生操作は下部の独自ボタンから行う -->
-    <video class="hero-video-player"
-           autoplay muted loop playsinline webkit-playsinline
-           preload="auto"
-           disablepictureinpicture
-           controlslist="nodownload noremoteplayback"
-           poster="https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg"
-           aria-label="From Creativity コンセプトムービー">
-      <source src="https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4" type="video/mp4">
-    </video>
-  </div>
 
   <div class="hero-grid">
     <div class="hero-text">
-      <p class="hero-eyebrow">DOCUMENTARY FILM STUDIO · TOKYO</p>
       <h1>
         人は誰もが、<br>語るべき物語を持っている。
         <em>― ひとりの人生の物語を、<br class="sp-only">未来へ残す〝記録映画〟に ―</em>
       </h1>
       <p class="lead">
         自分史・終活の映像から、企業・店舗 PR・採用動画まで。<br>
-        <span class="accent">世界に一つだけの</span>ドキュメンタリーを、丁寧な取材と言葉を生かす編集で。
+        <span class="accent">世界に一つだけの</span>ドキュメンタリーを、丁寧な取材と言葉を生かす編集で残します。
       </p>
+    </div>
+
+    <div class="hero-video">
+      <!-- 事業紹介 PV／コンセプトムービー（自動再生・ミュート開始） -->
+      <video id="fcVideo" autoplay muted loop playsinline preload="auto"
+             poster="https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg">
+        <source src="https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4" type="video/mp4">
+      </video>
+
+      <!-- カスタムコントロール -->
+      <div class="video-ctrl" id="fcVideoCtrl">
+        <button type="button" class="vc-btn" data-vc="restart" aria-label="最初から見る" title="最初から見る">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+        </button>
+        <button type="button" class="vc-btn" data-vc="play" aria-label="一時停止" title="一時停止">
+          <svg class="ic-main" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg>
+          <svg class="ic-alt" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>
+        </button>
+        <div class="vc-seek">
+          <input type="range" class="vc-range" id="fcVideoSeek" min="0" max="1000" value="0" step="1" aria-label="再生位置">
+        </div>
+        <span class="vc-time" id="fcVideoTime">0:00 / 0:00</span>
+        <button type="button" class="vc-btn is-alt" data-vc="sound" aria-label="音声をオンにする" title="音声をオンにする">
+          <svg class="ic-main" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 2v2a8 8 0 0 1 0 16v2a10 10 0 0 0 0-20z"/></svg>
+          <svg class="ic-alt" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm18.5-1.1L20.1 6.5 17.6 9l-2.5-2.5-1.4 1.4L16.2 10.4l-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4-2.5-2.5z"/></svg>
+        </button>
+        <button type="button" class="vc-btn" data-vc="full" aria-label="全画面表示" title="全画面表示">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5v2H6v3H4zm11-5h5v5h-2V6h-3V4zM4 15h2v3h3v2H4v-5zm14 0h2v5h-5v-2h3v-3z"/></svg>
+        </button>
+      </div>
+
+      <div class="hero-video-meta">
+        <span>CONCEPT MOVIE</span>
+      </div>
     </div>
   </div>
 
-  <div class="hero-reel-ui">
-    <div class="hero-reel-id" aria-hidden="true">
-      <strong>CONCEPT MOVIE</strong>
-      <span>FROM CREATIVITY · 2025</span>
-    </div>
-    <div class="hero-controls" aria-label="コンセプトムービーの操作">
-      <button class="hero-control hero-restart" type="button" aria-label="コンセプトムービーを最初から見る">
-        <span class="hero-control-icon" aria-hidden="true">↺</span>
-        <span class="hero-control-label">最初から見る</span>
-      </button>
-      <button class="hero-control hero-sound" type="button" aria-label="音声をオンにする" aria-pressed="false">
-        <span class="hero-control-icon hero-sound-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" focusable="false">
-            <path d="M3 9v6h4l5 4V5L7 9H3Z" fill="currentColor"></path>
-            <path class="sound-wave" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-            <path class="sound-slash" d="M4.5 4.5l15 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
-          </svg>
-        </span>
-        <span class="hero-control-label hero-sound-label">音声をオン</span>
-      </button>
-      <button class="hero-control hero-pause" type="button" aria-label="動画を一時停止する" aria-pressed="false">
-        <span class="hero-control-icon hero-play-icon" aria-hidden="true">Ⅱ</span>
-        <span class="hero-control-label hero-play-label">一時停止</span>
-      </button>
-      <span class="hero-status" role="status" aria-live="polite"></span>
-    </div>
-  </div>
-  <div class="hero-progress" aria-hidden="true"><span></span></div>
+  <div class="scroll-hint">SCROLL</div>
 </section>
 
 <div class="awards">
@@ -2108,14 +1806,132 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       this.innerHTML = STYLES + HTML;
       this.fixWixWrapper();
       this.splitHeroTitle();
-      this.initHeroVideo();
       this.initInteractions();
+      this.initVideoControls();
       this.ensureFloatCta();
       setTimeout(() => { this.fixWixWrapper(); this.ensureFloatCta(); }, 300);
       setTimeout(() => { this.fixWixWrapper(); this.ensureFloatCta(); }, 1500);
       setTimeout(() => { this.fixWixWrapper(); this.ensureFloatCta(); }, 4000);
       this.hideCtaOnTagline();
       setTimeout(() => this.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 5000);
+    }
+    /* コンセプトムービーのカスタムコントロール
+       （自動再生はミュート必須。ユーザー操作で音声ON／一時停止／頭出し／シーク／全画面） */
+    initVideoControls() {
+      try {
+        const root = this;
+        const v = root.querySelector('#fcVideo');
+        const bar = root.querySelector('#fcVideoCtrl');
+        if (!v || !bar) return;
+
+        const btnPlay  = bar.querySelector('[data-vc="play"]');
+        const btnSound = bar.querySelector('[data-vc="sound"]');
+        const btnFull  = bar.querySelector('[data-vc="full"]');
+        const btnReset = bar.querySelector('[data-vc="restart"]');
+        const seek     = root.querySelector('#fcVideoSeek');
+        const timeEl   = root.querySelector('#fcVideoTime');
+
+        const fmt = (s) => {
+          if (!isFinite(s) || s < 0) s = 0;
+          const m = Math.floor(s / 60), r = Math.floor(s % 60);
+          return m + ':' + (r < 10 ? '0' : '') + r;
+        };
+        const paintSeek = () => {
+          if (!seek) return;
+          const p = seek.value / 10; // 0-1000 → 0-100%
+          seek.style.setProperty('--p', p + '%');
+        };
+
+        // 自動再生（ブラウザにブロックされた場合は再生ボタン表示に切り替え）
+        const tryPlay = () => {
+          const pr = v.play();
+          if (pr && typeof pr.catch === 'function') {
+            pr.catch(() => { if (btnPlay) btnPlay.classList.add('is-alt'); });
+          }
+        };
+        tryPlay();
+
+        // 再生／一時停止
+        if (btnPlay) {
+          btnPlay.addEventListener('click', () => {
+            if (v.paused) { tryPlay(); } else { v.pause(); }
+          });
+        }
+        v.addEventListener('play',  () => {
+          if (btnPlay) { btnPlay.classList.remove('is-alt'); btnPlay.setAttribute('aria-label','一時停止'); btnPlay.title = '一時停止'; }
+        });
+        v.addEventListener('pause', () => {
+          if (btnPlay) { btnPlay.classList.add('is-alt'); btnPlay.setAttribute('aria-label','再生'); btnPlay.title = '再生'; }
+        });
+
+        // 最初から見る
+        if (btnReset) {
+          btnReset.addEventListener('click', () => { v.currentTime = 0; tryPlay(); });
+        }
+
+        // 音声のオン／オフ
+        if (btnSound) {
+          btnSound.addEventListener('click', () => {
+            v.muted = !v.muted;
+            if (!v.muted && v.volume === 0) v.volume = 1;
+            btnSound.classList.toggle('is-alt', v.muted);
+            btnSound.setAttribute('aria-label', v.muted ? '音声をオンにする' : '音声をオフにする');
+            btnSound.title = v.muted ? '音声をオンにする' : '音声をオフにする';
+          });
+        }
+
+        // 全画面表示
+        if (btnFull) {
+          btnFull.addEventListener('click', () => {
+            const target = v.parentElement || v;
+            if (document.fullscreenElement || document.webkitFullscreenElement) {
+              (document.exitFullscreen || document.webkitExitFullscreen || function(){}).call(document);
+            } else if (v.webkitEnterFullscreen) {
+              v.webkitEnterFullscreen();          // iOS Safari
+            } else if (target.requestFullscreen) {
+              target.requestFullscreen();
+            } else if (target.webkitRequestFullscreen) {
+              target.webkitRequestFullscreen();
+            }
+          });
+        }
+
+        // シークバー
+        let dragging = false;
+        if (seek) {
+          seek.addEventListener('input', () => {
+            dragging = true;
+            paintSeek();
+            if (isFinite(v.duration) && v.duration > 0) {
+              if (timeEl) timeEl.textContent = fmt(v.duration * (seek.value / 1000)) + ' / ' + fmt(v.duration);
+            }
+          });
+          const commit = () => {
+            if (isFinite(v.duration) && v.duration > 0) {
+              v.currentTime = v.duration * (seek.value / 1000);
+            }
+            dragging = false;
+          };
+          seek.addEventListener('change', commit);
+          seek.addEventListener('mouseup', commit);
+          seek.addEventListener('touchend', commit);
+        }
+        v.addEventListener('timeupdate', () => {
+          if (dragging || !isFinite(v.duration) || v.duration <= 0) return;
+          if (seek) { seek.value = Math.round((v.currentTime / v.duration) * 1000); paintSeek(); }
+          if (timeEl) timeEl.textContent = fmt(v.currentTime) + ' / ' + fmt(v.duration);
+        });
+        v.addEventListener('loadedmetadata', () => {
+          if (timeEl) timeEl.textContent = fmt(0) + ' / ' + fmt(v.duration);
+          paintSeek();
+        });
+
+        // タッチ端末ではホバーがないので常時表示
+        const coarse = window.matchMedia && window.matchMedia('(hover: none)').matches;
+        if (coarse) bar.classList.add('is-visible');
+
+        paintSeek();
+      } catch (e) { /* noop */ }
     }
     /* Wix Editorで「ストレッチ」していても、本番では <section class="wixui-section"> に
        padding:48px が当たって content が48px右にずれ、結果として右側が切れる現象がある。
@@ -2223,6 +2039,10 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     splitHeroTitle() {
       const h1 = this.querySelector('.hero h1');
       if (!h1) return;
+      /* 行頭禁則文字：句読点・閉じ括弧などは行の先頭に置かない。
+         1文字ずつ span 化するとブラウザの禁則処理が効かなくなるため、
+         これらは直前の文字と同じ span にまとめて分割不可にする。 */
+      const NO_LINE_START = '。、，．・：；！？）］｝」』〉》】〕”’ー々ゝゞヽヾ〟‐〜';
       const walk = (node) => {
         const out = [];
         node.childNodes.forEach(child => {
@@ -2230,15 +2050,18 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
             const text = child.textContent;
             for (let i = 0; i < text.length; i++) {
               const c = text[i];
-              if (c.trim()) {
-                const span = document.createElement('span');
-                span.className = 'char';
-                span.textContent = c;
-                span.style.animationDelay = (0.04 * out.length) + 's';
-                out.push(span);
-              } else {
-                out.push(document.createTextNode(c));
+              if (!c.trim()) { out.push(document.createTextNode(c)); continue; }
+              const last = out.length ? out[out.length - 1] : null;
+              const lastIsChar = last && last.nodeType === Node.ELEMENT_NODE && last.className === 'char';
+              if (NO_LINE_START.indexOf(c) !== -1 && lastIsChar) {
+                last.textContent += c;   // 直前の文字にぶら下げる
+                continue;
               }
+              const span = document.createElement('span');
+              span.className = 'char';
+              span.textContent = c;
+              span.style.animationDelay = (0.04 * out.length) + 's';
+              out.push(span);
             }
           } else if (child.nodeType === Node.ELEMENT_NODE) {
             out.push(child.cloneNode(true));
@@ -2249,139 +2072,6 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       const newNodes = walk(h1);
       h1.innerHTML = '';
       newNodes.forEach(n => h1.appendChild(n));
-    }
-    /*
-       ヒーロー動画：
-       - muted + playsinline で自動再生制限に対応
-       - 音声は必ずオフで開始し、ユーザー操作時だけオンにする
-       - 自動再生できない環境でも「再生／最初から見る」から開始できる
-    */
-    initHeroVideo() {
-      try {
-        const video = this.querySelector('.hero-video-player');
-        if (!video) return;
-
-        const restartButton = this.querySelector('.hero-restart');
-        const soundButton = this.querySelector('.hero-sound');
-        const soundLabel = this.querySelector('.hero-sound-label');
-        const pauseButton = this.querySelector('.hero-pause');
-        const playIcon = this.querySelector('.hero-play-icon');
-        const playLabel = this.querySelector('.hero-play-label');
-        const progress = this.querySelector('.hero-progress span');
-        const status = this.querySelector('.hero-status');
-        let userPaused = false;
-
-        /* HTML属性だけでなくpropertyも先に設定するのがSafari対策 */
-        video.defaultMuted = true;
-        video.muted = true;
-        video.volume = 1;
-        video.autoplay = true;
-        video.loop = true;
-        video.playsInline = true;
-        video.setAttribute('muted', '');
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
-
-        const announce = (message) => {
-          if (status) status.textContent = message;
-        };
-        const updateSound = () => {
-          const soundOn = !video.muted && video.volume > 0;
-          if (soundButton) {
-            soundButton.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
-            soundButton.setAttribute('aria-label', soundOn ? '音声をオフにする' : '音声をオンにする');
-          }
-          if (soundLabel) soundLabel.textContent = soundOn ? '音声をオフ' : '音声をオン';
-        };
-        const updatePlay = () => {
-          const isPlaying = !video.paused && !video.ended;
-          if (pauseButton) {
-            pauseButton.setAttribute('aria-pressed', isPlaying ? 'false' : 'true');
-            pauseButton.setAttribute('aria-label', isPlaying ? '動画を一時停止する' : '動画を再生する');
-          }
-          if (playIcon) playIcon.textContent = isPlaying ? 'Ⅱ' : '▶';
-          if (playLabel) playLabel.textContent = isPlaying ? '一時停止' : '再生';
-        };
-        const updateProgress = () => {
-          if (!progress) return;
-          const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 0;
-          const ratio = duration ? Math.min(1, Math.max(0, video.currentTime / duration)) : 0;
-          progress.style.transform = 'scaleX(' + ratio + ')';
-        };
-        const markReady = () => {
-          video.classList.add('is-ready');
-          updatePlay();
-        };
-        const playVideo = (fromUser) => {
-          if (!fromUser && userPaused) return;
-          const result = video.play();
-          if (result && typeof result.then === 'function') {
-            result.then(() => {
-              markReady();
-              updatePlay();
-            }).catch(() => {
-              /* iOS省電力モード等では自動再生を拒否する場合がある。手動ボタンを残す */
-              video.classList.add('is-ready');
-              updatePlay();
-              announce('再生ボタンを押すと動画が始まります');
-            });
-          }
-        };
-
-        if (video.readyState >= 2) markReady();
-        video.addEventListener('loadeddata', markReady, { once: true });
-        video.addEventListener('canplay', markReady, { once: true });
-        video.addEventListener('play', updatePlay);
-        video.addEventListener('pause', updatePlay);
-        video.addEventListener('volumechange', updateSound);
-        video.addEventListener('timeupdate', updateProgress);
-        video.addEventListener('durationchange', updateProgress);
-        video.addEventListener('error', () => {
-          announce('動画を読み込めませんでした。通信環境をご確認ください');
-          updatePlay();
-        });
-
-        if (restartButton) {
-          restartButton.addEventListener('click', () => {
-            userPaused = false;
-            try { video.currentTime = 0; } catch (e) { /* metadata待ち */ }
-            playVideo(true);
-            announce('コンセプトムービーを最初から再生します');
-          });
-        }
-        if (soundButton) {
-          soundButton.addEventListener('click', () => {
-            video.muted = !video.muted;
-            if (!video.muted) video.volume = 1;
-            userPaused = false;
-            if (video.paused) playVideo(true);
-            updateSound();
-            announce(video.muted ? '音声をオフにしました' : '音声をオンにしました');
-          });
-        }
-        if (pauseButton) {
-          pauseButton.addEventListener('click', () => {
-            if (video.paused) {
-              userPaused = false;
-              playVideo(true);
-              announce('動画を再生します');
-            } else {
-              userPaused = true;
-              video.pause();
-              announce('動画を一時停止しました');
-            }
-            updatePlay();
-          });
-        }
-
-        updateSound();
-        updatePlay();
-        updateProgress();
-
-        /* Wix内で接続直後にautoplay属性の評価が遅れる場合にも再試行 */
-        requestAnimationFrame(() => playVideo(false));
-        setTimeout(() => playVideo(false), 650);
-      } catch (e) { /* ポスター表示とHTMLの標準autoplayをフォールバックにする */ }
     }
     initInteractions() {
       const root = this;

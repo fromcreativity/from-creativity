@@ -1508,19 +1508,19 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   <div class="client-grid">
     <article class="client-card reveal">
       <div class="client-no">01</div>
-      <div class="client-client">社会福祉法人（東京）</div>
+      <h3 class="client-client">社会福祉法人（東京）</h3>
       <div class="client-type">MID-LENGTH DOCUMENTARY<br><span class="jp">中編ドキュメンタリー</span></div>
       <p>モンテッソーリ教育に取り組む保育園を取材。園児たちの日々の活動を追い、その理念や取り組みを描く中編ドキュメンタリーを制作。</p>
     </article>
     <article class="client-card reveal">
       <div class="client-no">02</div>
-      <div class="client-client">飲食店・カフェ（大阪）</div>
+      <h3 class="client-client">飲食店・カフェ（大阪）</h3>
       <div class="client-type">SHOP DOCUMENTARY<br><span class="jp">店舗ドキュメンタリー</span></div>
       <p>店舗オーナーへの人物取材を中心に、店が生まれた背景や仕事への思い、店舗の空気感を伝えるドキュメンタリーを制作。</p>
     </article>
     <article class="client-card reveal">
       <div class="client-no">03</div>
-      <div class="client-client">自動車関連企業（東京）</div>
+      <h3 class="client-client">自動車関連企業（東京）</h3>
       <div class="client-type">CRAFTSMANSHIP DOCUMENTARY<br><span class="jp">旧車修復ドキュメンタリー</span></div>
       <p>旧車の修復工程と、それに携わる職人を追ったドキュメンタリーを制作。職人の技術や仕事への姿勢を、修復の過程とともに記録。</p>
     </article>
@@ -1535,12 +1535,6 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       <h2 class="section-h">作品&nbsp;<em>Portfolio.</em></h2>
     </div>
   </div>
-  <!-- ======================================================
-       👇 YouTubeリンクの貼り替え方
-       下の各 <a href="https://www.youtube.com/..."> の中身を、
-       実際のYouTube動画URL（例: https://youtu.be/dQw4w9WgXcQ）に
-       置き換えるだけです。それ以外は触らなくてOK。
-       ====================================================== -->
   <div class="portfolio-grid">
 
     <!-- ▼ 作品01｜受賞作 / A Man, A Hobby, A Whole Life -->
@@ -1558,7 +1552,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">PERSONAL · 短編ドキュメンタリー（受賞作）</div>
-        <div class="work-title">離婚して車とバイクに 9000 万円。<br>趣味に全てを捧げる男の物語。</div>
+        <h3 class="work-title">離婚して車とバイクに 9000 万円。<br>趣味に全てを捧げる男の物語。</h3>
         <div class="work-year">2025 · 10 MIN｜A Man, A Hobby, A Whole Life</div>
       </div>
     </a>
@@ -1575,7 +1569,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">PERSONAL · 短編ドキュメンタリー</div>
-        <div class="work-title">澄江の空｜86 歳の傘屋、<br>雨が降らない街で。</div>
+        <h3 class="work-title">澄江の空｜86 歳の傘屋、<br>雨が降らない街で。</h3>
         <div class="work-year">2026 · 11 MIN｜東京・青梅｜Smie's Sky</div>
       </div>
     </a>
@@ -1592,7 +1586,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">EVENT · 1 日密着</div>
-        <div class="work-title">奥多摩・旧車ミーティング</div>
+        <h3 class="work-title">奥多摩・旧車ミーティング</h3>
         <div class="work-year">2025 · 11 MIN</div>
       </div>
     </a>
@@ -1609,7 +1603,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">PERSONAL · 街と人</div>
-        <div class="work-title">フワちゃんも愛した、<br>駄菓子屋おばちゃん。</div>
+        <h3 class="work-title">フワちゃんも愛した、<br>駄菓子屋おばちゃん。</h3>
         <div class="work-year">2025 · 13 MIN｜東京・八王子</div>
       </div>
     </a>
@@ -1626,7 +1620,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">BUSINESS · 経営者ドキュメンタリー</div>
-        <div class="work-title">「カフェ経営」という、<br>しんどくて楽しい生き方。</div>
+        <h3 class="work-title">「カフェ経営」という、<br>しんどくて楽しい生き方。</h3>
         <div class="work-year">2025 · 13 MIN｜大阪・CAFE TIPO 8</div>
       </div>
     </a>
@@ -1643,7 +1637,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">PERSONAL · 短編ドキュメンタリー</div>
-        <div class="work-title">増えちゃった</div>
+        <h3 class="work-title">増えちゃった</h3>
         <div class="work-year">2026 · 5 MIN｜東京・奥多摩</div>
       </div>
     </a>
@@ -1660,7 +1654,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </div>
       <div class="work-info">
         <div class="work-cat">BUSINESS · 1 日密着ドキュメンタリー</div>
-        <div class="work-title">居酒屋・もがみ</div>
+        <h3 class="work-title">居酒屋・もがみ</h3>
         <div class="work-year">2026 · 9 MIN｜東京・高田馬場</div>
       </div>
     </a>
@@ -1790,14 +1784,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
 </main>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[
-{"@type":"ProfessionalService","@id":"https://www.from-creativity.com/#org","name":"From Creativity","alternateName":"フロムクリエイティビティ","url":"https://www.from-creativity.com/","description":"元NHKディレクター佐々木駿平が運営する、東京・西多摩（羽村）拠点の映像制作スタジオ。自分史・終活映像から企業PR・採用動画まで、人を中心にしたドキュメンタリー作品を制作。全国対応。","priceRange":"¥149,800〜","address":{"@type":"PostalAddress","addressLocality":"羽村市","addressRegion":"東京都","addressCountry":"JP"},"areaServed":[{"@type":"City","name":"羽村市"},{"@type":"AdministrativeArea","name":"西多摩地域"},{"@type":"City","name":"青梅市"},{"@type":"City","name":"福生市"},{"@type":"City","name":"あきる野市"},{"@type":"City","name":"八王子市"},{"@type":"City","name":"立川市"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"founder":{"@id":"https://www.from-creativity.com/#founder"},"member":[{"@id":"https://www.from-creativity.com/#advisor"}],"makesOffer":[{"@id":"https://www.from-creativity.com/#service-personal"},{"@id":"https://www.from-creativity.com/#service-business"}],"sameAs":["https://www.youtube.com/@FromCreativity-Documentaries"]},
-{"@type":"Person","@id":"https://www.from-creativity.com/#founder","name":"佐々木 駿平","alternateName":"Shumpei Sasaki","birthDate":"1997","jobTitle":"映像作家","alumniOf":{"@type":"CollegeOrUniversity","name":"早稲田大学"},"award":["毎日新聞社賞 (2020)","NHK九州沖縄ブロック新人選奨第1位","Best Documentary Film - Kolkata 2026","Best Documentary Short Film - NY Istanbul 2026","Honorable Mention - Mannheim 2026","Honorable Mention - Post-Cinema Film Festival 2026"],"worksFor":{"@id":"https://www.from-creativity.com/#org"}},
-{"@type":"Person","@id":"https://www.from-creativity.com/#advisor","name":"野中 章弘","alternateName":"Akihiro Nonaka","jobTitle":"エグゼクティブ・アドバイザー","affiliation":[{"@type":"CollegeOrUniversity","name":"早稲田大学"},{"@type":"Organization","name":"アジアプレス・インターナショナル"}],"award":"放送人グランプリ特別賞 (2004)"},
-{"@type":"Service","@id":"https://www.from-creativity.com/#service-personal","name":"自分史・終活ドキュメンタリー映像制作","serviceType":"個人向けドキュメンタリー映像制作","description":"自分史動画や終活ビデオを、丁寧なインタビューと繊細な映像表現で記録映画として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"Offer","price":"149800","priceCurrency":"JPY","priceSpecification":{"@type":"PriceSpecification","price":"149800","priceCurrency":"JPY","valueAddedTaxIncluded":false},"availability":"https://schema.org/InStock"}},
-{"@type":"Service","@id":"https://www.from-creativity.com/#service-business","name":"企業PR・採用ドキュメンタリー映像制作","serviceType":"法人向けドキュメンタリー映像制作","description":"店舗PR映像や企業PR動画、採用ムービーを、現場の空気感が伝わる映像作品として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"Offer","price":"199800","priceCurrency":"JPY","priceSpecification":{"@type":"PriceSpecification","price":"199800","priceCurrency":"JPY","valueAddedTaxIncluded":false},"availability":"https://schema.org/InStock"}},
-{"@type":"VideoObject","@id":"https://www.from-creativity.com/#concept-reel","name":"From Creativity ／ コンセプトムービー","description":"映像作家・佐々木駿平が手がけるドキュメンタリー制作スタジオFrom Creativityのコンセプトムービー。","thumbnailUrl":"https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg","uploadDate":"2025-10-01","contentUrl":"https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4","publisher":{"@id":"https://www.from-creativity.com/#org"}}
-]}
+{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://www.from-creativity.com/#org","name":"From Creativity","alternateName":"フロムクリエイティビティ","url":"https://www.from-creativity.com/","description":"元NHKディレクター佐々木駿平が運営する、東京・西多摩（羽村）拠点の映像制作スタジオ。自分史・終活映像から企業PR・採用動画まで、人を中心にしたドキュメンタリー作品を制作。全国対応。","priceRange":"¥149,800〜¥699,800","address":{"@type":"PostalAddress","addressLocality":"羽村市","addressRegion":"東京都","addressCountry":"JP"},"areaServed":[{"@type":"City","name":"羽村市"},{"@type":"AdministrativeArea","name":"西多摩地域"},{"@type":"City","name":"青梅市"},{"@type":"City","name":"福生市"},{"@type":"City","name":"あきる野市"},{"@type":"City","name":"八王子市"},{"@type":"City","name":"立川市"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"founder":{"@id":"https://www.from-creativity.com/#founder"},"member":[{"@id":"https://www.from-creativity.com/#advisor"}],"makesOffer":[{"@id":"https://www.from-creativity.com/#service-personal"},{"@id":"https://www.from-creativity.com/#service-business"}],"sameAs":["https://www.youtube.com/@FromCreativity-Documentaries"]},{"@type":"Person","@id":"https://www.from-creativity.com/#founder","name":"佐々木 駿平","alternateName":"Shumpei Sasaki","birthDate":"1997","jobTitle":"映像作家","alumniOf":{"@type":"CollegeOrUniversity","name":"早稲田大学"},"award":["毎日新聞社賞 (2020)","NHK九州沖縄ブロック新人選奨第1位","Best Documentary Film - Kolkata 2026","Best Documentary Short Film - NY Istanbul 2026","Honorable Mention - Mannheim 2026","Honorable Mention - Post-Cinema Film Festival 2026"],"worksFor":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"Person","@id":"https://www.from-creativity.com/#advisor","name":"野中 章弘","alternateName":"Akihiro Nonaka","jobTitle":"エグゼクティブ・アドバイザー","affiliation":[{"@type":"CollegeOrUniversity","name":"早稲田大学"},{"@type":"Organization","name":"アジアプレス・インターナショナル"}],"award":"放送人グランプリ特別賞 (2004)"},{"@type":"Service","@id":"https://www.from-creativity.com/#service-personal","name":"自分史・終活ドキュメンタリー映像制作","serviceType":"個人向けドキュメンタリー映像制作","description":"自分史動画や終活ビデオを、丁寧なインタビューと繊細な映像表現で記録映画として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"AggregateOffer","lowPrice":"149800","highPrice":"599800","priceCurrency":"JPY","offerCount":4,"availability":"https://schema.org/InStock"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"個人向け映像制作基本パック","itemListElement":[{"@type":"Offer","name":"ライト","description":"撮影3時間以内・1分までの映像作品","price":"149800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"ベーシック","description":"撮影1日・5分までの映像作品","price":"259800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"スタンダード","description":"撮影2日・12分までの映像作品","price":"479800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"プレミアム","description":"撮影3日以上・12分以上の映像作品","price":"599800","priceCurrency":"JPY","availability":"https://schema.org/InStock"}]}},{"@type":"Service","@id":"https://www.from-creativity.com/#service-business","name":"企業PR・採用ドキュメンタリー映像制作","serviceType":"法人向けドキュメンタリー映像制作","description":"店舗PR映像や企業PR動画、採用ムービーを、現場の空気感が伝わる映像作品として制作。","provider":{"@id":"https://www.from-creativity.com/#org"},"areaServed":[{"@type":"AdministrativeArea","name":"東京都西多摩地域"},{"@type":"AdministrativeArea","name":"東京都"},{"@type":"Country","name":"日本"}],"offers":{"@type":"AggregateOffer","lowPrice":"199800","highPrice":"699800","priceCurrency":"JPY","offerCount":4,"availability":"https://schema.org/InStock"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"法人向け映像制作基本パック","itemListElement":[{"@type":"Offer","name":"ライト","description":"撮影3時間以内・1分までの映像作品","price":"199800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"ベーシック","description":"撮影1日・5分までの映像作品","price":"309800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"スタンダード","description":"撮影2日・12分までの映像作品","price":"579800","priceCurrency":"JPY","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"プレミアム","description":"撮影3日以上・12分以上の映像作品","price":"699800","priceCurrency":"JPY","availability":"https://schema.org/InStock"}]}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#concept-reel","name":"From Creativity ／ コンセプトムービー","description":"映像作家・佐々木駿平が手がけるドキュメンタリー制作スタジオFrom Creativityのコンセプトムービー。","thumbnailUrl":"https://static.wixstatic.com/media/0a9631_0d6027021819447aac13a2a1c5cd674d~mv2.jpg","uploadDate":"2025-10-01","contentUrl":"https://video.wixstatic.com/video/0a9631_6a91c44a9d014b54b640c5d394767720/1080p/mp4/file.mp4","publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-FbfWuQoAqoY","name":"A Man, A Hobby, A Whole Life｜離婚して車とバイクに9000万円。趣味に全てを捧げる男の物語","description":"離婚して車とバイクに9000万円を注ぎ込んだ男の人生を追った短編ドキュメンタリー。Kolkata・New York Istanbul・Mannheim・Post-Cinema の各国際映画祭で受賞。","thumbnailUrl":"https://static.wixstatic.com/media/0a9631_b9c3392712844544910439be2961308a~mv2.png","uploadDate":"2025","duration":"PT10M","embedUrl":"https://www.youtube.com/embed/FbfWuQoAqoY","url":"https://youtu.be/FbfWuQoAqoY","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-xtZviIie2w0","name":"澄江の空 Smie's Sky｜86歳の傘屋、雨が降らない街で","description":"東京都青梅市で傘屋を営む86歳の女性を取材した短編ドキュメンタリー。雨の降らない街で店を続ける日々を記録。","thumbnailUrl":"https://static.wixstatic.com/media/0a9631_1711ee5112424b3cab270a64ea363703~mv2.jpg","uploadDate":"2026","duration":"PT11M","embedUrl":"https://www.youtube.com/embed/xtZviIie2w0","url":"https://youtu.be/xtZviIie2w0","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-lAKV68K_rvk","name":"奥多摩・旧車ミーティング","description":"東京都奥多摩で開かれた旧車ミーティングに1日密着したドキュメンタリー。","thumbnailUrl":"https://img.youtube.com/vi/lAKV68K_rvk/maxresdefault.jpg","uploadDate":"2025","duration":"PT11M","embedUrl":"https://www.youtube.com/embed/lAKV68K_rvk","url":"https://youtu.be/lAKV68K_rvk","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-p87q4C8VGEs","name":"フワちゃんも愛した、駄菓子屋おばちゃん。","description":"東京都八王子の駄菓子屋を営む女性を追ったドキュメンタリー。街と人の記憶を記録。","thumbnailUrl":"https://img.youtube.com/vi/p87q4C8VGEs/maxresdefault.jpg","uploadDate":"2025","duration":"PT13M","embedUrl":"https://www.youtube.com/embed/p87q4C8VGEs","url":"https://youtu.be/p87q4C8VGEs","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-XEN8DWARd9Y","name":"「カフェ経営」という、しんどくて楽しい生き方。","description":"大阪のCAFE TIPO 8のオーナーを取材した経営者ドキュメンタリー。","thumbnailUrl":"https://img.youtube.com/vi/XEN8DWARd9Y/maxresdefault.jpg","uploadDate":"2025","duration":"PT13M","embedUrl":"https://www.youtube.com/embed/XEN8DWARd9Y","url":"https://youtu.be/XEN8DWARd9Y","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-zwogoIGO5Vc","name":"増えちゃった","description":"東京都奥多摩を舞台にした短編ドキュメンタリー。","thumbnailUrl":"https://img.youtube.com/vi/zwogoIGO5Vc/maxresdefault.jpg","uploadDate":"2026","duration":"PT5M","embedUrl":"https://www.youtube.com/embed/zwogoIGO5Vc","url":"https://youtu.be/zwogoIGO5Vc","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}},{"@type":"VideoObject","@id":"https://www.from-creativity.com/#video-LWeY9iSR6qU","name":"居酒屋・もがみ","description":"東京都高田馬場の居酒屋「もがみ」に1日密着したドキュメンタリー。","thumbnailUrl":"https://img.youtube.com/vi/LWeY9iSR6qU/maxresdefault.jpg","uploadDate":"2026","duration":"PT9M","embedUrl":"https://www.youtube.com/embed/LWeY9iSR6qU","url":"https://youtu.be/LWeY9iSR6qU","inLanguage":"ja","creator":{"@id":"https://www.from-creativity.com/#founder"},"director":{"@id":"https://www.from-creativity.com/#founder"},"publisher":{"@id":"https://www.from-creativity.com/#org"}}]}
 </script>
 
 `;

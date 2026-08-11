@@ -1,40 +1,47 @@
 /*!
- * From Creativity ／ Wix Custom Element  ── 第4稿 総点検版（V4-FIX）
- * 見た目はV4のまま。以下のバグ修正＋SEO強化を反映：
+ * ============================================================
+ *  From Creativity ／ Wix Custom Element
  *
- * 【バグ修正】
- *   • コンセプト動画ブラー解除（filter:blur(8px) 残留 → !important で解除）
- *   • MESSAGEセクション文字サイズ正常化（".message ..fc-app p" 不正セレクタ修正）
- *   • Hero h1 二重アニメ削除（h1自体のrise削除、charだけアニメ）
- *   • Awardsマーキューを GPU合成化（will-change + translateZ(0)）でちらつき抑制
- *   • デッドコード削除（hero-play-badge / .reel系 / scroll-hint::after）
- *   • 未使用 @keyframes（rise / pulse / scrollLine）削除
+ *  VERSION: 2026-08-11-SEO-13
+ *  ↑ この行でバージョンを判別できます。
+ *    アップロード前に、ダウンロードしたファイルの3〜5行目を開いて
+ *    この表記が最新か確認してください。
+ * ============================================================
  *
- * 【SEO 強化】
- *   • JSON-LD 構造化データ：4 → 7 エンティティに拡充
- *     - Service（個人向け／法人向け）追加 → 価格・通貨を明示
- *     - VideoObject（コンセプトムービー）追加
- *     - FAQ を1問追加・全問を質問形リッチアンサー化
- *   • Awards重複ローレル4枚に aria-hidden="true"（装飾と明示）
- *   • makesOffer / worksFor の関係を ProfessionalService / Person に追加
+ * 【このバージョンの内容】
  *
- * Tag name: from-creativity-page-v4（V4と同じ。Netlifyのファイルを差し替えるだけ）
- * 
- * V3からの変更：
- *   • Ken Burns（無限ループ）削除 → ホバー時のみズーム
- *   • タグライン金色シマー（無限ループ）削除 → 静的グラデーション
- *   • YouTubeカードの脈打ち（無限ループ）削除 → 静的グロウ
- *   • ヒーロー動画 breathe（無限ループ）削除
- *   • film grain animation 削除（薄い静的オーバーレイのみ）
- *   • 受賞ローレルの3D効果はホバー時のみ
- * 
- * 残した演出：
- *   • 文字カスケード（ロード時1回）
- *   • スクロールリビール（一度だけ発火）
- *   • ヒーロー動画フェードイン（ロード時1回）
- *   • 全要素ホバー時インタラクション
+ * ■ ヒーロー
+ *   • 動画を自動再生（ミュート開始／ループ）
+ *   • カスタムコントロール：最初から見る／一時停止／音声ON／シーク／全画面
+ *   • 枠線・背景色なし。マスクで四辺を黒に溶かし、背後の光で浮かび上がらせる
+ *   • 背景はシネスコのブランキングと同じ純黒 #000
+ *   • 見出しは3行組み（人は誰もが、／語るべき物語を／持っている。）
+ *   • 句読点の行頭禁則をJS側で処理
  *
- * Tag name: from-creativity-page-v4
+ * ■ コンテンツ
+ *   • 受賞ローレルに Post-Cinema Film Festival 2026 を追加（全5点）
+ *   • 新着情報セクション（法人実績／新作公開／受賞歴更新）
+ *   • 法人・店舗向け制作実績セクション（3件）
+ *   • 料金を個人・法人それぞれ4プラン（ライト〜プレミアム）に
+ *   • 作品01・02をポスター画像に、06「増えちゃった」07「居酒屋・もがみ」を追加
+ *
+ * ■ SEO / AI検索
+ *   • JSON-LD 13エンティティ
+ *     ProfessionalService / Person×2 / Service×2（各4プランのOfferCatalog付き）
+ *     / VideoObject×8（コンセプトムービー＋作品7本）
+ *   • 作品タイトル・実績クライアント名を h3 化（h1:1 → h2:6 → h3:13）
+ *   • AggregateOffer で価格帯を明示（¥149,800〜¥699,800）
+ *   • 全画像に alt、装飾画像は aria-hidden
+ *
+ * ■ Wix 対策
+ *   • wixui-section の自動padding(48px)を打ち消して全幅表示
+ *   • 「無料相談する」ボタンを body 直下に逃がして確実に追従
+ *
+ * ------------------------------------------------------------
+ *  Tag name  : from-creativity-page-v4
+ *  Server URL: https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@main/from-creativity-element-v4-fix.js
+ *  Purge URL : https://purge.jsdelivr.net/gh/fromcreativity/from-creativity@main/from-creativity-element-v4-fix.js
+ * ------------------------------------------------------------
  */
 (function(){
   if (typeof customElements === 'undefined') return;

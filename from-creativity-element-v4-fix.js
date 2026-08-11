@@ -255,10 +255,11 @@ nav.top ul li:last-child a::after{display:none}
 .hero > div, .hero > a{position:relative;z-index:2}
 
 /* H1 ─ ヒーローはここから始まる（上に余計な要素を置かない）
-   「語るべき物語を持っている。」の12文字が1行に収まるサイズに調整 */
+   3行組み：人は誰もが、／語るべき物語を／持っている。
+   最長行は「語るべき物語を」の7文字。これが収まる上限までサイズを上げる */
 .hero h1{
   font-family:var(--serif-jp);font-weight:500;
-  font-size:clamp(28px,2.7vw,50px);line-height:1.45;
+  font-size:clamp(30px,4.2vw,76px);line-height:1.36;
   letter-spacing:0.02em;color:var(--paper);
   margin-bottom:34px;
   text-shadow:0 4px 40px rgba(0,0,0,0.6);
@@ -753,7 +754,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .hero{padding:96px 0 64px;min-height:auto}
   .hero-grid{grid-template-columns:1fr;gap:44px;text-align:center}
   .hero-text{padding:0 20px}
-  .hero h1{font-size:clamp(26px,7.6vw,34px);line-height:1.5;margin-bottom:24px;text-align:center;letter-spacing:0.02em}
+  .hero h1{font-size:clamp(30px,8.6vw,44px);line-height:1.4;margin-bottom:26px;text-align:center;letter-spacing:0.02em}
   .hero h1 em{font-size:11px;letter-spacing:0.04em;line-height:1.6;margin-top:14px;white-space:normal;text-align:center}
   .hero .lead{font-size:14.5px;line-height:2.05;margin-left:auto;margin-right:auto;text-align:center}
   .hero-video{margin:0;width:100%;border:0;box-shadow:none}
@@ -917,7 +918,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .fc-app{font-size:13.5px}
   .hero{padding:88px 0 52px}
   .hero-text{padding:0 18px}
-  .hero h1{font-size:clamp(24px,7.4vw,30px);line-height:1.5;letter-spacing:0.01em}
+  .hero h1{font-size:clamp(27px,8.4vw,34px);line-height:1.4;letter-spacing:0.01em}
   .hero h1 em{font-size:10.5px;letter-spacing:0.02em;line-height:1.55}
   .hero .lead{font-size:13.5px;line-height:2}
   .video-ctrl{left:8px;right:8px;bottom:8px;gap:6px;padding:6px 8px}
@@ -1219,7 +1220,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
   <div class="hero-grid">
     <div class="hero-text">
       <h1>
-        人は誰もが、<br>語るべき物語を持っている。
+        人は誰もが、<br>語るべき物語を<br>持っている。
         <em>― ひとりの人生の物語を、<br class="sp-only">未来へ残す〝記録映画〟に ―</em>
       </h1>
       <p class="lead">

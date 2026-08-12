@@ -217,12 +217,12 @@ nav.top ul li:last-child a::after{display:none}
   background:rgba(10,9,7,0.55);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(194,160,109,0.22);
-  opacity:0;transform:translateY(6px);
+  opacity:0;transform:translateY(6px);pointer-events:none;
   transition:opacity .45s ease, transform .45s ease;
 }
 .hero-video:hover .video-ctrl,
 .hero-video:focus-within .video-ctrl,
-.video-ctrl.is-visible{opacity:1;transform:translateY(0)}
+.video-ctrl.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
 .vc-btn{
   flex:0 0 auto;width:30px;height:30px;
   display:flex;align-items:center;justify-content:center;
@@ -619,6 +619,38 @@ section{position:relative;padding:140px 48px}
 .profile-awards li::before{content:'🏆';color:var(--gold);font-size:14px}
 .profile-awards li span{font-family:var(--display);font-size:10px;letter-spacing:0.3em;color:var(--gold);white-space:nowrap}
 .awards-foot{font-family:var(--sans-jp);font-size:11px;color:var(--ink);opacity:0.6;margin-top:14px;line-height:1.7;font-weight:400}
+/* NHK時代の担当番組（年表） */
+.nhk-works{margin-top:38px;padding-top:30px;border-top:1px solid rgba(10,9,7,0.15)}
+.nhk-works-h{font-family:var(--display);font-size:11px;letter-spacing:0.4em;color:var(--gold);margin-bottom:6px}
+.nhk-works-sub{font-family:var(--sans-jp);font-size:11px;color:rgba(10,9,7,0.5);font-weight:300;letter-spacing:0.03em;margin-bottom:18px}
+.nhk-list{list-style:none;display:flex;flex-direction:column}
+.nhk-list li{
+  display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid rgba(10,9,7,0.12);
+}
+.nhk-year{
+  font-family:var(--serif-en);font-style:italic;font-weight:400;
+  font-size:18px;color:var(--gold);line-height:1.3;
+}
+.nhk-title{
+  display:block;font-family:var(--serif-jp);font-size:13.5px;font-weight:500;
+  color:var(--ink);line-height:1.6;letter-spacing:0.02em;
+}
+.nhk-meta{
+  display:block;margin-top:5px;
+  font-family:var(--sans-jp);font-size:11px;font-weight:300;
+  color:rgba(10,9,7,0.6);letter-spacing:0.02em;line-height:1.7;
+}
+.nhk-tag{
+  display:inline-block;margin-left:7px;padding:2px 7px;
+  font-family:var(--display);font-size:8.5px;letter-spacing:0.18em;
+  border:1px solid var(--gold);color:var(--gold);
+  vertical-align:2px;white-space:nowrap;
+}
+.nhk-foot{
+  margin-top:14px;font-family:var(--sans-jp);font-size:11px;
+  color:rgba(10,9,7,0.55);font-weight:300;line-height:1.75;
+}
 .profile-onair{margin-top:40px;padding:24px;background:#0A0907;color:var(--paper);display:flex;flex-direction:column;gap:10px}
 .profile-onair-h{font-family:var(--display);font-size:11px;letter-spacing:0.4em;color:var(--gold)}
 .profile-onair-program{font-family:var(--serif-jp);font-size:15px;color:var(--paper);font-weight:500;line-height:1.6}
@@ -660,7 +692,7 @@ section{position:relative;padding:140px 48px}
 .tagline{padding:120px 48px 50px;text-align:center;background:var(--ink);position:relative;overflow:hidden}
 .tagline h2{font-family:var(--serif-en);font-style:italic;font-weight:300;font-size:clamp(26px,4.2vw,58px);line-height:1.4;letter-spacing:-0.01em;color:var(--paper);max-width:1100px;margin:0 auto}
 .tagline h2 .accent{color:var(--gold)}
-.tagline .jp{font-family:var(--serif-jp);font-size:14px;color:var(--gold);letter-spacing:0.5em;margin-top:18px;font-weight:300}
+.tagline .jp{font-family:var(--serif-jp);font-size:14px;color:var(--gold);letter-spacing:0.28em;line-height:2;margin-top:22px;font-weight:300}
 
 /* CONTACT */
 .contact{padding:140px 48px;background:#06050B;border-top:1px solid var(--gold-soft)}
@@ -773,11 +805,12 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .hero-video-meta{
     display:flex;bottom:-36px;font-size:14px;letter-spacing:0.5em;text-indent:0.5em;
   }
-  /* コントロールはタッチ端末では常時表示・少しコンパクトに */
+  /* コントロールはタッチ端末では数秒で自動的に消える（動画タップで再表示） */
   .video-ctrl{
     left:12px;right:12px;bottom:10px;gap:8px;padding:7px 10px;
-    opacity:1;transform:none;
+    opacity:0;transform:translateY(6px);pointer-events:none;
   }
+  .video-ctrl.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
   .vc-btn{width:28px;height:28px}
   .vc-btn svg{width:14px;height:14px}
   .vc-time{font-size:9px;letter-spacing:0.08em}
@@ -886,6 +919,15 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .profile-awards li::before{font-size:13px}
   .profile-awards li span{grid-column:1/-1;font-size:9px;padding-left:26px;color:var(--gold);opacity:0.85}
   .awards-foot{font-size:10px;line-height:1.7}
+  .nhk-works{margin-top:28px;padding-top:22px}
+  .nhk-works-h{font-size:10px;letter-spacing:0.3em}
+  .nhk-works-sub{font-size:10px;margin-bottom:14px}
+  .nhk-list li{grid-template-columns:44px 1fr;gap:10px;padding:11px 0}
+  .nhk-year{font-size:15px}
+  .nhk-title{font-size:12.5px;line-height:1.55}
+  .nhk-meta{font-size:10px;line-height:1.65;margin-top:4px}
+  .nhk-tag{font-size:8px;padding:1px 6px;margin-left:5px}
+  .nhk-foot{font-size:10px;line-height:1.65}
   .profile-onair{padding:18px;margin-top:28px}
   .profile-onair-h{font-size:10px;letter-spacing:0.3em}
   .profile-onair-program{font-size:14px;line-height:1.55}
@@ -904,7 +946,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
 
   .tagline{padding:80px 20px}
   .tagline h2{font-size:34px;line-height:1.3}
-  .tagline .jp{font-size:11px;letter-spacing:0.3em;margin-top:20px}
+  .tagline .jp{font-size:12px;letter-spacing:0.18em;line-height:1.95;margin-top:20px}
 
   .contact-head{margin-bottom:48px}
   .contact-lead{font-size:13px;line-height:1.95}
@@ -960,6 +1002,10 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .profile-bio{font-size:12.5px;line-height:1.95}
   .profile-extra p,.profile-extra-h{font-size:12px}
   .profile-awards li{font-size:11.5px}
+  .nhk-list li{grid-template-columns:38px 1fr;gap:8px}
+  .nhk-year{font-size:14px}
+  .nhk-title{font-size:12px}
+  .nhk-meta{font-size:9.5px}
   .advisor{padding:28px 18px;gap:24px}
   .advisor-name{font-size:24px}
   .advisor-name-jp{font-size:18px}
@@ -968,7 +1014,7 @@ body > .float-cta-detached::after{content:'→';font-size:18px;display:inline-bl
   .advisor-tag{font-size:8px;padding:4px 8px}
   .tagline{padding:60px 18px}
   .tagline h2{font-size:26px;line-height:1.35}
-  .tagline .jp{font-size:10px;letter-spacing:0.2em}
+  .tagline .jp{font-size:11px;letter-spacing:0.12em;line-height:1.9}
   .message{padding:60px 18px}
   .message::before{font-size:96px;top:18px;left:18px}
   .message h2{font-size:20px;line-height:1.55;margin-bottom:24px}
@@ -1694,8 +1740,8 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
       </dl>
       <div class="profile-bio">
         <p>1997 年、東京生まれ。早稲田大学卒業。野中章弘ゼミでジャーナリズムを学ぶ。大学在学時より、ドキュメンタリーの制作をはじめる。</p>
-        <p>2019 年、初めてのドキュメンタリー『この“つながり”は切らせない 〜熊本地震・ある下宿の物語〜』を制作。取材、撮影、音楽など全てを 1 人で手がける。2020 年の卒業制作「ピアノが私にくれたもの」が、第 3 回ヤングリポーターコンペティションで毎日新聞社賞を受賞。東京ドキュメンタリー映画祭 2020 でも正式出品される。</p>
-        <p>2020 年、ディレクターとして NHK（日本放送協会）入局。初任地は熊本放送局。熊本では主にドキュメンタリー番組やスポーツ中継、情報番組などを担当。2022 年には「Dear にっぽん」で、学生時代に取材した下宿を再取材。同作『“学生さん”を待ち続けて』は全国放送され、現在もネットで配信されている。2024 年、初めて企画・演出をした、ラジオドラマ・FM シアター『風がやむまでは』を放送。以降、NHK ではドラマ制作に転じる。東京渋谷の放送センターに異動後、2025 年前期連続テレビ小説（朝ドラ）『あんぱん』の制作に携わる。</p>
+        <p>2019 年、初めてのドキュメンタリー『この“つながり”は切らせない 〜熊本地震・ある下宿の物語〜』を制作。取材、撮影、音楽など全てを 1 人で手がける。同年に制作した卒業制作『ピアノが私にくれたもの』は、2020 年、第 3 回ヤングリポーターコンペティションで毎日新聞社賞を受賞。東京ドキュメンタリー映画祭 2020 の正式上映作品にも選ばれる。</p>
+        <p>2020 年、ディレクターとして NHK（日本放送協会）入局。初任地は熊本放送局。熊本では主にドキュメンタリー番組やスポーツ中継、情報番組などを担当。2022 年には「Dear にっぽん」で、学生時代に取材した下宿を再取材。同作『“学生さん”を待ち続けて』は全国放送され、現在もネットで配信されている。2024 年、初めて企画・原案・演出を手がけたラジオドラマ・FM シアター『風がやむまでは』を放送。以降、NHK ではドラマ制作に転じる。東京渋谷の放送センターに異動後、2025 年前期連続テレビ小説（朝ドラ）『あんぱん』に助監督・リサーチとして参加。</p>
         <p>2025 年 9 月 30 日をもって NHK を退職し、独立。映像作家としての活動をスタートする。</p>
       </div>
       <div class="profile-extra">
@@ -1720,10 +1766,102 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
           ※短編ドキュメンタリー映画「A Man, A Hobby, A Whole Life」（Kolkata / NY Istanbul / Mannheim / Post-Cinema）
         </div>
       </div>
+      <div class="nhk-works">
+        <div class="nhk-works-h">NHK 時代の担当番組 ／ NHK&nbsp;WORKS</div>
+        <div class="nhk-works-sub">2020 - 2025 ／ 一部抜粋</div>
+        <ul class="nhk-list">
+          <li>
+            <span class="nhk-year">2025</span>
+            <div>
+              <span class="nhk-title">連続テレビ小説（朝ドラ）「あんぱん」<span class="nhk-tag">全国放送</span></span>
+              <span class="nhk-meta">NHK 総合｜助監督・リサーチ</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2024</span>
+            <div>
+              <span class="nhk-title">FM シアター「風がやむまでは」<span class="nhk-tag">全国放送</span></span>
+              <span class="nhk-meta">NHK-FM｜企画・原案・演出　※長編ラジオドラマ</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2024</span>
+            <div>
+              <span class="nhk-title">くまもとの風「令和 2 年 7 月豪雨 被災地からの声 ふたたび」</span>
+              <span class="nhk-meta">NHK 熊本｜企画・ディレクター　※中編ドキュメンタリー</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2023</span>
+            <div>
+              <span class="nhk-title">くまもとの風「よみがえる阿蘇の魂 〜楼門復旧への 7 年〜」</span>
+              <span class="nhk-meta">NHK 熊本｜ディレクター　※中編ドキュメンタリー</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2022</span>
+            <div>
+              <span class="nhk-title">Dear にっぽん「〝学生さん〟を待ち続けて」<span class="nhk-tag">全国放送</span></span>
+              <span class="nhk-meta">NHK 総合｜企画・ディレクター　※中編ドキュメンタリー／アンコール放送に選出</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2022</span>
+            <div>
+              <span class="nhk-title">あさイチ「みんなでシェア旅〝熊本〟天草・水俣のめぐみ」<span class="nhk-tag">全国放送</span></span>
+              <span class="nhk-meta">NHK 総合｜企画・ディレクター　※情報番組</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2022</span>
+            <div>
+              <span class="nhk-title">ロコだけが知っている<span class="nhk-tag">全国放送</span></span>
+              <span class="nhk-meta">NHK 総合｜企画・ディレクター　※バラエティ番組</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2021</span>
+            <div>
+              <span class="nhk-title">クマロク！「天草 離島の春 〜若者の別れと帰郷〜」</span>
+              <span class="nhk-meta">NHK 熊本｜企画・ディレクター・撮影・編集　※短編ドキュメンタリー</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2021</span>
+            <div>
+              <span class="nhk-title">クマロク！「〝青井さん〟の 2 日間 〜祈りの声に耳をすませば〜」</span>
+              <span class="nhk-meta">NHK 熊本｜企画・ディレクター・編集　※短編ドキュメンタリー</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2020</span>
+            <div>
+              <span class="nhk-title">クマロク！「ピアニスト・月足さおり 〜困難と向き合い〝新たな音色〟を〜」<span class="nhk-tag">受賞作</span></span>
+              <span class="nhk-meta">NHK 熊本｜企画・ディレクター・編集　※NHK 九州沖縄ブロック新人選奨 第 1 位</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2020</span>
+            <div>
+              <span class="nhk-title">クマロク！「令和 2 年 7 月豪雨 被災地からの声 〜人吉市〜」</span>
+              <span class="nhk-meta">NHK 熊本｜撮影・ディレクター・編集　※短編ドキュメンタリー 計 3 本を放送</span>
+            </div>
+          </li>
+          <li>
+            <span class="nhk-year">2020</span>
+            <div>
+              <span class="nhk-title">J3 サッカー中継「ロアッソ熊本 VS 藤枝 MYFC」</span>
+              <span class="nhk-meta">NHK 熊本｜ディレクター　※スポーツ中継</span>
+            </div>
+          </li>
+        </ul>
+        <div class="nhk-foot">※ ドキュメンタリー・情報番組・スポーツ中継・ラジオドラマ・連続テレビ小説と、ジャンルを横断して制作を担当してきました。</div>
+      </div>
+
       <div class="profile-onair">
         <div class="profile-onair-h">配信中の担当番組 ／ ON&nbsp;AIR</div>
         <div class="profile-onair-program">NHK ドキュメンタリー番組　Dear にっぽん『〝学生さん〟を待ち続けて』</div>
-        <div class="profile-onair-credit">ディレクター：佐々木 駿平　／　語り：吉岡 里帆</div>
+        <div class="profile-onair-credit">ディレクター：佐々木 駿平　／　語り：吉岡 里帆<br>NHK オンデマンド・Amazon Prime Video・U-NEXT にて配信中</div>
       </div>
     </div>
   </div>
@@ -1785,7 +1923,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     Everything springs <span class="accent">from creativity</span>—<br>
     and at its heart, there's always a <em>story.</em>
   </h2>
-  <p class="jp">全ては、「創造性」から生まれる</p>
+  <p class="jp">全ては、「創造性」から生まれる。<br>そしてその奥には、必ず〝物語〟がある。</p>
 </section>
 
 <!-- CONTACT セクションとフッターはB案により削除（Wix側で配置） -->
@@ -1925,9 +2063,40 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
           paintSeek();
         });
 
-        // タッチ端末ではホバーがないので常時表示
+        /* タッチ端末はホバーがないため、
+           ・読み込み直後に数秒だけ表示して操作できることを知らせる
+           ・その後は自動的に消える（動画に被り続けない）
+           ・動画をタップすると再表示／もう一度タップで消える
+           ・操作中はタイマーをリセットして消えないようにする */
         const coarse = window.matchMedia && window.matchMedia('(hover: none)').matches;
-        if (coarse) bar.classList.add('is-visible');
+        if (coarse) {
+          const HIDE_AFTER = 3500;
+          let hideTimer = null;
+          const showCtrl = () => {
+            bar.classList.add('is-visible');
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(() => bar.classList.remove('is-visible'), HIDE_AFTER);
+          };
+          const hideCtrl = () => {
+            clearTimeout(hideTimer);
+            bar.classList.remove('is-visible');
+          };
+          const box = v.parentElement || v;
+          box.addEventListener('click', (ev) => {
+            // コントロール自体の操作ならタイマーを延長するだけ
+            if (ev.target && ev.target.closest && ev.target.closest('.video-ctrl')) {
+              showCtrl();
+              return;
+            }
+            if (bar.classList.contains('is-visible')) { hideCtrl(); } else { showCtrl(); }
+          });
+          // シーク操作中も消えないように
+          if (seek) {
+            seek.addEventListener('input', showCtrl);
+            seek.addEventListener('touchstart', showCtrl, { passive: true });
+          }
+          showCtrl();   // 初回のみ数秒表示
+        }
 
         paintSeek();
       } catch (e) { /* noop */ }

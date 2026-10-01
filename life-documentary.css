@@ -69,6 +69,7 @@ body.fc-life-preview{margin:0;background:#f8f5ee}
 #fc-life-documentary .life-price-intro{padding:32px 0;margin:35px 0;border-block:1px solid var(--life-line)}
 #fc-life-documentary .life-price-intro .life-kicker{font-size:13px;letter-spacing:.15em}
 #fc-life-documentary .life-price-display{font-size:32px;line-height:1.75;margin-bottom:16px}
+#fc-life-documentary .life-price-tax{font-size:15px;white-space:nowrap;margin-left:.35em}
 #fc-life-documentary .life-price-intro p:last-child{font-size:14px;color:var(--life-muted);max-width:660px}
 #fc-life-documentary .life-small-heading{margin-bottom:16px}
 #fc-life-documentary .life-inclusions{margin-bottom:28px}

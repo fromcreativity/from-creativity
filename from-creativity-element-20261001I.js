@@ -1589,6 +1589,27 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
 .fc-app .life-price-guidance{font-size:14px}
 }
 
+/* 個人・家族向けサービスを上部メニューから案内。Englishの既存配置を維持。 */
+from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family{
+  color:var(--gold);background:rgba(194,160,109,.09);border-color:rgba(194,160,109,.65);
+  font-family:var(--serif-jp);font-size:13px;letter-spacing:.06em;white-space:nowrap;
+}
+from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family:hover{
+  background:rgba(194,160,109,.18);border-color:var(--gold);color:var(--paper);
+}
+from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family:focus-visible{
+  outline:2px solid var(--gold);outline-offset:4px;
+}
+@media(min-width:769px){
+  from-creativity-page-v4 .fc-app nav.top #navMenu{gap:8px!important}
+  from-creativity-page-v4 .fc-app nav.top #navMenu a:not(.nav-page){padding-left:8px;padding-right:8px;letter-spacing:.16em}
+  from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family{padding:10px 14px}
+}
+@media(max-width:768px){
+  from-creativity-page-v4 .fc-app nav.top #navMenu{width:100%;margin:0;justify-self:stretch}
+  from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family{font-size:15px;min-height:44px;padding:12px 14px}
+}
+
 </style>`;
   const HTML = `
 <main class="fc-app">
@@ -1613,6 +1634,7 @@ from-creativity-page-v4{display:block !important;margin:0 !important;padding:0 !
     <li><a href="#about">Profile</a></li>
     <li><a href="#message">Message</a></li>
     <li class="nav-div" aria-hidden="true"></li>
+    <li><a href="https://www.from-creativity.com/life-documentary" target="_top" class="nav-page nav-family">個人・家族向け</a></li>
     <li><a href="https://www.from-creativity.com/contact" target="_top" class="nav-page nav-contact">Contact</a></li>
   </ul>
 </nav>

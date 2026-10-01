@@ -32,7 +32,7 @@
           </div>
           <div class="life-hero-copy">
             <p class="life-intro">声、表情、しぐさ。<br>いつもの暮らし。<br>大切な人との会話。</p>
-            <p>ご本人にお会いし、<br>今の姿を、一本のドキュメンタリーにします。</p>
+            <p>終活や自分史の一環として。<br>ご本人にお会いし、<br>今の姿を、一本のドキュメンタリーにします。</p>
             <p>ご自身の「残したい」に。<br>ご家族・ご親類の「残しておきたい」に。</p>
             <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
           </div>

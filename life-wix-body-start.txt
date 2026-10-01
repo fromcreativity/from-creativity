@@ -1,7 +1,7 @@
 <!-- Home/Contact等には適用しない。新しい専用ページだけ、Body-startに配置。 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Noto+Sans+JP:wght@400;500&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@f7be73cfac90ab8c4b98d12b32b9bc8fc9114ebb/life-documentary.css">
-<style id="fc-life-static-style">#SITE_CONTAINER{display:none!important}html,body{margin:0;background:#f8f5ee!important}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@944c647910039881f33641f065159f9b5fc6f249/life-documentary.css">
+<style id="fc-life-static-style">#SITE_CONTAINER{display:none!important}html,body{margin:0;background:#0A0907!important}</style>
 
 <div id="fc-life-documentary">
   <a class="life-skip" href="#life-main">本文へ移動</a>
@@ -37,7 +37,7 @@
             <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
           </div>
         </div>
-        <p class="life-context">病気や年齢などをきっかけに、これからの別れを現実のこととして考えているご本人・ご家族からのご相談を受け付けます。病名、余命、年齢、終末期であることは、利用の条件ではありません。</p>
+        <p class="life-context">病気や年齢などをきっかけに、これからの別れを現実のこととして考えているご本人・ご家族からのご相談を受け付けます。<br>病名、余命、年齢、終末期であることは、利用の条件ではありません。</p>
       </div>
     </section>
 
@@ -73,10 +73,10 @@
           <p>佐々木駿平が人物をどのように取材し、撮影し、編集するのか。その作風の参考としてご覧ください。</p>
           <p class="life-film-note" id="life-film-note">この作品は、本サービスで制作した事例ではありません。佐々木駿平による人物の取材・撮影・編集の参考として掲載しています。</p>
           <figure class="life-film">
-            <div class="life-video-frame" data-life-video="xtZviIie2w0" aria-describedby="life-film-note">
-              <iframe src="https://www.youtube-nocookie.com/embed/xtZviIie2w0?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1" title="代表作品『澄江の空』 YouTube動画プレーヤー" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="life-video-frame" data-life-video="zyBz4ht45mo" aria-describedby="life-film-note">
+              <iframe src="https://www.youtube-nocookie.com/embed/zyBz4ht45mo?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1" title="代表作品『澄江の空』 YouTube動画プレーヤー" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-            <figcaption><span>2026年 ／ 約11分 ／ 東京・青梅</span><a href="https://youtu.be/xtZviIie2w0" target="_blank" rel="noopener noreferrer">YouTubeで見る<span class="life-sr-only">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a></figcaption>
+            <figcaption><span>2026年 ／ 約11分 ／ 東京・青梅</span><a href="https://youtu.be/zyBz4ht45mo" target="_blank" rel="noopener noreferrer">YouTubeで見る<span class="life-sr-only">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a></figcaption>
           </figure>
         </div>
       </div>
@@ -116,13 +116,7 @@
             <div><dt>撮る・作品にする</dt><dd>撮影、構成、編集</dd></div>
             <div><dt>確認する・届ける</dt><dd>必要な内容確認、納品</dd></div>
           </dl>
-          <p>完成尺は、残したい場面や作品内容に合わせてご相談します。撮影・編集の範囲と完成尺の考え方を事前に確認し、無制限の撮影・編集を前提にはしません。</p>
-          <p class="life-conditions">撮影回数・時間、分割訪問、交通費、修正回数、納期、物理媒体、追加撮影、キャンセル・返金、撮影継続が難しくなった場合の扱いは、現在検討中です。お申し込み前に、見積もりと制作条件をご確認いただく形を整えます。</p>
-          <div class="life-comparison">
-            <h3>既存の1日密着ドキュメンタリーについて</h3>
-            <p>既存の「1日密着ドキュメンタリー」は、399,800円（税込）で継続します。本サービスとの具体的な違いは、顔合わせ・事前取材・撮影方法・ご家族との調整など、実際に含める制作内容を確認した上でご案内します。</p>
-            <a class="life-text-link" href="https://www.from-creativity.com/#service">既存の制作内容を見る<span aria-hidden="true">→</span></a>
-          </div>
+          <p>完成尺は、残したい場面や作品内容に合わせてご相談します。</p>
         </div>
       </div>
     </section>
@@ -142,7 +136,6 @@
             <li><h3>必要な内容確認</h3><p>公開範囲を含め、事前に決めた方法で必要な内容を確認します。</p></li>
             <li><h3>納品</h3><p>確認した納品方法で、完成した作品をお届けします。</p></li>
           </ol>
-          <p class="life-conditions">複数のご家族・ご親類による連名のご依頼も、対応方法を検討しています。連絡を取りまとめる代表窓口を含め、ご相談の際に確認します。</p>
         </div>
       </div>
     </section>
@@ -164,7 +157,6 @@
           <div class="life-publication">
             <h3>公開する作品について</h3>
             <p>同意をいただいた作品は、これから制作を考える方に作風を知っていただく作品例として、公式YouTubeに掲載します。年月を経て、その時代の言葉、暮らし、仕事、価値観、家族との関わりを伝える人物記録として蓄積していくことも目指します。</p>
-            <p>永久保存、将来の利用や原作化・映画化、AI学習の完全な防止をお約束するものではありません。</p>
           </div>
         </div>
       </div>

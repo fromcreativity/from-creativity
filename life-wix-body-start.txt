@@ -1,0 +1,416 @@
+<!-- Home/Contact等には適用しない。新しい専用ページだけ、Body-startに配置。 -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Noto+Sans+JP:wght@400;500&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
+<style id="fc-life-static-style">
+#SITE_CONTAINER{display:none!important}
+html,body{margin:0;background:#f8f5ee!important}
+/* Existing brand: Shippori Mincho, warm paper, ink, restrained gold. Scoped for Wix reuse. */
+body.fc-life-preview{margin:0;background:#f8f5ee}
+#fc-life-documentary{--life-paper:#f8f5ee;--life-ink:#24231e;--life-muted:#615d53;--life-gold:#887046;--life-line:#d4c9b6;--life-tint:#f0ebe1;--life-serif:'Shippori Mincho B1','Noto Serif JP','Yu Mincho',serif;--life-sans:'Noto Sans JP',system-ui,sans-serif;background:var(--life-paper);color:var(--life-ink);font-family:var(--life-serif);font-size:16px;line-height:2;letter-spacing:.045em;overflow-wrap:break-word;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#fc-life-documentary *,#fc-life-documentary *::before,#fc-life-documentary *::after{box-sizing:border-box}
+#fc-life-documentary :is(h1,h2,h3,p,ul,ol,dl,dd,figure){margin:0}
+#fc-life-documentary a{color:inherit;text-decoration:none}
+#fc-life-documentary a:hover{color:var(--life-gold)}
+#fc-life-documentary a:focus-visible,#fc-life-documentary summary:focus-visible{outline:2px solid var(--life-gold);outline-offset:5px}
+#fc-life-documentary img{display:block;max-width:100%;height:auto}
+#fc-life-documentary :is(section,main){scroll-margin-top:28px}
+#fc-life-documentary .life-wrap{width:min(1120px,calc(100% - 96px));margin-inline:auto}
+#fc-life-documentary .life-skip{position:absolute;left:16px;top:-100px;background:var(--life-ink);color:white;padding:10px 16px;z-index:10}
+#fc-life-documentary .life-skip:focus{top:12px}
+#fc-life-documentary .life-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#fc-life-documentary .life-header{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:100px;padding:20px 48px;border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-brand{display:inline-flex;align-items:center;gap:13px;flex:none}
+#fc-life-documentary .life-brand svg{width:22px;height:41px;color:var(--life-ink)}
+#fc-life-documentary .life-brand-name{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:29px;font-weight:600;line-height:1.05;letter-spacing:.055em}
+#fc-life-documentary .life-brand-owner{display:block;color:var(--life-gold);font-size:11px;letter-spacing:.24em;line-height:1.5;margin-top:6px}
+#fc-life-documentary .life-header-links{display:flex;align-items:center;gap:28px;font-size:13px}
+#fc-life-documentary .life-home-link{font-family:Georgia,serif;font-size:15px}
+#fc-life-documentary .life-header-contact{display:inline-flex;align-items:center;min-height:44px;border:1px solid var(--life-line);padding:6px 23px}
+#fc-life-documentary .life-hero{padding:86px 0 60px;background:linear-gradient(120deg,#f8f5ee 48%,#ede6d9)}
+#fc-life-documentary .life-eyebrow{font-size:13px;color:var(--life-gold);letter-spacing:.15em}
+#fc-life-documentary .life-hero-grid{display:grid;grid-template-columns:1.32fr 1fr;gap:88px;align-items:end;margin-top:28px}
+#fc-life-documentary h1{font-size:clamp(40px,4.65vw,64px);line-height:1.42;letter-spacing:.04em;font-weight:400}
+#fc-life-documentary h1 span{display:block}
+#fc-life-documentary h1 .life-hero-first{font-size:clamp(21px,2.2vw,28px);line-height:1.65;margin-bottom:28px;color:var(--life-muted);letter-spacing:.07em}
+#fc-life-documentary .life-service-name{color:var(--life-gold);margin-top:32px;font-size:15px;letter-spacing:.07em}
+#fc-life-documentary .life-hero-copy{padding-bottom:4px}
+#fc-life-documentary .life-hero-copy p{margin-bottom:20px;font-size:16px;line-height:2.05}
+#fc-life-documentary .life-hero-copy .life-intro{font-size:19px;line-height:2.05;margin-bottom:23px}
+#fc-life-documentary .life-button{display:inline-flex;align-items:center;justify-content:space-between;gap:40px;min-height:58px;min-width:232px;padding:13px 23px;background:var(--life-ink);color:var(--life-paper);font-size:15px;line-height:1.8;border:1px solid var(--life-ink)}
+#fc-life-documentary .life-button:hover{background:#4a3b25;color:var(--life-paper);border-color:#4a3b25}
+#fc-life-documentary .life-button span{font-family:var(--life-sans);font-size:19px;font-weight:400}
+#fc-life-documentary .life-hero-copy .life-button{margin-top:10px}
+#fc-life-documentary .life-context{max-width:880px;padding-top:26px;margin-top:54px;border-top:1px solid var(--life-line);color:var(--life-muted);font-size:14px;line-height:2}
+#fc-life-documentary .life-page-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 48px;padding-block:26px;border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-page-nav a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:var(--life-muted)}
+#fc-life-documentary .life-section{padding:104px 0;border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-section-tint{background:var(--life-tint)}
+#fc-life-documentary .life-editorial{display:grid;grid-template-columns:180px minmax(0,1fr);gap:60px}
+#fc-life-documentary .life-section-label{padding-top:7px;font-size:13px;color:var(--life-gold)}
+#fc-life-documentary .life-section-label span{display:block;font-family:Georgia,serif;font-size:15px;margin-bottom:9px}
+#fc-life-documentary .life-section-label p{padding-top:12px;border-top:1px solid var(--life-line)}
+#fc-life-documentary .life-section-body h2{font-size:clamp(30px,3.2vw,42px);font-weight:400;line-height:1.6;letter-spacing:.055em;margin-bottom:32px}
+#fc-life-documentary .life-section-body>p{margin-bottom:24px}
+#fc-life-documentary .life-section-body>p:last-child{margin-bottom:0}
+#fc-life-documentary .life-section-body h3{font-size:19px;font-weight:400;line-height:1.85}
+#fc-life-documentary .life-reassurance{border-left:2px solid var(--life-line);margin-top:38px;padding-left:26px}
+#fc-life-documentary .life-reassurance h3{margin-bottom:13px}
+#fc-life-documentary .life-reassurance p{color:var(--life-muted);font-size:15px}
+#fc-life-documentary #life-film-title{margin-bottom:10px}
+#fc-life-documentary .life-film-subtitle{font-size:20px;line-height:1.8}
+#fc-life-documentary .life-film-note{font-size:14px;color:var(--life-muted);border-left:2px solid var(--life-line);padding-left:18px}
+#fc-life-documentary .life-film{margin-top:34px}
+#fc-life-documentary .life-video-frame{position:relative;aspect-ratio:16/9;width:100%;background:#161512}
+#fc-life-documentary .life-video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#fc-life-documentary .life-film figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;margin-top:16px;font-size:12px;font-family:var(--life-sans);letter-spacing:.025em;color:var(--life-muted)}
+#fc-life-documentary .life-film figcaption a{display:inline-flex;gap:14px;align-items:center;min-height:44px;border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-director-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.25fr);gap:42px;align-items:start}
+#fc-life-documentary .life-portrait img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center}
+#fc-life-documentary .life-portrait figcaption{font-family:'Cormorant Garamond',Georgia,serif;color:var(--life-gold);font-size:21px;line-height:1.7;margin-top:8px;letter-spacing:.08em}
+#fc-life-documentary .life-kicker{font-size:12px;line-height:1.9;color:var(--life-gold);margin-bottom:10px}
+#fc-life-documentary .life-director-copy h2{font-size:32px;margin-bottom:20px}
+#fc-life-documentary .life-director-copy>p{font-size:15px;line-height:2;margin-bottom:20px}
+#fc-life-documentary .life-director-copy .life-base{font-size:13px;color:var(--life-muted)}
+#fc-life-documentary .life-text-link{display:inline-flex;align-items:center;gap:20px;min-height:44px;border-bottom:1px solid var(--life-line);color:var(--life-gold);font-size:14px}
+#fc-life-documentary .life-price-intro{padding:32px 0;margin:35px 0;border-block:1px solid var(--life-line)}
+#fc-life-documentary .life-price-intro .life-kicker{font-size:13px;letter-spacing:.15em}
+#fc-life-documentary .life-price-display{font-size:32px;line-height:1.75;margin-bottom:16px}
+#fc-life-documentary .life-price-intro p:last-child{font-size:14px;color:var(--life-muted);max-width:660px}
+#fc-life-documentary .life-small-heading{margin-bottom:16px}
+#fc-life-documentary .life-inclusions{margin-bottom:28px}
+#fc-life-documentary .life-inclusions>div{display:grid;grid-template-columns:180px minmax(0,1fr);gap:20px;padding:19px 0;border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-inclusions dt{font-size:15px;color:var(--life-gold)}
+#fc-life-documentary .life-inclusions dd{font-size:15px;line-height:2}
+#fc-life-documentary .life-conditions{font-size:14px;color:var(--life-muted);line-height:2}
+#fc-life-documentary .life-comparison{border-left:2px solid var(--life-line);margin-top:34px;padding:0 0 0 24px}
+#fc-life-documentary .life-comparison h3{font-size:17px;margin-bottom:12px}
+#fc-life-documentary .life-comparison p{font-size:14px;color:var(--life-muted);margin-bottom:12px}
+#fc-life-documentary .life-process-list{list-style:none;counter-reset:life-step;margin:32px 0;padding:0}
+#fc-life-documentary .life-process-list li{position:relative;counter-increment:life-step;padding:22px 0 24px 54px;border-top:1px solid var(--life-line)}
+#fc-life-documentary .life-process-list li:last-child{border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-process-list li::before{content:counter(life-step);position:absolute;left:0;top:24px;color:var(--life-gold);font-family:Georgia,serif;font-size:23px;line-height:1.5}
+#fc-life-documentary .life-process-list h3{font-size:18px;margin-bottom:7px}
+#fc-life-documentary .life-process-list p{font-size:15px;color:var(--life-muted)}
+#fc-life-documentary .life-faq-list{margin:30px 0 40px;border-top:1px solid var(--life-line)}
+#fc-life-documentary .life-faq-list details{border-bottom:1px solid var(--life-line)}
+#fc-life-documentary .life-faq-list summary{cursor:pointer;padding:23px 40px 23px 0;position:relative;list-style:none;font-size:17px;line-height:1.9}
+#fc-life-documentary .life-faq-list summary::-webkit-details-marker{display:none}
+#fc-life-documentary .life-faq-list summary::after{content:'+';position:absolute;right:5px;top:23px;font-family:var(--life-sans);font-size:22px;color:var(--life-gold)}
+#fc-life-documentary .life-faq-list details[open] summary::after{content:'−'}
+#fc-life-documentary .life-faq-list details>div{padding:0 36px 23px 0;color:var(--life-muted);font-size:15px;line-height:2.05}
+#fc-life-documentary .life-publication{border-left:2px solid var(--life-line);padding-left:24px}
+#fc-life-documentary .life-publication h3{margin-bottom:14px}
+#fc-life-documentary .life-publication p{font-size:15px;color:var(--life-muted);margin-bottom:16px}
+#fc-life-documentary .life-publication p:last-child{margin-bottom:0;font-size:13px}
+#fc-life-documentary .life-contact{padding:108px 0 112px;text-align:center;background:var(--life-paper)}
+#fc-life-documentary .life-contact h2{font-size:clamp(34px,3.8vw,48px);font-weight:400;line-height:1.6;margin:25px 0 30px}
+#fc-life-documentary .life-contact>.life-wrap>p:not(.life-eyebrow):not(.life-contact-note){max-width:690px;margin:0 auto 30px;line-height:2.1}
+#fc-life-documentary .life-contact .life-contact-note{font-size:12px;color:var(--life-muted);margin-top:14px}
+#fc-life-documentary .life-footer{padding:32px 0;background:#e8e1d4;border-top:1px solid var(--life-line)}
+#fc-life-documentary .life-footer nav{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 28px;font-size:12px}
+#fc-life-documentary .life-footer nav a{display:inline-flex;align-items:center;min-height:44px}
+#fc-life-documentary .life-footer p{font-size:11px;margin-top:22px;color:var(--life-muted)}
+#fc-life-documentary .life-mobile-break{display:none}
+@media(max-width:1000px){
+  #fc-life-documentary .life-wrap{width:calc(100% - 64px)}
+  #fc-life-documentary .life-header{padding-inline:32px}
+  #fc-life-documentary .life-hero-grid{gap:40px;grid-template-columns:1.15fr 1fr}
+  #fc-life-documentary .life-editorial{grid-template-columns:150px minmax(0,1fr);gap:36px}
+  #fc-life-documentary .life-director-grid{grid-template-columns:1fr;gap:26px}
+  #fc-life-documentary .life-portrait{max-width:360px}
+}
+@media(max-width:700px){
+  #fc-life-documentary{font-size:15px;line-height:2;letter-spacing:.025em}
+  #fc-life-documentary .life-wrap{width:calc(100% - 40px)}
+  #fc-life-documentary .life-header{min-height:82px;padding:17px 20px;gap:10px}
+  #fc-life-documentary .life-brand{gap:10px}
+  #fc-life-documentary .life-brand svg{width:19px;height:36px}
+  #fc-life-documentary .life-brand-name{font-size:24px;letter-spacing:.04em}
+  #fc-life-documentary .life-brand-owner{font-size:10px;margin-top:4px}
+  #fc-life-documentary .life-header-links{gap:12px;font-size:12px}
+  #fc-life-documentary .life-home-link{display:none}
+  #fc-life-documentary .life-header-contact{padding:6px 14px}
+  #fc-life-documentary .life-hero{padding:43px 0 36px;background:linear-gradient(140deg,#f8f5ee 30%,#eee7da)}
+  #fc-life-documentary .life-eyebrow{font-size:11px;letter-spacing:.09em}
+  #fc-life-documentary .life-hero-grid{grid-template-columns:1fr;gap:27px;margin-top:23px}
+  #fc-life-documentary h1{font-size:clamp(30px,9.2vw,42px);line-height:1.45;letter-spacing:.025em}
+  #fc-life-documentary h1 .life-hero-first{font-size:20px;margin-bottom:20px;letter-spacing:.04em}
+  #fc-life-documentary .life-service-name{font-size:12px;margin-top:21px}
+  #fc-life-documentary .life-hero-copy p{font-size:14px;line-height:1.95;margin-bottom:15px}
+  #fc-life-documentary .life-hero-copy .life-intro{font-size:16px;margin-bottom:17px;line-height:1.95}
+  #fc-life-documentary .life-hero-copy .life-button{margin-top:5px}
+  #fc-life-documentary .life-button{font-size:14px;min-height:55px;min-width:230px}
+  #fc-life-documentary .life-context{font-size:12px;line-height:2;margin-top:34px;padding-top:23px}
+  #fc-life-documentary .life-page-nav{justify-content:space-between;gap:0 14px;padding-block:18px}
+  #fc-life-documentary .life-page-nav a{font-size:11px}
+  #fc-life-documentary .life-section{padding:62px 0}
+  #fc-life-documentary .life-editorial{grid-template-columns:1fr;gap:25px}
+  #fc-life-documentary .life-section-label{display:flex;align-items:center;gap:18px;padding:0;font-size:12px}
+  #fc-life-documentary .life-section-label span{margin:0;font-size:13px}
+  #fc-life-documentary .life-section-label p{border:0;padding:0}
+  #fc-life-documentary .life-section-body h2{font-size:29px;line-height:1.6;margin-bottom:25px;letter-spacing:.035em}
+  #fc-life-documentary .life-section-body>p{margin-bottom:21px}
+  #fc-life-documentary .life-reassurance{margin-top:28px;padding-left:18px}
+  #fc-life-documentary .life-reassurance h3{font-size:18px}
+  #fc-life-documentary .life-reassurance p{font-size:14px}
+  #fc-life-documentary .life-film-subtitle{font-size:17px}
+  #fc-life-documentary .life-film-note{font-size:12px;padding-left:15px;line-height:2}
+  #fc-life-documentary .life-film{margin-top:26px}
+  #fc-life-documentary .life-film figcaption{gap:4px;font-size:11px}
+  #fc-life-documentary .life-film figcaption>span{width:100%}
+  #fc-life-documentary .life-director-grid{grid-template-columns:1fr;gap:28px}
+  #fc-life-documentary .life-portrait{width:min(280px,100%);margin-inline:auto}
+  #fc-life-documentary .life-portrait figcaption{font-size:19px}
+  #fc-life-documentary .life-director-copy h2{font-size:29px}
+  #fc-life-documentary .life-director-copy>p{font-size:14px}
+  #fc-life-documentary .life-director-copy .life-base{font-size:12px}
+  #fc-life-documentary .life-text-link{font-size:13px;gap:15px}
+  #fc-life-documentary .life-price-intro{padding:25px 0;margin:30px 0}
+  #fc-life-documentary .life-price-display{font-size:28px;line-height:1.65}
+  #fc-life-documentary .life-price-intro p:last-child{font-size:13px}
+  #fc-life-documentary .life-small-heading{font-size:17px!important}
+  #fc-life-documentary .life-inclusions>div{grid-template-columns:1fr;gap:7px;padding:18px 0}
+  #fc-life-documentary .life-inclusions :is(dt,dd){font-size:14px}
+  #fc-life-documentary .life-conditions{font-size:12px}
+  #fc-life-documentary .life-comparison{padding-left:18px}
+  #fc-life-documentary .life-comparison h3{font-size:16px}
+  #fc-life-documentary .life-comparison p{font-size:13px}
+  #fc-life-documentary .life-process-list li{padding:20px 0 22px 38px}
+  #fc-life-documentary .life-process-list li::before{top:22px;font-size:20px}
+  #fc-life-documentary .life-process-list h3{font-size:17px}
+  #fc-life-documentary .life-process-list p{font-size:14px}
+  #fc-life-documentary .life-faq-list summary{padding:21px 31px 21px 0;font-size:15px;line-height:1.85}
+  #fc-life-documentary .life-faq-list summary::after{right:2px;top:21px;font-size:20px}
+  #fc-life-documentary .life-faq-list details>div{font-size:14px;padding:0 14px 22px 0}
+  #fc-life-documentary .life-publication{padding-left:18px}
+  #fc-life-documentary .life-publication h3{font-size:17px}
+  #fc-life-documentary .life-publication p{font-size:14px}
+  #fc-life-documentary .life-publication p:last-child{font-size:12px}
+  #fc-life-documentary .life-contact{padding:70px 0 72px}
+  #fc-life-documentary .life-contact h2{font-size:30px;margin:24px 0}
+  #fc-life-documentary .life-contact>.life-wrap>p:not(.life-eyebrow):not(.life-contact-note){font-size:14px;text-align:left;line-height:2;margin-bottom:26px}
+  #fc-life-documentary .life-desktop-break{display:none}
+  #fc-life-documentary .life-footer{padding:28px 0}
+  #fc-life-documentary .life-footer nav{display:grid;grid-template-columns:1fr;gap:1px;font-size:12px}
+  #fc-life-documentary .life-footer p{font-size:10px;margin-top:17px}
+}
+@media(max-width:360px){
+  #fc-life-documentary .life-wrap{width:calc(100% - 36px)}
+  #fc-life-documentary .life-header{padding-inline:18px}
+  #fc-life-documentary .life-brand-name{font-size:21px}
+  #fc-life-documentary .life-header-contact{padding-inline:11px;font-size:11px}
+  #fc-life-documentary .life-page-nav{gap:0 11px}
+  #fc-life-documentary .life-page-nav a{font-size:10px}
+  #fc-life-documentary .life-section-body h2{font-size:25px}
+  #fc-life-documentary .life-mobile-break{display:block}
+}
+@media(prefers-reduced-motion:reduce){#fc-life-documentary{scroll-behavior:auto}}
+
+</style>
+
+<div id="fc-life-documentary">
+  <a class="life-skip" href="#life-main">本文へ移動</a>
+  <header class="life-header">
+    <a class="life-brand" href="https://www.from-creativity.com/" aria-label="From Creativity トップページへ">
+      <svg viewBox="0 0 222 412" preserveAspectRatio="xMidYMid meet" fill="currentColor" aria-hidden="true">
+        <g transform="translate(-107 -306)">
+          <path fill-rule="evenodd" d="M108.5 306H328Q329 306 329 307V638Q329 639.5 327.7 638.9C276.9 625.39 241.56 583.8 223.5 533.6Q223.3 533 222.5 533H213.5Q212.7 533 212.5 533.6C194.44 583.8 159.09 625.39 108.3 638.9Q107.5 639.1 107.5 638V307Q107.5 306 108.5 306ZM137 334.5H167Q172.5 334.5 172.5 340V370Q172.5 375.5 167 375.5H137Q131.5 375.5 131.5 370V340Q131.5 334.5 137 334.5ZM137 404.5H167Q172.5 404.5 172.5 410V439Q172.5 444.5 167 444.5H137Q131.5 444.5 131.5 439V410Q131.5 404.5 137 404.5ZM137 474.5H167Q172.5 474.5 172.5 480V511Q172.5 516.5 167 516.5H137Q131.5 516.5 131.5 511V480Q131.5 474.5 137 474.5Z"/>
+          <path d="M217.5 622.5C227.5 622.5 235.5 630.7 235.5 641V645.5C235.5 650 225.5 663.2 225.5 670.5V699.5C225.5 706 226.6 712 228.5 717.5H207C209.5 709.5 210 703.6 210 699.5L209.9 675C209.9 668.5 209.5 665.7 206.4 660C203.8 655 199.5 648.5 199.5 645.5V641C199.5 630.7 207.5 622.5 217.5 622.5Z"/>
+        </g>
+      </svg>
+      <span><span class="life-brand-name">From Creativity</span><span class="life-brand-owner">佐々木駿平</span></span>
+    </a>
+    <nav class="life-header-links" aria-label="ページのご案内">
+      <a href="https://www.from-creativity.com/" class="life-home-link">Home</a>
+      <a href="https://www.from-creativity.com/contact" class="life-header-contact">相談する</a>
+    </nav>
+  </header>
+
+  <main id="life-main">
+    <section class="life-hero" aria-labelledby="life-title">
+      <div class="life-wrap">
+        <p class="life-eyebrow">ご本人・ご家族・ご親類の方へ</p>
+        <div class="life-hero-grid">
+          <div class="life-hero-heading">
+            <h1 id="life-title"><span class="life-hero-first">誰にでも訪れる死別。</span><span>その人の、</span><span>いまの言葉と</span><span>生き姿を残す。</span></h1>
+            <p class="life-service-name">生き姿を残すドキュメンタリー</p>
+          </div>
+          <div class="life-hero-copy">
+            <p class="life-intro">声、表情、しぐさ。<br>いつもの暮らし。<br>大切な人との会話。</p>
+            <p>ご本人にお会いし、<br>今の姿を、一本のドキュメンタリーにします。</p>
+            <p>ご自身の「残したい」に。<br>ご家族・ご親類の「残しておきたい」に。</p>
+            <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <p class="life-context">病気や年齢などをきっかけに、これからの別れを現実のこととして考えているご本人・ご家族からのご相談を受け付けます。病名、余命、年齢、終末期であることは、利用の条件ではありません。</p>
+      </div>
+    </section>
+
+    <nav class="life-page-nav life-wrap" aria-label="このページの内容">
+      <a href="#life-record">残すもの</a>
+      <a href="#life-film">代表作品</a>
+      <a href="#life-price">制作・料金</a>
+      <a href="#life-faq">よくある質問</a>
+    </nav>
+
+    <section class="life-section" id="life-record" aria-labelledby="life-record-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>01</span><p>何を残すのか</p></div>
+        <div class="life-section-body">
+          <h2 id="life-record-title">今、生きている<br>その人に、会う。</h2>
+          <p>ご本人自身の言葉、声や話し方、表情、ふとしたしぐさ。仕事や趣味、いつもの暮らし、大切なものや場所、家族や大切な人との会話。インタビューだけでなく、日常の時間をともにする中で、その人らしい姿を撮影します。</p>
+          <p>過去についてもお聞きします。大切にするのは、その出来事を今のご本人がどう覚え、どう語るか。昔の写真を使うときも、写真を見る表情や、思い出を語る現在の姿を記録します。</p>
+          <p>自分史や終活、家族の記録を考えている方にも、人生年表や写真のスライドショーだけでは伝わらない、今の言葉と生き姿を残す方法としてご相談いただけます。</p>
+          <div class="life-reassurance">
+            <h3>特別な経歴は、必要ありません。</h3>
+            <p>特別な経歴、成功体験、感動的な人生、大量の写真は必要ありません。家族全員に出演していただく必要もありません。うまく話せるか心配な方も、まずはご相談ください。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section life-section-tint" id="life-film" aria-labelledby="life-film-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>02</span><p>代表作品</p></div>
+        <div class="life-section-body">
+          <h2 id="life-film-title">『澄江の空』</h2>
+          <p class="life-film-subtitle">86歳の傘屋、雨が降らない街で。</p>
+          <p>佐々木駿平が人物をどのように取材し、撮影し、編集するのか。その作風の参考としてご覧ください。</p>
+          <p class="life-film-note" id="life-film-note">この作品は、本サービスで制作した事例ではありません。佐々木駿平による人物の取材・撮影・編集の参考として掲載しています。</p>
+          <figure class="life-film">
+            <div class="life-video-frame" data-life-video="xtZviIie2w0" aria-describedby="life-film-note">
+              <iframe src="https://www.youtube-nocookie.com/embed/xtZviIie2w0?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1" title="代表作品『澄江の空』 YouTube動画プレーヤー" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption><span>2026年 ／ 約11分 ／ 東京・青梅</span><a href="https://youtu.be/xtZviIie2w0" target="_blank" rel="noopener noreferrer">YouTubeで見る<span class="life-sr-only">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section" id="life-director" aria-labelledby="life-director-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>03</span><p>誰が制作するのか</p></div>
+        <div class="life-section-body life-director-grid">
+          <figure class="life-portrait"><img src="https://static.wixstatic.com/media/0a9631_39241bb073ef4ea7860c6a02c262e235~mv2.jpg" alt="From Creativity代表・佐々木駿平。阿蘇の草原でカメラを構える" width="720" height="960" loading="lazy" decoding="async"><figcaption>Shumpei Sasaki</figcaption></figure>
+          <div class="life-director-copy">
+            <p class="life-kicker">映像作家 ／ From Creativity代表</p>
+            <h2 id="life-director-title">佐々木駿平</h2>
+            <p>取材・撮影・編集を、佐々木駿平が担当します。NHKでの番組制作を経て、現在は人物ドキュメンタリーを中心に制作しています。</p>
+            <p>最初から人生の結論を決めたり、感動する言葉を求めたりするのではなく、ご本人の話を聞き、日常の中からその人らしい姿を見つけていきます。</p>
+            <p class="life-base">東京都羽村市（西多摩エリア）を拠点に、首都圏を中心に全国からのご相談を受け付けています。</p>
+            <a class="life-text-link" href="https://www.from-creativity.com/#about">プロフィール・担当作品を見る<span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section life-section-tint" id="life-price" aria-labelledby="life-price-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>04</span><p>制作内容・料金</p></div>
+        <div class="life-section-body">
+          <h2 id="life-price-title">会うことから、<br>一本の作品になるまで。</h2>
+          <p>依頼者と撮影するご本人が異なる場合は、それぞれの希望を伺います。ご本人への顔合わせや事前取材を含め、どのように撮影を進めるかをご相談します。</p>
+          <div class="life-price-intro">
+            <p class="life-kicker">制作料金</p>
+            <p class="life-price-display">ご相談後に、<br class="life-mobile-break">お見積もり</p>
+            <p>正式な基本料金は確認中です。ご希望を伺い、制作内容・撮影と編集の範囲・費用を確認してから進めます。</p>
+          </div>
+          <h3 class="life-small-heading">基本料金に含める内容として検討しているもの</h3>
+          <dl class="life-inclusions">
+            <div><dt>お会いする・伺う</dt><dd>初回相談、依頼者との打ち合わせ、ご本人との顔合わせ、事前取材</dd></div>
+            <div><dt>撮る・作品にする</dt><dd>撮影、構成、編集</dd></div>
+            <div><dt>確認する・届ける</dt><dd>必要な内容確認、納品</dd></div>
+          </dl>
+          <p>完成尺は、残したい場面や作品内容に合わせてご相談します。撮影・編集の範囲と完成尺の考え方を事前に確認し、無制限の撮影・編集を前提にはしません。</p>
+          <p class="life-conditions">撮影回数・時間、分割訪問、交通費、修正回数、納期、物理媒体、追加撮影、キャンセル・返金、撮影継続が難しくなった場合の扱いは、現在検討中です。お申し込み前に、見積もりと制作条件をご確認いただく形を整えます。</p>
+          <div class="life-comparison">
+            <h3>既存の1日密着ドキュメンタリーについて</h3>
+            <p>既存の「1日密着ドキュメンタリー」は、399,800円（税込）で継続します。本サービスとの具体的な違いは、顔合わせ・事前取材・撮影方法・ご家族との調整など、実際に含める制作内容を確認した上でご案内します。</p>
+            <a class="life-text-link" href="https://www.from-creativity.com/#service">既存の制作内容を見る<span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section" id="life-process" aria-labelledby="life-process-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>05</span><p>相談から完成まで</p></div>
+        <div class="life-section-body">
+          <h2 id="life-process-title">ご本人の希望を、<br>確かめながら。</h2>
+          <p>ご家族・ご親類からの贈りものとしてのご依頼もご相談いただけます。依頼やお支払いがご本人以外の場合でも、実際の撮影はご本人の意向を確認した上で進めます。</p>
+          <ol class="life-process-list">
+            <li><h3>相談</h3><p>誰を、どのように残したいかを伺います。「本人にどう話せばいいか分からない」という段階でもご相談ください。</p></li>
+            <li><h3>本人との顔合わせ・事前取材</h3><p>ご本人とお会いし、希望や話したいこと、撮りたい場面、撮影への気持ちを伺います。</p></li>
+            <li><h3>制作内容・見積もりの確認</h3><p>撮影方法、撮影・編集の範囲、費用、納品の内容などを確認します。</p></li>
+            <li><h3>撮影</h3><p>インタビューや日常の場面、ご本人と大切な人との会話などを、事前に相談した内容に沿って撮影します。</p></li>
+            <li><h3>編集</h3><p>言葉と場面を選び、その人らしい姿が伝わる一本の作品へ構成します。</p></li>
+            <li><h3>必要な内容確認</h3><p>公開範囲を含め、事前に決めた方法で必要な内容を確認します。</p></li>
+            <li><h3>納品</h3><p>確認した納品方法で、完成した作品をお届けします。</p></li>
+          </ol>
+          <p class="life-conditions">複数のご家族・ご親類による連名のご依頼も、対応方法を検討しています。連絡を取りまとめる代表窓口を含め、ご相談の際に確認します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-section life-section-tint" id="life-faq" aria-labelledby="life-faq-title">
+      <div class="life-wrap life-editorial">
+        <div class="life-section-label"><span>06</span><p>FAQ・公開について</p></div>
+        <div class="life-section-body">
+          <h2 id="life-faq-title">気になっていることから、<br>お聞かせください。</h2>
+          <div class="life-faq-list">
+            <details><summary>本人以外から依頼できますか</summary><div><p>はい。配偶者、子ども、孫、きょうだい、親類、その方を大切に思う人からのご相談を受け付けます。贈りものとしてのご依頼も可能です。撮影は、ご本人の希望を確認した上で進めます。</p></div></details>
+            <details><summary>本人にまだ相談していませんが、問い合わせできますか</summary><div><p>はい。「本人にどう話せばいいか分からない」という段階でもご相談ください。まず依頼者の希望を伺い、ご本人への伝え方や顔合わせを相談します。ご本人に知らせずに撮影を進めることはありません。</p></div></details>
+            <details><summary>長時間話す必要がありますか</summary><div><p>長いインタビューだけで作品を作るわけではありません。短い会話や、言葉のない日常の場面も大切にします。話す時間や方法は、ご本人の希望・負担を伺ってご相談します。</p></div></details>
+            <details><summary>長時間撮影される必要がありますか</summary><div><p>撮影時間や進め方は、ご本人の希望や負担に応じて相談します。訪問を分ける必要があるかも含め、対応できる範囲と費用を見積もりの段階で確認します。</p></div></details>
+            <details><summary>話したくないことは、話さなくてもよいですか</summary><div><p>はい。話したくないことを無理に話していただく必要はありません。撮られたくない場面や扱ってほしくない内容も、ご本人の希望を伺います。</p></div></details>
+            <details><summary>家族だけで見ることはできますか</summary><div><p>はい。非公開を希望するご本人・ご家族からのご依頼も受け付けます。家族の記録として、ご希望の共有範囲を事前に確認します。</p></div></details>
+            <details><summary>YouTubeに必ず公開されますか</summary><div><p>いいえ。YouTube公開は、制作を依頼するための条件ではありません。必要な方の同意を得た作品のみ、From Creativityの公式YouTubeチャンネルへ掲載します。</p></div></details>
+          </div>
+          <div class="life-publication">
+            <h3>公開する作品について</h3>
+            <p>同意をいただいた作品は、これから制作を考える方に作風を知っていただく作品例として、公式YouTubeに掲載します。年月を経て、その時代の言葉、暮らし、仕事、価値観、家族との関わりを伝える人物記録として蓄積していくことも目指します。</p>
+            <p>永久保存、将来の利用や原作化・映画化、AI学習の完全な防止をお約束するものではありません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="life-contact" id="life-contact" aria-labelledby="life-contact-title">
+      <div class="life-wrap">
+        <p class="life-eyebrow">制作についてのご相談</p>
+        <h2 id="life-contact-title">残したいのは、<br>どんな姿ですか。</h2>
+        <p>具体的な撮影内容が決まっていなくても構いません。<br class="life-desktop-break">ご本人の希望や、ご家族が考えていることからお聞かせください。</p>
+        <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="life-footer">
+    <div class="life-wrap">
+      <nav aria-label="サイトの関連ページ"><a href="https://www.from-creativity.com/">From Creativity トップ</a><a href="https://www.from-creativity.com/contact">無料相談・お問い合わせ</a><a href="https://www.from-creativity.com/legal">特定商取引法に基づく表記</a><a href="https://www.youtube.com/@FromCreativity-Documentaries" target="_blank" rel="noopener noreferrer">公式YouTube<span class="life-sr-only">（新しいタブで開きます）</span></a></nav>
+      <p>From Creativity ／ 佐々木駿平</p>
+    </div>
+  </footer>
+</div>
+
+<script id="fc-life-enhancement">
+/* Optional page enhancement only. Main text, links, FAQ, and the YouTube player work without JS. */
+(function () {
+  'use strict';
+  var root = document.getElementById('fc-life-documentary');
+  if (!root) return;
+  root.dataset.lifeReady = 'true';
+  // Keep internal links usable in the full local preview and a future Wix HTML insertion.
+  root.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+    var target = document.getElementById(link.getAttribute('href').slice(1));
+    if (!target || !root.contains(target)) return;
+    // Browser's native anchor navigation is retained. No animation or link interception.
+    if (target.tagName === 'MAIN' && !target.hasAttribute('tabindex')) {
+      target.setAttribute('tabindex', '-1');
+      target.focus({preventScroll: true});
+    }
+  });
+})();
+
+</script>

@@ -1,6 +1,6 @@
 <!-- Home/Contact等には適用しない。新しい専用ページだけ、Body-startに配置。 -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Noto+Sans+JP:wght@400;500&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@944c647910039881f33641f065159f9b5fc6f249/life-documentary.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&amp;family=Noto+Sans+JP:wght@400;500&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@65b29981e5294f40c5f36902ff8e3f0464289754/life-documentary.css">
 <style id="fc-life-static-style">#SITE_CONTAINER{display:none!important}html,body{margin:0;background:#0A0907!important}</style>
 
 <div id="fc-life-documentary">
@@ -106,17 +106,18 @@
           <h2 id="life-price-title">会うことから、<br>一本の作品になるまで。</h2>
           <p>依頼者と撮影するご本人が異なる場合は、それぞれの希望を伺います。ご本人への顔合わせや事前取材を含め、どのように撮影を進めるかをご相談します。</p>
           <div class="life-price-intro">
-            <p class="life-kicker">基本料金</p>
+            <h3 class="life-small-heading">制作料金</h3>
             <p class="life-price-display">660,000円<span class="life-price-tax">（税込）</span></p>
-            <p>ご希望を伺い、基本料金に含む制作内容・撮影と編集の範囲を事前に確認します。追加費用が生じる場合は、お見積もりでご案内します。</p>
+            <dl class="life-inclusions">
+              <div><dt>事前相談・取材</dt><dd>初回相談、依頼者との打ち合わせ、ご本人との顔合わせ、事前取材</dd></div>
+              <div><dt>撮影</dt><dd>1〜2日</dd></div>
+              <div><dt>完成作品</dt><dd>10〜25分程度を目安に、作品の内容に合わせて調整します。</dd></div>
+              <div><dt>編集・内容確認</dt><dd>構成、編集、必要な内容確認。修正は2回まで無料です。</dd></div>
+              <div><dt>納品</dt><dd>動画データ＋オリジナルBlu-rayまたはDVD（選択可）2枚。オリジナルの盤面・ケースデザインでお届けします。追加複製（3枚目以降）はオプションです。</dd></div>
+            </dl>
+            <p>撮影日程や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。3日以上の撮影や、追加の撮影・編集にもオプションで対応します。</p>
+            <p>お支払いは、撮影前と納品後の2回払いです。具体的な制作範囲・納品内容・総額と、各回のお支払い額は、ご契約前にご提示します。</p>
           </div>
-          <h3 class="life-small-heading">基本料金に含める内容として検討しているもの</h3>
-          <dl class="life-inclusions">
-            <div><dt>お会いする・伺う</dt><dd>初回相談、依頼者との打ち合わせ、ご本人との顔合わせ、事前取材</dd></div>
-            <div><dt>撮る・作品にする</dt><dd>撮影、構成、編集</dd></div>
-            <div><dt>確認する・届ける</dt><dd>必要な内容確認、納品</dd></div>
-          </dl>
-          <p>完成尺は、残したい場面や作品内容に合わせてご相談します。</p>
         </div>
       </div>
     </section>
@@ -134,7 +135,7 @@
             <li><h3>撮影</h3><p>インタビューや日常の場面、ご本人と大切な人との会話などを、事前に相談した内容に沿って撮影します。</p></li>
             <li><h3>編集</h3><p>言葉と場面を選び、その人らしい姿が伝わる一本の作品へ構成します。</p></li>
             <li><h3>必要な内容確認</h3><p>公開範囲を含め、事前に決めた方法で必要な内容を確認します。</p></li>
-            <li><h3>納品</h3><p>確認した納品方法で、完成した作品をお届けします。</p></li>
+            <li><h3>納品</h3><p>完成した作品は、動画データと、選択したBlu-rayまたはDVDの2枚でお届けします。</p></li>
           </ol>
         </div>
       </div>
@@ -149,7 +150,7 @@
             <details><summary>本人以外から依頼できますか</summary><div><p>はい。配偶者、子ども、孫、きょうだい、親類、その方を大切に思う人からのご相談を受け付けます。贈りものとしてのご依頼も可能です。撮影は、ご本人の希望を確認した上で進めます。</p></div></details>
             <details><summary>本人にまだ相談していませんが、問い合わせできますか</summary><div><p>はい。「本人にどう話せばいいか分からない」という段階でもご相談ください。まず依頼者の希望を伺い、ご本人への伝え方や顔合わせを相談します。ご本人に知らせずに撮影を進めることはありません。</p></div></details>
             <details><summary>長時間話す必要がありますか</summary><div><p>長いインタビューだけで作品を作るわけではありません。短い会話や、言葉のない日常の場面も大切にします。話す時間や方法は、ご本人の希望・負担を伺ってご相談します。</p></div></details>
-            <details><summary>長時間撮影される必要がありますか</summary><div><p>撮影時間や進め方は、ご本人の希望や負担に応じて相談します。訪問を分ける必要があるかも含め、対応できる範囲と費用を見積もりの段階で確認します。</p></div></details>
+            <details><summary>長時間撮影される必要がありますか</summary><div><p>撮影は1〜2日です。撮影時間や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。3日以上の撮影はオプションで対応し、制作範囲と総額をご契約前に確認します。</p></div></details>
             <details><summary>話したくないことは、話さなくてもよいですか</summary><div><p>はい。話したくないことを無理に話していただく必要はありません。撮られたくない場面や扱ってほしくない内容も、ご本人の希望を伺います。</p></div></details>
             <details><summary>家族だけで見ることはできますか</summary><div><p>はい。非公開を希望するご本人・ご家族からのご依頼も受け付けます。家族の記録として、ご希望の共有範囲を事前に確認します。</p></div></details>
             <details><summary>YouTubeに必ず公開されますか</summary><div><p>いいえ。YouTube公開は、制作を依頼するための条件ではありません。必要な方の同意を得た作品のみ、From Creativityの公式YouTubeチャンネルへ掲載します。</p></div></details>

@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'FC Wordmark';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnbEi_s5OfuTXJy_xGk1drTNlppA0Q&skey=a863d1376a24bd7a&v=v21) format('woff2');
+  unicode-range: U+20, U+43, U+46, U+61, U+65, U+69, U+6d, U+6f, U+72, U+74, U+76, U+79;
+}
 /* Existing brand: Shippori Mincho, dark background, ivory, restrained gold. Scoped for Wix reuse. */
 body.fc-life-preview{margin:0;background:#0A0907}
-#fc-life-documentary{--life-paper:#0A0907;--life-ink:#F5F1E8;--life-muted:#B9B2A6;--life-gold:#C2A06D;--life-line:rgba(194,160,109,.25);--life-tint:#100F0C;--life-serif:'Shippori Mincho B1','Noto Serif JP','Yu Mincho',serif;--life-sans:'Noto Sans JP',system-ui,sans-serif;background:var(--life-paper);color:var(--life-ink);font-family:var(--life-serif);font-size:16px;line-height:2;letter-spacing:.045em;overflow-wrap:break-word;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#fc-life-documentary{--life-paper:#0A0907;--life-ink:#F5F1E8;--life-muted:#B9B2A6;--life-gold:#C2A06D;--life-line:rgba(194,160,109,.25);--life-tint:#100F0C;--life-serif:'Shippori Mincho B1','Noto Serif JP',serif;--life-sans:'Noto Sans JP',system-ui,sans-serif;background:var(--life-paper);color:var(--life-ink);font-family:var(--life-serif);font-size:16px;line-height:2;letter-spacing:.045em;overflow-wrap:break-word;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 #fc-life-documentary *,#fc-life-documentary *::before,#fc-life-documentary *::after{box-sizing:border-box}
 #fc-life-documentary :is(h1,h2,h3,p,ul,ol,dl,dd,figure){margin:0}
 #fc-life-documentary a{color:inherit;text-decoration:none}
@@ -15,7 +23,7 @@ body.fc-life-preview{margin:0;background:#0A0907}
 #fc-life-documentary .life-header{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:100px;padding:20px 48px;border-bottom:1px solid var(--life-line)}
 #fc-life-documentary .life-brand{display:inline-flex;align-items:center;gap:13px;flex:none}
 #fc-life-documentary .life-brand svg{width:22px;height:41px;color:var(--life-ink)}
-#fc-life-documentary .life-brand-name{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:29px;font-weight:600;line-height:1.05;letter-spacing:.055em}
+#fc-life-documentary .life-brand-name{display:block;font-family:'FC Wordmark',Georgia,serif;font-size:29px;font-weight:600;line-height:1.05;letter-spacing:.055em}
 #fc-life-documentary .life-brand-owner{display:block;color:var(--life-gold);font-size:11px;letter-spacing:.24em;line-height:1.5;margin-top:6px}
 #fc-life-documentary .life-header-links{display:flex;align-items:center;gap:28px;font-size:13px}
 #fc-life-documentary .life-home-link{font-family:Georgia,serif;font-size:15px}
@@ -23,7 +31,7 @@ body.fc-life-preview{margin:0;background:#0A0907}
 #fc-life-documentary .life-hero{padding:86px 0 60px;background:#000}
 #fc-life-documentary .life-eyebrow{font-size:13px;color:var(--life-gold);letter-spacing:.15em}
 #fc-life-documentary .life-hero-grid{display:grid;grid-template-columns:1.32fr 1fr;gap:88px;align-items:end;margin-top:28px}
-#fc-life-documentary h1{font-size:clamp(40px,4.65vw,64px);line-height:1.42;letter-spacing:.04em;font-weight:400}
+#fc-life-documentary h1{font-size:clamp(40px,4.65vw,64px);line-height:1.42;letter-spacing:.04em;font-weight:500}
 #fc-life-documentary h1 span{display:block}
 #fc-life-documentary h1 .life-hero-first{font-size:clamp(21px,2.2vw,28px);line-height:1.65;margin-bottom:28px;color:var(--life-muted);letter-spacing:.07em}
 #fc-life-documentary .life-service-name{color:var(--life-gold);margin-top:32px;font-size:15px;letter-spacing:.07em}
@@ -68,8 +76,8 @@ body.fc-life-preview{margin:0;background:#0A0907}
 #fc-life-documentary .life-text-link{display:inline-flex;align-items:center;gap:20px;min-height:44px;border-bottom:1px solid var(--life-line);color:var(--life-gold);font-size:14px}
 #fc-life-documentary .life-price-intro{padding:32px 0;margin:35px 0;border-block:1px solid var(--life-line)}
 #fc-life-documentary .life-price-intro .life-kicker{font-size:13px;letter-spacing:.15em}
-#fc-life-documentary .life-price-display{font-size:32px;line-height:1.75;margin-bottom:16px}
-#fc-life-documentary .life-price-tax{font-size:15px;white-space:nowrap;margin-left:.35em}
+#fc-life-documentary .life-price-display{font-family:var(--life-sans);font-weight:400;font-size:32px;line-height:1.75;margin-bottom:16px}
+#fc-life-documentary .life-price-tax{font-family:var(--life-serif);font-size:15px;white-space:nowrap;margin-left:.35em}
 #fc-life-documentary .life-price-intro p:last-child{font-size:14px;color:var(--life-muted);max-width:660px}
 #fc-life-documentary .life-small-heading{margin-bottom:16px}
 #fc-life-documentary .life-inclusions{margin-bottom:28px}

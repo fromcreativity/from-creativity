@@ -1,13 +1,13 @@
 /*!
  * From Creativity / Wix Custom Element
- * VERSION: 2026-10-02K-PRICING-SERVICES
+ * VERSION: 2026-10-02K-EXPENSE-CONSULT
  * Purpose-based services and current prices. Previous releases remain in Git history.
  */
 (function(){
   if (typeof customElements === 'undefined') return;
   if (customElements.get('from-creativity-page-v4')) return;
 
-  const VERSION = '2026-10-02K-PRICING-SERVICES';
+  const VERSION = '2026-10-02K-EXPENSE-CONSULT';
 
   const STYLES = `<style>
 .fc-app *,.fc-app *::before,.fc-app *::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:rgba(194,160,109,0.2)}
@@ -1758,7 +1758,7 @@ from-creativity-page-v4 .fc-app nav.top #navMenu a.nav-family:focus-visible{
           </ul>
           <p>完成作品は5分程度になることも、30分程度になることもあります。その人・その日に合う一本に仕上げます。</p>
           <p>撮影を1日に限定し、事前取材・事前構成を最小限にすることで、この価格で制作します。一日の出来事から作品を見つける、独立した制作方法です。</p>
-          <p class="price-note">※ 納期は撮影から1ヶ月以内。オプション、交通費・宿泊費などの別途費用は、お見積もり時にご案内します。</p>
+          <p class="price-note">※ 納期は撮影から1ヶ月以内。オプションは別途料金です。交通費・宿泊費などの実費の扱いは、すべてのサービスでご相談のうえ決定します。費用総額はご契約前にお見積もりでご提示します。</p>
         </div>
       </div>
     </article>

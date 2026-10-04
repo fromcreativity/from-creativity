@@ -1,0 +1,58 @@
+<style id="fc-life-motion-style">
+#fc-life-documentary .life-button{transition:background .3s ease,border-color .3s ease,transform .3s ease}
+#fc-life-documentary :is(.life-button,.life-text-link) span{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+#fc-life-documentary .life-text-link{transition:color .3s ease,border-color .3s ease}
+#fc-life-documentary .life-page-nav a{position:relative;transition:color .3s ease}
+#fc-life-documentary .life-page-nav a::after{content:"";position:absolute;bottom:5px;left:0;right:0;height:1px;background:var(--life-gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+#fc-life-documentary .life-page-nav a:focus-visible::after{transform:scaleX(1)}
+#fc-life-documentary .life-faq-list details[open]>div{animation:fc-life-answer .35s ease both}
+@keyframes fc-life-answer{from{opacity:.72;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@media(hover:hover) and (pointer:fine){
+ #fc-life-documentary .life-button:hover{transform:translateY(-2px)}
+ #fc-life-documentary :is(.life-button,.life-text-link):hover span{transform:translateX(5px)}
+ #fc-life-documentary .life-page-nav a:hover::after{transform:scaleX(1)}
+}
+@media(prefers-reduced-motion:reduce){
+ #fc-life-documentary :is(.life-button,.life-text-link,.life-button span,.life-text-link span,.life-page-nav a,.life-page-nav a::after){transition:none!important}
+ #fc-life-documentary :is(.life-button,.life-button span,.life-text-link span){transform:none!important}
+ #fc-life-documentary .life-faq-list details[open]>div{animation:none!important}
+}
+</style>
+<script id="fc-life-motion">
+(function(){
+ 'use strict';
+ var watcher, expiry;
+ function start(){
+  var root=document.getElementById('fc-life-documentary');
+  if(!root)return false;
+  if(watcher)watcher.disconnect();
+  clearTimeout(expiry);
+  if(root.dataset.lifeMotion)return true;
+  root.dataset.lifeMotion='20261004';
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)'), observer;
+  if(reduced.matches||!Element.prototype.animate)return true;
+  function move(el,delay,distance){
+   if(!el||reduced.matches||!el.isConnected)return;
+   el.animate([{opacity:.62,transform:'translateY('+distance+'px)'},{opacity:1,transform:'translateY(0)'}],{duration:850,delay:delay||0,easing:'cubic-bezier(.2,.7,.3,1)',fill:'backwards'});
+  }
+  if(!location.hash){
+   root.querySelectorAll('h1 span').forEach(function(el,i){move(el,i*120,18)});
+   move(root.querySelector('.life-hero-copy'),200,14);
+  }
+  if('IntersectionObserver' in window){
+   observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){move(entry.target,0,16);observer.unobserve(entry.target)}})},{threshold:.12,rootMargin:'0px 0px -32px 0px'});
+   root.querySelectorAll('.life-section-label,.life-section-body h2,.life-portrait,.life-context,.life-contact h2').forEach(function(el){observer.observe(el)});
+  }
+  function stop(){if(!reduced.matches)return;if(observer)observer.disconnect();root.getAnimations({subtree:true}).forEach(function(animation){animation.cancel()})}
+  if(reduced.addEventListener)reduced.addEventListener('change',stop);
+  return true;
+ }
+ function boot(){if(!start()){
+   watcher=new MutationObserver(start);
+   watcher.observe(document.documentElement,{childList:true,subtree:true});
+   expiry=setTimeout(function(){watcher.disconnect()},10000);
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+})();
+</script>

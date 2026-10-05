@@ -217,3 +217,5 @@ body.fc-life-preview{margin:0;background:#0A0907}
 #fc-life-documentary .life-context{width:100%;max-width:none;color:#D6CFC5;font-size:18px;line-height:2.1}
 @media(max-width:700px){#fc-life-documentary{line-height:2.1;letter-spacing:.025em}#fc-life-documentary h1{font-size:clamp(30px,8.8vw,40px);line-height:1.62;letter-spacing:.04em}#fc-life-documentary .life-section-body h2{letter-spacing:.025em}#fc-life-documentary .life-context{font-size:16px;line-height:2.05}}
 @media(max-width:360px){#fc-life-documentary .life-section-body h2{font-size:24px}}
+
+#fc-life-documentary .life-expenses-included{color:var(--life-gold);font-size:20px;line-height:1.9;margin:-6px 0 26px;letter-spacing:.035em}@media(max-width:700px){#fc-life-documentary .life-expenses-included{font-size:18px;line-height:1.9;margin-bottom:22px}}

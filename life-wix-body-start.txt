@@ -3,183 +3,184 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fromcreativity/from-creativity@65b29981e5294f40c5f36902ff8e3f0464289754/life-documentary.css">
 <style id="fc-life-static-style">#SITE_CONTAINER{display:none!important}html,body{margin:0;background:#0A0907!important}</style>
 
-<style id="fc-life-type-style">#fc-life-documentary{--life-serif:'Klee One','Noto Serif JP',serif;--life-ink:#ECE5DA;--life-muted:#B9B1A5;font-family:var(--life-serif);font-weight:400;line-height:2.1;letter-spacing:.035em}#fc-life-documentary :is(h1,h2,h3,.life-intro,.life-service-name,.life-faq-list summary){font-family:var(--life-serif)}#fc-life-documentary .life-brand-owner{font-family:'Shippori Mincho B1','Noto Serif JP',serif}#fc-life-documentary :is(.life-brand-name,.life-brand svg){color:#F5F1E8}#fc-life-documentary h1{font-size:clamp(40px,4.65vw,64px);font-weight:400;line-height:1.56;letter-spacing:.04em}#fc-life-documentary .life-section-body h2{font-weight:400;line-height:1.76;letter-spacing:.04em}#fc-life-documentary .life-context{width:100%;max-width:none;color:#D6CFC5;font-size:18px;line-height:2.1}@media(max-width:700px){#fc-life-documentary{line-height:2.1;letter-spacing:.025em}#fc-life-documentary h1{font-size:clamp(30px,8.8vw,40px);line-height:1.62;letter-spacing:.04em}#fc-life-documentary .life-section-body h2{letter-spacing:.025em}#fc-life-documentary .life-context{font-size:16px;line-height:2.05}}@media(max-width:360px){#fc-life-documentary .life-section-body h2{font-size:24px}}</style>
+<style id="fc-life-type-style">#fc-life-documentary{--life-serif:'Klee One','Noto Serif JP',serif;--life-ink:#ECE5DA;--life-muted:#B9B1A5;font-family:var(--life-serif);font-weight:400;line-height:2.1;letter-spacing:.035em}#fc-life-documentary :is(h1,h2,h3,.life-intro,.life-service-name,.life-faq-list summary){font-family:var(--life-serif)}#fc-life-documentary .life-brand-owner{font-family:'Shippori Mincho B1','Noto Serif JP',serif}#fc-life-documentary :is(.life-brand-name,.life-brand svg){color:#F5F1E8}#fc-life-documentary h1{font-size:clamp(40px,4.65vw,64px);font-weight:400;line-height:1.56;letter-spacing:.04em}#fc-life-documentary .life-section-body h2{font-weight:400;line-height:1.76;letter-spacing:.04em}#fc-life-documentary .life-context{width:100%;max-width:none;color:#D6CFC5;font-size:18px;line-height:2.1}@media(max-width:700px){#fc-life-documentary{line-height:2.1;letter-spacing:.025em}#fc-life-documentary h1{font-size:clamp(30px,8.8vw,40px);line-height:1.62;letter-spacing:.04em}#fc-life-documentary .life-section-body h2{letter-spacing:.025em}#fc-life-documentary .life-context{font-size:16px;line-height:2.05}}@media(max-width:360px){#fc-life-documentary .life-section-body h2{font-size:24px}}#fc-life-documentary .life-expenses-included{color:var(--life-gold);font-size:20px;line-height:1.9;margin:-6px 0 26px;letter-spacing:.035em}@media(max-width:700px){#fc-life-documentary .life-expenses-included{font-size:18px;line-height:1.9;margin-bottom:22px}}</style>
 <div id="fc-life-documentary">
-  <a class="life-skip" href="#life-main">本文へ移動</a>
-  <header class="life-header">
-    <a class="life-brand" href="https://www.from-creativity.com/" aria-label="From Creativity トップページへ">
-      <svg viewBox="0 0 222 412" preserveAspectRatio="xMidYMid meet" fill="currentColor" aria-hidden="true">
-        <g transform="translate(-107 -306)">
-          <path fill-rule="evenodd" d="M108.5 306H328Q329 306 329 307V638Q329 639.5 327.7 638.9C276.9 625.39 241.56 583.8 223.5 533.6Q223.3 533 222.5 533H213.5Q212.7 533 212.5 533.6C194.44 583.8 159.09 625.39 108.3 638.9Q107.5 639.1 107.5 638V307Q107.5 306 108.5 306ZM137 334.5H167Q172.5 334.5 172.5 340V370Q172.5 375.5 167 375.5H137Q131.5 375.5 131.5 370V340Q131.5 334.5 137 334.5ZM137 404.5H167Q172.5 404.5 172.5 410V439Q172.5 444.5 167 444.5H137Q131.5 444.5 131.5 439V410Q131.5 404.5 137 404.5ZM137 474.5H167Q172.5 474.5 172.5 480V511Q172.5 516.5 167 516.5H137Q131.5 516.5 131.5 511V480Q131.5 474.5 137 474.5Z"/>
-          <path d="M217.5 622.5C227.5 622.5 235.5 630.7 235.5 641V645.5C235.5 650 225.5 663.2 225.5 670.5V699.5C225.5 706 226.6 712 228.5 717.5H207C209.5 709.5 210 703.6 210 699.5L209.9 675C209.9 668.5 209.5 665.7 206.4 660C203.8 655 199.5 648.5 199.5 645.5V641C199.5 630.7 207.5 622.5 217.5 622.5Z"/>
-        </g>
-      </svg>
-      <span><span class="life-brand-name">From Creativity</span><span class="life-brand-owner">佐々木駿平</span></span>
-    </a>
-    <nav class="life-header-links" aria-label="ページのご案内">
-      <a href="https://www.from-creativity.com/" class="life-home-link">Home</a>
-      <a href="https://www.from-creativity.com/contact" class="life-header-contact">相談する</a>
-    </nav>
-  </header>
+<a class="life-skip" href="#life-main">本文へ移動</a>
+<header class="life-header">
+<a class="life-brand" href="https://www.from-creativity.com/" aria-label="From Creativity トップページへ">
+<svg viewBox="0 0 222 412" preserveAspectRatio="xMidYMid meet" fill="currentColor" aria-hidden="true">
+<g transform="translate(-107 -306)">
+<path fill-rule="evenodd" d="M108.5 306H328Q329 306 329 307V638Q329 639.5 327.7 638.9C276.9 625.39 241.56 583.8 223.5 533.6Q223.3 533 222.5 533H213.5Q212.7 533 212.5 533.6C194.44 583.8 159.09 625.39 108.3 638.9Q107.5 639.1 107.5 638V307Q107.5 306 108.5 306ZM137 334.5H167Q172.5 334.5 172.5 340V370Q172.5 375.5 167 375.5H137Q131.5 375.5 131.5 370V340Q131.5 334.5 137 334.5ZM137 404.5H167Q172.5 404.5 172.5 410V439Q172.5 444.5 167 444.5H137Q131.5 444.5 131.5 439V410Q131.5 404.5 137 404.5ZM137 474.5H167Q172.5 474.5 172.5 480V511Q172.5 516.5 167 516.5H137Q131.5 516.5 131.5 511V480Q131.5 474.5 137 474.5Z"/>
+<path d="M217.5 622.5C227.5 622.5 235.5 630.7 235.5 641V645.5C235.5 650 225.5 663.2 225.5 670.5V699.5C225.5 706 226.6 712 228.5 717.5H207C209.5 709.5 210 703.6 210 699.5L209.9 675C209.9 668.5 209.5 665.7 206.4 660C203.8 655 199.5 648.5 199.5 645.5V641C199.5 630.7 207.5 622.5 217.5 622.5Z"/>
+</g>
+</svg>
+<span><span class="life-brand-name">From Creativity</span><span class="life-brand-owner">佐々木駿平</span></span>
+</a>
+<nav class="life-header-links" aria-label="ページのご案内">
+<a href="https://www.from-creativity.com/" class="life-home-link">Home</a>
+<a href="https://www.from-creativity.com/contact" class="life-header-contact">相談する</a>
+</nav>
+</header>
 
-  <main id="life-main">
-    <section class="life-hero" aria-labelledby="life-title">
-      <div class="life-wrap">
-        <p class="life-eyebrow">ご本人・ご家族・ご親類の方へ</p>
-        <div class="life-hero-grid">
-          <div class="life-hero-heading">
-            <h1 id="life-title"><span>人生に、</span><span>決まった尺は</span><span>ありません。</span></h1>
-            <p class="life-service-name">生き姿を残すドキュメンタリー</p>
-          </div>
-          <div class="life-hero-copy">
-            <p class="life-intro">声、表情、しぐさ。<br>いつもの暮らし。<br>大切な人との会話。</p>
-            <p>ご本人にお会いし、<br>今の言葉や普段の姿を、<br>一本のドキュメンタリーにします。</p>
-            <p>ご自身の「残したい」に。<br>ご家族・ご親類の「残しておきたい」に。</p>
-            <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <p class="life-context">親が元気なうちに、言葉や普段の姿を残したい。祖父母の暮らしや家族との時間を、子や孫が将来見返せる映像にしたい。引退前の仕事や、人生の節目の姿を残したい。<br>ご本人・ご家族・ご親類からのご相談を受け付けます。終活や自分史としてもご相談いただけます。病名や年齢は、利用の条件ではありません。</p>
-      </div>
-    </section>
+<main id="life-main">
+<section class="life-hero" aria-labelledby="life-title">
+<div class="life-wrap">
+<p class="life-eyebrow">ご本人・ご家族・ご親類の方へ</p>
+<div class="life-hero-grid">
+<div class="life-hero-heading">
+<h1 id="life-title"><span>人生に、</span><span>決まった尺は</span><span>ありません。</span></h1>
+<p class="life-service-name">生き姿を残すドキュメンタリー</p>
+</div>
+<div class="life-hero-copy">
+<p class="life-intro">声、表情、しぐさ。<br>いつもの暮らし。<br>大切な人との会話。</p>
+<p>ご本人にお会いし、<br>今の言葉や普段の姿を、<br>一本のドキュメンタリーにします。</p>
+<p>ご自身の「残したい」に。<br>ご家族・ご親類の「残しておきたい」に。</p>
+<a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
+</div>
+</div>
+<p class="life-context">親が元気なうちに、言葉や普段の姿を残したい。祖父母の暮らしや家族との時間を、子や孫が将来見返せる映像にしたい。引退前の仕事や、人生の節目の姿を残したい。<br>ご本人・ご家族・ご親類からのご相談を受け付けます。終活や自分史としてもご相談いただけます。病名や年齢は、利用の条件ではありません。</p>
+</div>
+</section>
 
-    <nav class="life-page-nav life-wrap" aria-label="このページの内容">
-      <a href="#life-record">残すもの</a>
-      <a href="#life-film">代表作品</a>
-      <a href="#life-price">制作・料金</a>
-      <a href="#life-faq">よくある質問</a>
-    </nav>
+<nav class="life-page-nav life-wrap" aria-label="このページの内容">
+<a href="#life-record">残すもの</a>
+<a href="#life-film">代表作品</a>
+<a href="#life-price">制作・料金</a>
+<a href="#life-faq">よくある質問</a>
+</nav>
 
-    <section class="life-section" id="life-record" aria-labelledby="life-record-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>01</span><p>何を残すのか</p></div>
-        <div class="life-section-body">
-          <h2 id="life-record-title">今、生きている<br>その人に、会う。</h2>
-          <p>ご本人自身の言葉、声や話し方、表情、ふとしたしぐさや沈黙。仕事や趣味、いつもの暮らし、大切なものや場所、家族や大切な人との会話。インタビューだけでなく、日常の時間や周囲の人との関わりを撮影し、言葉と場面を組み合わせて、その人らしい姿を描きます。</p>
-          <p>過去についてもお聞きします。大切にするのは、その出来事を今のご本人がどう覚え、どう語るか。昔の写真を使うときも、写真を見る表情や、思い出を語る現在の姿を記録します。</p>
-          <p>自分史や終活、家族の記録を考えている方にも、人生年表や写真のスライドショーだけでは伝わらない、今の言葉と生き姿を残す方法としてご相談いただけます。</p>
-          <div class="life-reassurance">
-            <h3>特別な経歴は、必要ありません。</h3>
-            <p>特別な経歴、成功体験、感動的な人生、大量の写真は必要ありません。家族全員に出演していただく必要もありません。うまく話せるか心配な方も、まずはご相談ください。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="life-section" id="life-record" aria-labelledby="life-record-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>01</span><p>何を残すのか</p></div>
+<div class="life-section-body">
+<h2 id="life-record-title">今、生きている<br>その人に、会う。</h2>
+<p>ご本人自身の言葉、声や話し方、表情、ふとしたしぐさや沈黙。仕事や趣味、いつもの暮らし、大切なものや場所、家族や大切な人との会話。インタビューだけでなく、日常の時間や周囲の人との関わりを撮影し、言葉と場面を組み合わせて、その人らしい姿を描きます。</p>
+<p>過去についてもお聞きします。大切にするのは、その出来事を今のご本人がどう覚え、どう語るか。昔の写真を使うときも、写真を見る表情や、思い出を語る現在の姿を記録します。</p>
+<p>自分史や終活、家族の記録を考えている方にも、人生年表や写真のスライドショーだけでは伝わらない、今の言葉と生き姿を残す方法としてご相談いただけます。</p>
+<div class="life-reassurance">
+<h3>特別な経歴は、必要ありません。</h3>
+<p>特別な経歴、成功体験、感動的な人生、大量の写真は必要ありません。家族全員に出演していただく必要もありません。うまく話せるか心配な方も、まずはご相談ください。</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section class="life-section life-section-tint" id="life-film" aria-labelledby="life-film-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>02</span><p>代表作品</p></div>
-        <div class="life-section-body">
-          <h2 id="life-film-title">『澄江の空』</h2>
-          <p class="life-film-subtitle">86歳の傘屋、雨が降らない街で。</p>
-          <p>作風の参考に、まずは作品をご覧ください。</p>
-          <p class="life-film-note" id="life-film-note">この作品は、本サービスで制作した事例ではありません。佐々木駿平による人物の取材・撮影・編集の参考として掲載しています。</p>
-          <figure class="life-film">
-            <div class="life-video-frame" data-life-video="zyBz4ht45mo" aria-describedby="life-film-note">
-              <iframe src="https://www.youtube-nocookie.com/embed/zyBz4ht45mo?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1" title="代表作品『澄江の空』 YouTube動画プレーヤー" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <figcaption><span>2026年 ／ 約11分 ／ 東京・青梅</span><a href="https://youtu.be/zyBz4ht45mo" target="_blank" rel="noopener noreferrer">YouTubeで見る<span class="life-sr-only">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+<section class="life-section life-section-tint" id="life-film" aria-labelledby="life-film-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>02</span><p>代表作品</p></div>
+<div class="life-section-body">
+<h2 id="life-film-title">『澄江の空』</h2>
+<p class="life-film-subtitle">86歳の傘屋、雨が降らない街で。</p>
+<p>作風の参考に、まずは作品をご覧ください。</p>
+<p class="life-film-note" id="life-film-note">この作品は、本サービスで制作した事例ではありません。佐々木駿平による人物の取材・撮影・編集の参考として掲載しています。</p>
+<figure class="life-film">
+<div class="life-video-frame" data-life-video="zyBz4ht45mo" aria-describedby="life-film-note">
+<iframe src="https://www.youtube-nocookie.com/embed/zyBz4ht45mo?autoplay=0&amp;controls=1&amp;rel=0&amp;playsinline=1" title="代表作品『澄江の空』 YouTube動画プレーヤー" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<figcaption><span>2026年 ／ 約11分 ／ 東京・青梅</span><a href="https://youtu.be/zyBz4ht45mo" target="_blank" rel="noopener noreferrer">YouTubeで見る<span class="life-sr-only">（新しいタブで開きます）</span><span aria-hidden="true">↗</span></a></figcaption>
+</figure>
+</div>
+</div>
+</section>
 
-    <section class="life-section" id="life-director" aria-labelledby="life-director-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>03</span><p>誰が制作するのか</p></div>
-        <div class="life-section-body life-director-grid">
-          <figure class="life-portrait"><img src="https://static.wixstatic.com/media/0a9631_39241bb073ef4ea7860c6a02c262e235~mv2.jpg" alt="From Creativity代表・佐々木駿平。阿蘇の草原でカメラを構える" width="720" height="960" loading="lazy" decoding="async"><figcaption>Shumpei Sasaki</figcaption></figure>
-          <div class="life-director-copy">
-            <p class="life-kicker">映像作家 ／ From Creativity代表</p>
-            <h2 id="life-director-title">佐々木駿平</h2>
-            <p>事前取材・企画構成から、撮影・編集まで、佐々木駿平が一貫して担当します。NHKでの番組制作を経て、現在は人物ドキュメンタリーを中心に制作しています。</p>
-            <p>最初から人生の結論を決めたり、感動する言葉を求めたりするのではなく、ご本人の話を聞き、日常の中からその人らしい姿を見つけていきます。</p>
-            <p class="life-base">東京都羽村市（西多摩エリア）を拠点に、日本全国のご本人・ご家族のもとへ伺います。</p>
-            <a class="life-text-link" href="https://www.from-creativity.com/#about">プロフィール・担当作品を見る<span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="life-section" id="life-director" aria-labelledby="life-director-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>03</span><p>誰が制作するのか</p></div>
+<div class="life-section-body life-director-grid">
+<figure class="life-portrait"><img src="https://static.wixstatic.com/media/0a9631_39241bb073ef4ea7860c6a02c262e235~mv2.jpg" alt="From Creativity代表・佐々木駿平。阿蘇の草原でカメラを構える" width="720" height="960" loading="lazy" decoding="async"><figcaption>Shumpei Sasaki</figcaption></figure>
+<div class="life-director-copy">
+<p class="life-kicker">映像作家 ／ From Creativity代表</p>
+<h2 id="life-director-title">佐々木駿平</h2>
+<p>事前取材・企画構成から、撮影・編集まで、佐々木駿平が一貫して担当します。NHKでの番組制作を経て、現在は人物ドキュメンタリーを中心に制作しています。</p>
+<p>最初から人生の結論を決めたり、感動する言葉を求めたりするのではなく、ご本人の話を聞き、日常の中からその人らしい姿を見つけていきます。</p>
+<p class="life-base">東京都羽村市（西多摩エリア）を拠点に、日本全国のご本人・ご家族のもとへ伺います。</p>
+<a class="life-text-link" href="https://www.from-creativity.com/#about">プロフィール・担当作品を見る<span aria-hidden="true">→</span></a>
+</div>
+</div>
+</div>
+</section>
 
-    <section class="life-section life-section-tint" id="life-price" aria-labelledby="life-price-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>04</span><p>制作内容・料金</p></div>
-        <div class="life-section-body">
-          <h2 id="life-price-title">会うことから、<br>一本の作品になるまで。</h2>
-          <p>依頼者と撮影するご本人が異なる場合は、それぞれの希望を伺います。ご本人への顔合わせや事前取材を含め、どのように撮影を進めるかをご相談します。</p>
-          <div class="life-price-intro">
-            <h3 class="life-small-heading">制作料金</h3>
-            <p class="life-price-display">770,000円<span class="life-price-tax">（税込）</span></p>
-            <dl class="life-inclusions">
-              <div><dt>事前取材・企画構成</dt><dd>初回相談、依頼者との打ち合わせ、ご本人との顔合わせ、事前取材、企画構成</dd></div>
-              <div><dt>撮影・完成尺</dt><dd>撮影は1〜2日を目安に、事前取材をもとに必要な撮影日数をご提案します。完成尺を先に決めるのではなく、その人を描くために最もふさわしい長さで仕上げます。</dd></div>
-              <div><dt>編集・内容確認</dt><dd>編集、必要な内容確認。修正は2回まで無料です。</dd></div>
-              <div><dt>納品</dt><dd>映像データ＋オリジナルDVDまたはBlu-ray（選択可）2枚。オリジナルの盤面・ケースデザインでお届けします。追加複製（3枚目以降）は別途ご相談ください。</dd></div>
-            </dl>
-            <p>日本全国、通常の交通費・宿泊費・出張費込み。撮影日程や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。</p>
-            <p>事前に合意した制作内容について、見積確定後の追加請求はありません。</p>
-            <p>お支払いは銀行振込で、撮影前と納品後の2回払いです。振込手数料はお客様のご負担となります。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="life-section life-section-tint" id="life-price" aria-labelledby="life-price-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>04</span><p>制作内容・料金</p></div>
+<div class="life-section-body">
+<h2 id="life-price-title">会うことから、<br>一本の作品になるまで。</h2>
+<p>依頼者と撮影するご本人が異なる場合は、それぞれの希望を伺います。顔合わせは対面またはオンラインで行い、事前取材や撮影の進め方をご相談します。</p>
+<div class="life-price-intro">
+<h3 class="life-small-heading">制作料金</h3>
+<p class="life-price-display">770,000円<span class="life-price-tax">（税込）</span></p>
+<p class="life-expenses-included">日本全国、通常の交通費・宿泊費などの実費込み。</p>
+<dl class="life-inclusions">
+<div><dt>事前取材・企画構成</dt><dd>初回相談、依頼者との打ち合わせ、ご本人との顔合わせ（対面またはオンライン）、事前取材、企画構成</dd></div>
+<div><dt>撮影・完成尺</dt><dd>撮影は1〜2日を目安に、事前取材をもとに必要な撮影日数をご提案します。完成尺を先に決めるのではなく、その人を描くために最もふさわしい長さで仕上げます。</dd></div>
+<div><dt>編集・内容確認</dt><dd>編集、必要な内容確認。修正は2回まで無料です。</dd></div>
+<div><dt>納品</dt><dd>映像データ＋オリジナルDVDまたはBlu-ray（選択可）2枚。オリジナルの盤面・ケースデザインでお届けします。追加複製（3枚目以降）は別途ご相談ください。</dd></div>
+</dl>
+<p>撮影日程や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。</p>
+<p>事前に合意した制作内容について、見積確定後の追加請求はありません。</p>
+<p>お支払いは銀行振込で、撮影前と納品後の2回払いです。振込手数料はお客様のご負担となります。</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section class="life-section" id="life-process" aria-labelledby="life-process-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>05</span><p>相談から完成まで</p></div>
-        <div class="life-section-body">
-          <h2 id="life-process-title">ご本人の希望を、<br>確かめながら。</h2>
-          <p>ご家族・ご親類からの贈りものとしてのご依頼もご相談いただけます。依頼やお支払いがご本人以外の場合でも、実際の撮影はご本人の意向を確認した上で進めます。</p>
-          <ol class="life-process-list">
-            <li><h3>相談</h3><p>誰を、どのように残したいかを伺います。「本人にどう話せばいいか分からない」という段階でもご相談ください。</p></li>
-            <li><h3>本人との顔合わせ・事前取材</h3><p>ご本人とお会いし、希望や話したいこと、撮りたい場面、撮影への気持ちを伺います。</p></li>
-            <li><h3>制作内容・見積もりの確認</h3><p>撮影方法、撮影・編集の範囲、費用、納品の内容などを確認します。</p></li>
-            <li><h3>撮影</h3><p>インタビューや日常の場面、ご本人と大切な人との会話などを、事前に相談した内容に沿って撮影します。</p></li>
-            <li><h3>編集</h3><p>言葉と場面を選び、その人らしい姿が伝わる一本の作品へ構成します。</p></li>
-            <li><h3>必要な内容確認</h3><p>公開範囲を含め、事前に決めた方法で必要な内容を確認します。</p></li>
-            <li><h3>納品</h3><p>完成した作品は、動画データと、選択したBlu-rayまたはDVDの2枚でお届けします。</p></li>
-          </ol>
-        </div>
-      </div>
-    </section>
+<section class="life-section" id="life-process" aria-labelledby="life-process-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>05</span><p>相談から完成まで</p></div>
+<div class="life-section-body">
+<h2 id="life-process-title">ご本人の希望を、<br>確かめながら。</h2>
+<p>ご家族・ご親類からの贈りものとしてのご依頼もご相談いただけます。依頼やお支払いがご本人以外の場合でも、実際の撮影はご本人の意向を確認した上で進めます。</p>
+<ol class="life-process-list">
+<li><h3>相談</h3><p>誰を、どのように残したいかを伺います。「本人にどう話せばいいか分からない」という段階でもご相談ください。</p></li>
+<li><h3>本人との顔合わせ・事前取材</h3><p>対面またはオンラインで顔合わせを行い、希望や話したいこと、撮りたい場面、撮影への気持ちを伺います。</p></li>
+<li><h3>制作内容・見積もりの確認</h3><p>撮影方法、撮影・編集の範囲、費用、納品の内容などを確認します。</p></li>
+<li><h3>撮影</h3><p>インタビューや日常の場面、ご本人と大切な人との会話などを、事前に相談した内容に沿って撮影します。</p></li>
+<li><h3>編集</h3><p>言葉と場面を選び、その人らしい姿が伝わる一本の作品へ構成します。</p></li>
+<li><h3>必要な内容確認</h3><p>公開範囲を含め、事前に決めた方法で必要な内容を確認します。</p></li>
+<li><h3>納品</h3><p>完成した作品は、動画データと、選択したBlu-rayまたはDVDの2枚でお届けします。</p></li>
+</ol>
+</div>
+</div>
+</section>
 
-    <section class="life-section life-section-tint" id="life-faq" aria-labelledby="life-faq-title">
-      <div class="life-wrap life-editorial">
-        <div class="life-section-label"><span>06</span><p>FAQ・公開について</p></div>
-        <div class="life-section-body">
-          <h2 id="life-faq-title">気になっていることから、<br>お聞かせください。</h2>
-          <div class="life-faq-list">
-            <details><summary>本人以外から依頼できますか</summary><div><p>はい。配偶者、子ども、孫、きょうだい、親類、その方を大切に思う人からのご相談を受け付けます。贈りものとしてのご依頼も可能です。撮影は、ご本人の希望を確認した上で進めます。</p></div></details>
-            <details><summary>本人にまだ相談していませんが、問い合わせできますか</summary><div><p>はい。「本人にどう話せばいいか分からない」という段階でもご相談ください。まず依頼者の希望を伺い、ご本人への伝え方や顔合わせを相談します。ご本人に知らせずに撮影を進めることはありません。</p></div></details>
-            <details><summary>長時間話す必要がありますか</summary><div><p>長いインタビューだけで作品を作るわけではありません。短い会話や、言葉のない日常の場面も大切にします。話す時間や方法は、ご本人の希望・負担を伺ってご相談します。</p></div></details>
-            <details><summary>長時間撮影される必要がありますか</summary><div><p>撮影は1〜2日を目安に、事前取材をもとに必要な撮影日数をご提案します。撮影時間や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。制作範囲をご確認いただき、見積確定後に、合意した制作内容について追加請求することはありません。</p></div></details>
-            <details><summary>話したくないことは、話さなくてもよいですか</summary><div><p>はい。話したくないことを無理に話していただく必要はありません。撮られたくない場面や扱ってほしくない内容も、ご本人の希望を伺います。</p></div></details>
-            <details><summary>家族だけで見ることはできますか</summary><div><p>はい。非公開を希望するご本人・ご家族からのご依頼も受け付けます。家族の記録として、ご希望の共有範囲を事前に確認します。</p></div></details>
-            <details><summary>YouTubeに必ず公開されますか</summary><div><p>いいえ。YouTube公開は、制作を依頼するための条件ではありません。必要な方の同意を得た作品のみ、From Creativityの公式YouTubeチャンネルへ掲載します。</p></div></details>
-          </div>
-          <div class="life-publication">
-            <h3>公開する作品について</h3>
-            <p>同意をいただいた作品は、これから制作を考える方に作風を知っていただく作品例として、公式YouTubeに掲載します。年月を経て、その時代の言葉、暮らし、仕事、価値観、家族との関わりを伝える人物記録として蓄積していくことも目指します。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="life-section life-section-tint" id="life-faq" aria-labelledby="life-faq-title">
+<div class="life-wrap life-editorial">
+<div class="life-section-label"><span>06</span><p>FAQ・公開について</p></div>
+<div class="life-section-body">
+<h2 id="life-faq-title">気になっていることから、<br>お聞かせください。</h2>
+<div class="life-faq-list">
+<details><summary>本人以外から依頼できますか</summary><div><p>はい。配偶者、子ども、孫、きょうだい、親類、その方を大切に思う人からのご相談を受け付けます。贈りものとしてのご依頼も可能です。撮影は、ご本人の希望を確認した上で進めます。</p></div></details>
+<details><summary>本人にまだ相談していませんが、問い合わせできますか</summary><div><p>はい。「本人にどう話せばいいか分からない」という段階でもご相談ください。まず依頼者の希望を伺い、ご本人への伝え方や顔合わせを相談します。ご本人に知らせずに撮影を進めることはありません。</p></div></details>
+<details><summary>長時間話す必要がありますか</summary><div><p>長いインタビューだけで作品を作るわけではありません。短い会話や、言葉のない日常の場面も大切にします。話す時間や方法は、ご本人の希望・負担を伺ってご相談します。</p></div></details>
+<details><summary>長時間撮影される必要がありますか</summary><div><p>撮影は1〜2日を目安に、事前取材をもとに必要な撮影日数をご提案します。撮影時間や訪問の組み方は、ご本人の体調や残したい内容に合わせてご相談します。制作範囲をご確認いただき、見積確定後に、合意した制作内容について追加請求することはありません。</p></div></details>
+<details><summary>話したくないことは、話さなくてもよいですか</summary><div><p>はい。話したくないことを無理に話していただく必要はありません。撮られたくない場面や扱ってほしくない内容も、ご本人の希望を伺います。</p></div></details>
+<details><summary>家族だけで見ることはできますか</summary><div><p>はい。非公開を希望するご本人・ご家族からのご依頼も受け付けます。家族の記録として、ご希望の共有範囲を事前に確認します。</p></div></details>
+<details><summary>YouTubeに必ず公開されますか</summary><div><p>いいえ。YouTube公開は、制作を依頼するための条件ではありません。必要な方の同意を得た作品のみ、From Creativityの公式YouTubeチャンネルへ掲載します。</p></div></details>
+</div>
+<div class="life-publication">
+<h3>公開する作品について</h3>
+<p>同意をいただいた作品は、これから制作を考える方に作風を知っていただく作品例として、公式YouTubeに掲載します。年月を経て、その時代の言葉、暮らし、仕事、価値観、家族との関わりを伝える人物記録として蓄積していくことも目指します。</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section class="life-contact" id="life-contact" aria-labelledby="life-contact-title">
-      <div class="life-wrap">
-        <p class="life-eyebrow">制作についてのご相談</p>
-        <h2 id="life-contact-title">残したいのは、<br>どんな姿ですか。</h2>
-        <p>具体的な撮影内容が決まっていなくても構いません。<br class="life-desktop-break">ご本人の希望や、ご家族が考えていることからお聞かせください。</p>
-        <a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-  </main>
+<section class="life-contact" id="life-contact" aria-labelledby="life-contact-title">
+<div class="life-wrap">
+<p class="life-eyebrow">制作についてのご相談</p>
+<h2 id="life-contact-title">残したいのは、<br>どんな姿ですか。</h2>
+<p>具体的な撮影内容が決まっていなくても構いません。<br class="life-desktop-break">ご本人の希望や、ご家族が考えていることからお聞かせください。</p>
+<a class="life-button" href="https://www.from-creativity.com/contact">まずは相談する<span aria-hidden="true">→</span></a>
+</div>
+</section>
+</main>
 
-  <footer class="life-footer">
-    <div class="life-wrap">
-      <nav aria-label="サイトの関連ページ"><a href="https://www.from-creativity.com/">From Creativity トップ</a><a href="https://www.from-creativity.com/contact">無料相談・お問い合わせ</a><a href="https://www.from-creativity.com/legal">特定商取引法に基づく表記</a><a href="https://www.youtube.com/@FromCreativity-Documentaries" target="_blank" rel="noopener noreferrer">公式YouTube<span class="life-sr-only">（新しいタブで開きます）</span></a></nav>
-      <p>From Creativity ／ 佐々木駿平</p>
-    </div>
-  </footer>
+<footer class="life-footer">
+<div class="life-wrap">
+<nav aria-label="サイトの関連ページ"><a href="https://www.from-creativity.com/">From Creativity トップ</a><a href="https://www.from-creativity.com/contact">無料相談・お問い合わせ</a><a href="https://www.from-creativity.com/legal">特定商取引法に基づく表記</a><a href="https://www.youtube.com/@FromCreativity-Documentaries" target="_blank" rel="noopener noreferrer">公式YouTube<span class="life-sr-only">（新しいタブで開きます）</span></a></nav>
+<p>From Creativity ／ 佐々木駿平</p>
+</div>
+</footer>
 </div>
 <script id="fc-life-enhancement">
 /* Optional page enhancement only. Main text, links, FAQ, and the YouTube player work without JS. */

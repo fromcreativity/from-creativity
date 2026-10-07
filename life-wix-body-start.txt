@@ -87,7 +87,7 @@
 <div class="life-wrap life-editorial">
 <div class="life-section-label"><span>03</span><p>誰が制作するのか</p></div>
 <div class="life-section-body life-director-grid">
-<figure class="life-portrait"><img src="https://static.wixstatic.com/media/0a9631_39241bb073ef4ea7860c6a02c262e235~mv2.jpg" alt="From Creativity代表・佐々木駿平。阿蘇の草原でカメラを構える" width="720" height="960" loading="lazy" decoding="async"><figcaption>Shumpei Sasaki</figcaption></figure>
+<figure class="life-portrait"><img src="https://static.wixstatic.com/media/0a9631_dc0b8ffe2cc6477a8663e46fb88d9f6f~mv2.jpg" alt="From Creativity代表・佐々木駿平" width="5024" height="3350" loading="lazy" decoding="async"><figcaption>Shumpei Sasaki</figcaption></figure>
 <div class="life-director-copy">
 <p class="life-kicker">映像作家 ／ From Creativity代表</p>
 <h2 id="life-director-title">佐々木駿平</h2>
